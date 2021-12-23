@@ -1,0 +1,5 @@
+MOD + R | dmenu
+MOD + SHIFT + ENTER | terminal
+MOD + B | browser
+MOD + F | file manager
+PRTSCR | print screen

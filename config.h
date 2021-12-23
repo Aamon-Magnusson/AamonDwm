@@ -61,6 +61,7 @@ static const Layout layouts[] = {
 #define BROWSER "google-chrome-stable"
 #define FILEMANAGER "dolphin"
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
+#define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -69,6 +70,7 @@ static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *filemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
+static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -78,6 +80,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = filemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
+	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
 
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -119,7 +122,7 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+//	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
