@@ -14,7 +14,6 @@ This is very much a work in progress so check in frequently as lots may change.
 
 ## My plans todo:
 
-- fix browser/bar bug
 - get autostart patch
 - get restart patch
 - get uslessgaps patch
