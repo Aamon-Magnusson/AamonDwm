@@ -11,3 +11,13 @@ sudo cp dwm.desktop /usr/share/xsessions
 ```
 
 This is very much a work in progress so check in frequently as lots may change.
+
+## My plan todo:
+
+- fix browser/bar bug
+- get autostart patch
+- get restart patch
+- get uslessgaps patch
+- get cycle layout patch
+- themes
+- get layouts I like
