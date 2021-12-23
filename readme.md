@@ -20,3 +20,4 @@ This is very much a work in progress so check in frequently as lots may change.
 - get cycle layout patch
 - themes
 - get layouts I like
+- make keybindings chart
