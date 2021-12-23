@@ -12,7 +12,7 @@ sudo cp dwm.desktop /usr/share/xsessions
 
 This is very much a work in progress so check in frequently as lots may change.
 
-## My plan todo:
+## My plans todo:
 
 - fix browser/bar bug
 - get autostart patch
