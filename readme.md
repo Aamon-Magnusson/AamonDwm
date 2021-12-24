@@ -22,4 +22,3 @@ For a basic display of the keybindings hit SUPER + o. (It'll show in dmenu)
 
 - themes
 - get layouts I like
-- make keybindings chart
