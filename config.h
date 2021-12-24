@@ -71,16 +71,20 @@ static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *filemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
 static const char *options[]			=		{ OPTIONSLOCATION, NULL};
+static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
+static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Program spawn key bindings*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = filemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
 	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
+	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
+	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	/* Window and layout key bindings*/
 //	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },

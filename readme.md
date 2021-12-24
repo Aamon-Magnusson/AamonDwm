@@ -27,3 +27,5 @@ For the most part it is pretty easy to change the default programs, like the ter
 - dolphin
 - dmenu
 - scrot
+- nm-connection-editor
+- blueman
