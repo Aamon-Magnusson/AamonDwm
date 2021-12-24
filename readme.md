@@ -1,6 +1,6 @@
 # Aamon's DWM config
 
-I am currently just getting it to the world of tiling window managers, so here we are, my dwm config!!!
+I am currently just getting into the world of tiling window managers, so here we are, my dwm config!!!
 
 This is the very beginning of this config, so as for setup it's pretty simple:
 
