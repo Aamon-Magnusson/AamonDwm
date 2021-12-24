@@ -10,8 +10,8 @@ cd AamonDwm # or whatever you named the directory
 sudo make istall
 sudo cp CopyFiles/dwm.desktop /usr/share/xsessions
 cp CopyFiles/conky.conf ~/.config/conky
-chmod +x Copyfiles/sutostart.sh
-cp Copyfiles/autostart.sh ~/.dwm
+chmod +x CopyFiles/sutostart.sh
+cp CopyFiles/autostart.sh ~/.dwm
 ```
 
 This is very much a work in progress so check in frequently as lots may change.
