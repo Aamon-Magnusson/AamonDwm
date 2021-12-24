@@ -3,3 +3,6 @@ MOD + SHIFT + ENTER | terminal
 MOD + B | browser
 MOD + F | file manager
 PRTSCR | print screen
+MOD + SHIFT + C | close window
+MOD + SHIFT + Q | close dwm
+MOD + SHIFT + CONTROL + Q | restart dwm

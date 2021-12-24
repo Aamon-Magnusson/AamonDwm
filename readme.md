@@ -18,7 +18,4 @@ This is very much a work in progress so check in frequently as lots may change.
 
 For a basic display of the keybindings hit SUPER + o. (It'll show in dmenu)
 
-## My plans todo:
 
-- themes
-- get layouts I like
