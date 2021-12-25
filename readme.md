@@ -29,3 +29,9 @@ For the most part it is pretty easy to change the default programs, like the ter
 - scrot
 - nm-connection-editor
 - blueman
+- conky
+- discord
+- feh
+- picom
+- pamixer
+- dunst

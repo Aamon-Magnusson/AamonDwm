@@ -3,8 +3,11 @@ MOD + SHIFT + ENTER         | terminal
 MOD + C                     | browser
 MOD + F                     | file manager
 MOD + N                     | network manager
-MOD + B	                    | bluetooth manager
+MOD + B                     | bluetooth manager
 PRTSCR                      | print screen
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm
 MOD + SHIFT + CONTROL + Q   | restart dwm
+CONTROL + M                 | mute
+CONTROL + U                 | volume up 5%
+CONTROL + D                 | volume down 5%

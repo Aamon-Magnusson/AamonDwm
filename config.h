@@ -74,6 +74,11 @@ static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 
+/* multimedia commands */
+static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
+static const char *voldown[]			=		{ "pamixer", "-d", "5", NULL};
+static const char *mute[]				=		{ "pamixer", "-t", NULL};
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	/* Program spawn key bindings*/
@@ -119,6 +124,10 @@ static Key keys[] = {
 	/* Quit and restart DWM*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
+	/* Multimedia commands */
+	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
+	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },
+	{ ControlMask,					XK_d,	   spawn,		   {.v = voldown} },
 };
 
 /* button definitions */
