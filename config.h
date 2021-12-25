@@ -80,6 +80,7 @@ static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f",
 static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
+//static const char *shutdown[]			=		{ TERMINAL, "sudo", "shutdown", "-h", "now", NULL};
 
 /* multimedia commands */
 static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
@@ -131,6 +132,7 @@ static Key keys[] = {
 	/* Quit and restart DWM*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
+//	{ MODKEY|ControlMask|ShiftMask,	XK_s,	   spawn,		   {.v = shutdown} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
 	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },
