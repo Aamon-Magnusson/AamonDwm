@@ -8,10 +8,11 @@ This is the very beginning of this config, so as for setup it's pretty simple:
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
 sudo make istall
-sudo cp CopyFiles/dwm.desktop /usr/share/xsessions
-cp CopyFiles/conky.conf ~/.config/conky
+sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
+cp CopyFiles/conky.conf ~/.config/conky/
 chmod +x CopyFiles/sutostart.sh
-cp CopyFiles/autostart.sh ~/.dwm
+cp CopyFiles/autostart.sh ~/.dwm/
+cp CopyFiles/dunstrc ~/.config/dunst/
 ```
 
 This is very much a work in progress so check in frequently as lots may change.
