@@ -1,4 +1,11 @@
-/* See LICENSE file for copyright and license details. */
+//     ___                              
+//    / _ \
+//   / /_\ \ __ _ _ __ ___   ___  _ __  
+//   |  _  |/ _` | '_ ` _ \ / _ \| '_ \
+//   | | | | (_| | | | | | | (_) | | | |
+//   \_| |_/\__,_|_| |_| |_|\___/|_| |_|
+//
+//		GitHub: https://github.com/Aamon-Magnusson
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
