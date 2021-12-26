@@ -1,6 +1,7 @@
 MOD + R                     | dmenu
 MOD + SHIFT + ENTER         | terminal
 MOD + C                     | browser
+MOD + W                     | dmenu web prompt
 MOD + F                     | file manager
 MOD + N                     | network manager
 MOD + B                     | bluetooth manager
