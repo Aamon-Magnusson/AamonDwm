@@ -4,6 +4,7 @@ MOD + C                     | browser
 MOD + W                     | dmenu web prompt
 MOD + F                     | file manager
 MOD + N                     | network manager
+MOD + SHIFT + N             | network manager dmenu
 MOD + B                     | bluetooth manager
 PRTSCR                      | print screen
 MOD + SHIFT + C             | close window
@@ -12,3 +13,8 @@ MOD + SHIFT + CONTROL + Q   | restart dwm
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
 CONTROL + D                 | volume down 5%
+MOD + T                     | tiled view
+MOD + M                     | monocle (full screen) view
+MOD + Y                     | center view
+MOD + I                     | increase number of masters
+MOD + D                     | decrease number of masters

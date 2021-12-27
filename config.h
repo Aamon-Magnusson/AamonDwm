@@ -50,6 +50,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+//	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -81,6 +83,7 @@ static const char *filemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
 static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
+static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 //static const char *shutdown[]			=		{ TERMINAL, "sudo", "shutdown", "-h", "now", NULL};
 
@@ -99,6 +102,7 @@ static Key keys[] = {
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
 	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
 	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
+	{MODKEY|ShiftMask,				XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	/* Window and layout key bindings*/
@@ -115,10 +119,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 //	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
+//	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+//	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+//	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_bracketleft,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_bracketright, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_bracketleft,  tagmon,         {.i = -1 } },
