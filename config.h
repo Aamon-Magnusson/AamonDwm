@@ -72,6 +72,7 @@ static const Layout layouts[] = {
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
 #define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
 #define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
+#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/dockscript.sh"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -86,6 +87,7 @@ static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
 static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 //static const char *shutdown[]			=		{ TERMINAL, "sudo", "shutdown", "-h", "now", NULL};
+static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 
 /* multimedia commands */
 static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
@@ -142,6 +144,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
 //	{ MODKEY|ControlMask|ShiftMask,	XK_s,	   spawn,		   {.v = shutdown} },
+	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
 	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },

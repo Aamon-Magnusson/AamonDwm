@@ -18,3 +18,4 @@ MOD + M                     | monocle (full screen) view
 MOD + Y                     | center view
 MOD + I                     | increase number of masters
 MOD + D                     | decrease number of masters
+MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
