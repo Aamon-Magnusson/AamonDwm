@@ -19,6 +19,7 @@ MOD + ENTER                 | switch master window
 MOD + T                     | tiled view
 MOD + M                     | monocle (full screen) view
 MOD + Y                     | center view
+MOD + SHIFT + T             | toggle the bar
 MOD + I                     | increase number of masters
 MOD + D                     | decrease number of masters
 MOD + [1-9]                 | jump to Nth tag
