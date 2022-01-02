@@ -86,7 +86,7 @@ static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
 static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
-//static const char *shutdown[]			=		{ TERMINAL, "sudo", "shutdown", "-h", "now", NULL};
+static const char *shutdown[]			=		{ TERMINAL, "-e" "sudo", "shutdown", "-h", "now", NULL};
 static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 
 /* multimedia commands */
@@ -143,7 +143,7 @@ static Key keys[] = {
 	/* Quit and restart DWM*/
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
-//	{ MODKEY|ControlMask|ShiftMask,	XK_s,	   spawn,		   {.v = shutdown} },
+	{ MODKEY|ShiftMask,				XK_p,	   spawn,		   {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },

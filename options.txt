@@ -10,6 +10,7 @@ PRTSCR                      | print screen
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm
 MOD + SHIFT + CONTROL + Q   | restart dwm
+MOD + SHIFT + P   | shutdown machine
 MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
