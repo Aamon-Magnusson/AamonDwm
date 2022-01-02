@@ -108,7 +108,7 @@ static Key keys[] = {
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	/* Window and layout key bindings*/
-//	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
