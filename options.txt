@@ -1,5 +1,6 @@
-MOD + R                     | dmenu
 MOD + SHIFT + ENTER         | terminal
+MOD + R                     | dmenu
+MOD + A                     | app switcher (IP)
 MOD + C                     | browser
 MOD + W                     | dmenu web prompt
 MOD + F                     | file manager
@@ -10,7 +11,8 @@ PRTSCR                      | print screen
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm
 MOD + SHIFT + CONTROL + Q   | restart dwm
-MOD + SHIFT + P   | shutdown machine
+MOD + SHIFT + P             | shutdown machine
+MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
