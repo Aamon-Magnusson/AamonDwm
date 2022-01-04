@@ -1,4 +1,5 @@
 #!/bin/bash
+# comment from https://bbs.archlinux.org/viewtopic.php?id=147476
 # Search through open programs and switch to their tag
 application=$(
 	# List all running programs
@@ -10,7 +11,7 @@ application=$(
 	# Show only app-names
    	cut -d" " -f3 |\
 	# Pipe to dmenu ($@ to include font settings from dwm/config.h)
-	dmenu -i -p "Switch to" $@
+	dmenu -i -p "Switch to" -l 10 # $@ # I have my own dmenu config to set the colours and such
 )
 
 # Switch to chosen application
