@@ -26,6 +26,7 @@ MOD + SHIFT + T             | toggle the bar
 MOD + I                     | increase number of masters
 MOD + D                     | decrease number of masters
 MOD + [1-9]                 | jump to Nth tag
+MOD + [LEFT or Right]       | move one tag in either direction
 MOD + 0                     | show all tags
 MOD + CONTROL + [1-9]       | add Nth tag to current view
 MOD + SHIFT + [0-9]         | put the current window to Nth tag

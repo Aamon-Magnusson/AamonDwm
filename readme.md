@@ -38,6 +38,8 @@ For the most part it is pretty easy to change the default programs, like the ter
 - picom
 - pamixer
 - dunst
+- xrandr
+- arandr
 
 - xlsclients
 - xdotool
