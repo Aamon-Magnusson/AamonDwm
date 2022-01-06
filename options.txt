@@ -1,18 +1,19 @@
-MOD + SHIFT + ENTER         | terminal
+MOD + SHIFT + ENTER         | terminal (alacritty)
 MOD + R                     | dmenu
 MOD + A                     | app switcher (IP)
-MOD + C                     | browser
+MOD + C                     | browser (chrome)
 MOD + W                     | dmenu web prompt
-MOD + F                     | file manager
+MOD + F                     | file manager (dolphin)
 MOD + N                     | network manager
 MOD + SHIFT + N             | network manager dmenu
 MOD + B                     | bluetooth manager
-PRTSCR                      | print screen
+PRTSCR                      | print screen (flameshot)
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm
 MOD + SHIFT + CONTROL + Q   | restart dwm
 MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
+MOD + G                     | open gtop
 MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%

@@ -74,6 +74,7 @@ static const Layout layouts[] = {
 #define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
 #define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/dockscript.sh"
 #define APPSWITCH "/home/aamonm/Programming/AamonDwm/appSwitch.sh"
+#define TOP "gtop"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -88,8 +89,9 @@ static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
 static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
-static const char *shutdown[]			=		{ TERMINAL, "-e" "sudo", "shutdown", "-h", "now", NULL};
-static const char *reboot[]				=		{ TERMINAL, "-e" "sudo", "reboot", NULL};
+static const char *shutdown[]			=		{ TERMINAL, "-e", "sudo", "shutdown", "-h", "now", NULL};
+static const char *reboot[]				=		{ TERMINAL, "-e", "sudo", "reboot", NULL};
+static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
 static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 static const char *appswitch[]			=		{ APPSWITCH, NULL};
 
@@ -112,6 +114,7 @@ static Key keys[] = {
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
+	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/
 	{ MODKEY|ShiftMask,             XK_t,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
