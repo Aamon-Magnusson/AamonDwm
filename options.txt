@@ -13,6 +13,7 @@ MOD + SHIFT + Q             | close dwm
 MOD + SHIFT + CONTROL + Q   | restart dwm
 MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
+MOD + SHIFT + S             | slock
 MOD + G                     | open gtop
 MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
 CONTROL + M                 | mute

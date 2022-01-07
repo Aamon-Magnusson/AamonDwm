@@ -91,6 +91,7 @@ static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 static const char *shutdown[]			=		{ TERMINAL, "-e", "sudo", "shutdown", "-h", "now", NULL};
 static const char *reboot[]				=		{ TERMINAL, "-e", "sudo", "reboot", NULL};
+static const char *slock[]				=		{ "slock", NULL};
 static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
 static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 static const char *appswitch[]			=		{ APPSWITCH, NULL};
@@ -157,6 +158,7 @@ static Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
 	{ MODKEY|ShiftMask,				XK_p,	   spawn,		   {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_r,	   spawn,		   {.v = reboot} },
+	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = slock} },
 	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
