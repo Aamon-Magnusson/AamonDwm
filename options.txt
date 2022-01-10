@@ -4,6 +4,7 @@ MOD + A                     | app switcher (IP)
 MOD + C                     | browser (chrome)
 MOD + W                     | dmenu web prompt
 MOD + F                     | file manager (dolphin)
+MOD + SHIFT + F             | file manager (ranger)
 MOD + N                     | network manager
 MOD + SHIFT + N             | network manager dmenu
 MOD + B                     | bluetooth manager
@@ -16,10 +17,11 @@ MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + S             | slock
 MOD + G                     | open gtop
 MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
+MOD + SHIFT + A             | arandr
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
 CONTROL + D                 | volume down 5%
-MOD + SHIFT + Space         | toggle floating for the current window
+MOD + SPACE                 | toggle floating for the current window
 MOD + ENTER                 | switch master window
 MOD + T                     | tiled view
 MOD + M                     | monocle (full screen) view

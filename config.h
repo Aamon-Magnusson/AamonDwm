@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 #define TERMINAL "alacritty"
 #define BROWSER "google-chrome-stable"
 #define FILEMANAGER "dolphin"
+#define TERMFILEMANAGER "ranger"
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
 #define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
 #define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
@@ -82,7 +83,8 @@ static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-fn", dmenu
 static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *websitecmd[]  		= 		{ WEBDMENU, NULL };
-static const char *filemanagercmd[]  	= 		{ FILEMANAGER, NULL };
+static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
+static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 //static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
 static const char *printscreencmd[]  	= 		{ "flameshot", "gui", NULL };
 static const char *options[]			=		{ OPTIONSLOCATION, NULL};
@@ -95,6 +97,7 @@ static const char *slock[]				=		{ "slock", NULL};
 static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
 static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 static const char *appswitch[]			=		{ APPSWITCH, NULL};
+static const char *arandr[]				=		{ "arandr", NULL};
 
 /* multimedia commands */
 static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
@@ -107,7 +110,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_f,      spawn,          {.v = filemanagercmd } },
+	{ MODKEY,                       XK_f,      spawn,          {.v = guifilemanagercmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = termfilemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
 	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
 	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
@@ -115,6 +119,7 @@ static Key keys[] = {
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
+	{MODKEY|ShiftMask,				XK_a,	   spawn,		   {.v = arandr} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/
 	{ MODKEY|ShiftMask,             XK_t,      togglebar,      {0} },
@@ -133,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
 //	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
 //	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,             			XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 //	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_bracketleft,  focusmon,       {.i = -1 } },

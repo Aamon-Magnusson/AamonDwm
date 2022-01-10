@@ -28,6 +28,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 - alacritty
 - google-chrome-stable
 - dolphin
+- ranger
 - dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
 - networkmanager_dmenu ([Here's the github](https://github.com/firecat53/networkmanager-dmenu))
 - slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
