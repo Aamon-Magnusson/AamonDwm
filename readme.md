@@ -19,24 +19,22 @@ This is very much a work in progress so check in frequently as lots may change.
 
 For a basic display of the keybindings hit SUPER + o. (It'll show in dmenu)
 
+When putting this config on to a system make sure to change the directories in the config.h defines. This is also a good time to change any programs that one would like to use.
+
 A list of patches remains inside the Patches folder.
 
 ## Dependencies
 
 For the most part it is pretty easy to change the default programs, like the terminal, but here are the dependencies:
 
+
+### From Pacman
+
 - alacritty
-- google-chrome-stable
-- dolphin
+- pcmanfm 
 - ranger
-- dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
-- networkmanager_dmenu ([Here's the github](https://github.com/firecat53/networkmanager-dmenu))
-- slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
 - xautolock
-- scrot
-- flameshot
-- nm-connection-editor
-- blueman
+- flameshot (or scrot)
 - conky
 - discord
 - feh
@@ -45,6 +43,21 @@ For the most part it is pretty easy to change the default programs, like the ter
 - dunst
 - xrandr
 - arandr
+
+- nm-connection-editor
+- blueman
+
+### From AUR
+
+- google-chrome (google-chrome-stable)
+- networkmanager-dmenu-git ([Here's the github](https://github.com/firecat53/networkmanager-dmenu))
+
+### From git
+
+- dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
+- slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
+
+### Not yet implemented
 
 - xlsclients
 - xdotool

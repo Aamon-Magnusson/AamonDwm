@@ -2,8 +2,9 @@ MOD + SHIFT + ENTER         | terminal (alacritty)
 MOD + R                     | dmenu
 MOD + A                     | app switcher (IP)
 MOD + C                     | browser (chrome)
+MOD + CONTROL + C           | browser (surf)
 MOD + W                     | dmenu web prompt
-MOD + F                     | file manager (dolphin)
+MOD + F                     | file manager (pcmanfm)
 MOD + SHIFT + F             | file manager (ranger)
 MOD + N                     | network manager
 MOD + SHIFT + N             | network manager dmenu

@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -68,7 +69,7 @@ static const Layout layouts[] = {
 /* Program name constants (For ease of access)*/
 #define TERMINAL "alacritty"
 #define BROWSER "google-chrome-stable"
-#define FILEMANAGER "dolphin"
+#define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
 #define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
@@ -82,6 +83,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-l", "10", NULL };
 static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
+static const char *surf[]				=		{ "tabbed", "surf", "-e", NULL};
 static const char *websitecmd[]  		= 		{ WEBDMENU, NULL };
 static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
@@ -110,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,			XK_c,	   spawn,		   {.v = surf} },
 	{ MODKEY,                       XK_f,      spawn,          {.v = guifilemanagercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = termfilemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
