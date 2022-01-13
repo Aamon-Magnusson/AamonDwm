@@ -17,8 +17,7 @@ MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + S             | slock
 MOD + G                     | open gtop
-MOD + SHIFT + M             | turn off laptop monitor if using it with a dock
-MOD + SHIFT + A             | arandr
+MOD + SHIFT + M             | adjust enabled monitors, and postion
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
 CONTROL + D                 | volume down 5%

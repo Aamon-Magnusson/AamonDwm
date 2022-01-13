@@ -74,13 +74,13 @@ static const Layout layouts[] = {
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
 #define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
 #define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
-#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/dockscript.sh"
+#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/monitorDmenu.sh"
 #define APPSWITCH "/home/aamonm/Programming/AamonDwm/appSwitch.sh"
 #define TOP "gtop"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-l", "10", NULL };
+static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, NULL };
 static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *surf[]				=		{ "tabbed", "surf", "-e", NULL};
@@ -99,7 +99,6 @@ static const char *slock[]				=		{ "slock", NULL};
 static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
 static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 static const char *appswitch[]			=		{ APPSWITCH, NULL};
-static const char *arandr[]				=		{ "arandr", NULL};
 
 /* multimedia commands */
 static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
@@ -122,7 +121,6 @@ static Key keys[] = {
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
-	{MODKEY|ShiftMask,				XK_a,	   spawn,		   {.v = arandr} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/
 	{ MODKEY|ShiftMask,             XK_t,      togglebar,      {0} },

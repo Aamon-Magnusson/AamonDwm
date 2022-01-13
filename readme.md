@@ -13,11 +13,15 @@ cp CopyFiles/conky.conf ~/.config/conky/
 chmod +x CopyFiles/sutostart.sh
 cp CopyFiles/autostart.sh ~/.dwm/
 cp CopyFiles/dunstrc ~/.config/dunst/
+# the following two lines must also be applied in an aplication like lxappearance
+cp CopyFiles/AamonGTK3 ~/.themes/ -r
+cp CopyFiles/AamonIcons ~/.icons/ -r
+cp CopyFiles/Backgrounds ~/Desktop/ -r
 ```
 
 This is very much a work in progress so check in frequently as lots may change.
 
-For a basic display of the keybindings hit SUPER + o. (It'll show in dmenu)
+For a basic display of the keybindings hit SUPER + O. (It'll show in dmenu)
 
 When putting this config on to a system make sure to change the directories in the config.h defines. This is also a good time to change any programs that one would like to use.
 
@@ -41,6 +45,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 - picom
 - pamixer
 - dunst
+- gtop
 - xrandr
 - arandr
 
