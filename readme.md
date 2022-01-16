@@ -9,7 +9,6 @@ git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
 sudo make istall
 sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
-cp CopyFiles/conky.conf ~/.config/conky/
 chmod +x CopyFiles/sutostart.sh
 cp CopyFiles/autostart.sh ~/.dwm/
 cp CopyFiles/dunstrc ~/.config/dunst/
@@ -39,15 +38,15 @@ For the most part it is pretty easy to change the default programs, like the ter
 - ranger
 - xautolock
 - flameshot (or scrot)
-- conky
 - discord
 - feh
 - picom
 - pamixer
 - dunst
 - gtop
-- xrandr
+- xorg-xrandr
 - arandr
+- lxappearance
 
 - nm-connection-editor
 - blueman
@@ -61,6 +60,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 
 - dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
 - slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
+- slstatus (My [slstatus config] (https://github.com/Aamon-Magnusson/AamonSlstatus))
 
 ### Not yet implemented
 
