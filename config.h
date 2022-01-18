@@ -80,7 +80,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, NULL };
+static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-i", NULL };
 static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *surf[]				=		{ "tabbed", "surf", "-e", NULL};
@@ -91,7 +91,7 @@ static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER,
 static const char *printscreencmd[]  	= 		{ "flameshot", "gui", NULL };
 static const char *options[]			=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
-static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", NULL};
+static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", "-l", "25", "-i", NULL};
 static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
 static const char *shutdown[]			=		{ TERMINAL, "-e", "sudo", "shutdown", "-h", "now", NULL};
 static const char *reboot[]				=		{ TERMINAL, "-e", "sudo", "reboot", NULL};
