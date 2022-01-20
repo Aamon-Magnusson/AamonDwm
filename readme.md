@@ -2,7 +2,9 @@
 
 I am currently just getting into the world of tiling window managers, so here we are, my dwm config!!!
 
-This is the very beginning of this config, so as for setup it's pretty simple:
+This config includes a dmenu based menu system, which holds several dmenu scripts. To use it hit SUPER + X.
+
+Set up is pretty simple:
 
 ```
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
@@ -17,8 +19,6 @@ cp CopyFiles/AamonGTK3 ~/.themes/ -r
 cp CopyFiles/AamonIcons ~/.icons/ -r
 cp CopyFiles/Backgrounds ~/Desktop/ -r
 ```
-
-This is very much a work in progress so check in frequently as lots may change.
 
 For a basic display of the keybindings hit SUPER + O. (It'll show in dmenu)
 

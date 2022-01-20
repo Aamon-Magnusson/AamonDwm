@@ -124,7 +124,7 @@ static Key keys[] = {
 	{MODKEY|ShiftMask,				XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
 //	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
-	{MODKEY,						XK_u,	   spawn,		   {.v = dmenumenu} },
+	{MODKEY,						XK_x,	   spawn,		   {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/

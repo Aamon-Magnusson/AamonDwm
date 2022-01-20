@@ -48,7 +48,7 @@ se_data="$(
 eval "$se_data"
 
 # Output label string to rofi...
-search="$(dmenu $prompt -i -c -l 20 <<< $dmenu_labels)"
+search="$(dmenu $prompt -i <<< $dmenu_labels)"
 
 if [[ ! -z "$search" ]]; then
 

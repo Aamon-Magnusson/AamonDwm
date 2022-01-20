@@ -3,19 +3,46 @@
 _remove () {
 	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to remove" )
 
+	if [ ! $mon ]; then
+		exit 0
+	fi
+
 	xrandr --output $mon --off
+	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
 }
 
 _add () {
 	mon=$( echo -e "$connected_monitors" | dmenu -p "Select monitor to add" )
 
-	xrandr --output $mon --auto
+	if [ ! $mon ]; then
+		exit 0
+	fi
+
+	ref_options="${ACTIVE_MONITORS//$mon/}"
+
+	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" )
+
+	if [ ! $ref_mon ]; then
+		exit 0
+	fi
+
+	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" )
+
+	if [ ! $spot ]; then
+		exit 0
+	fi
+
+	xrandr --output $mon --auto --$spot $ref_mon
 	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
 }
 
 _move () {
 	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to move" )
 	# remove chosen monitor from active_monitors
+
+	if [ ! $mon ]; then
+		exit 0
+	fi
 
 	ref_options="${ACTIVE_MONITORS//$mon/}"
 
@@ -26,7 +53,15 @@ _move () {
 
 	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" )
 
+	if [ ! $ref_mon ]; then
+		exit 0
+	fi
+
 	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" )
+
+	if [ ! $spot ]; then
+		exit 0
+	fi
 
 	xrandr --output $mon --$spot $ref_mon
 }
@@ -46,7 +81,9 @@ POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
 
 mode=$(echo -e "Remove\nAdd\nMove" | dmenu -p "What would you like to do?")
 
-echo $mode
+if [ ! $mode ]; then
+	exit 0
+fi
 
 case "$mode" in
 	Remove) _remove ;;

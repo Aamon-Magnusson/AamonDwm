@@ -1,0 +1,13 @@
+#! /bin/bash
+
+programs="alacritty\ngoogle-chrome-stable\npcmanfm\nlibreoffice\nranger\ngtop\ndiscord"
+
+choice=$( echo -e "$programs" | dmenu -p "Prefered Programs" )
+
+if [ $choice == "ranger" ]; then
+	alacritty -e ranger
+elif [ $choice == gtop ]; then
+	alacritty -e gtop
+else
+	eval $choice
+fi

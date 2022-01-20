@@ -4,7 +4,7 @@
 lines="-l 20"
 
 selected="$(ps -a -u $USER | \
-            dmenu -i -c -p "Type to search and select process to kill" \
+            dmenu -i -p "Type to search and select process to kill" \
             $lines | \
             awk '{print $1" "$4}')"; 
 

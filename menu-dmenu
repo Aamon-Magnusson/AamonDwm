@@ -8,10 +8,10 @@ prompt="-p DmenuMenu:"
 
 run_dmenu="$(find $script_path/dmenu-* -maxdepth 1 -type f -executable \
           -exec grep -Iq . {} \; -print \
-          | sed 's|^'$script_path/'||' \
+          | sed 's|^'$script_path/dmenu-'||' \
           | sort \
-          | dmenu $prompt -c -l 20)"
+          | dmenu $prompt)"
 
-eval "$script_path/$run_dmenu"
+$( "$script_path/dmenu-$run_dmenu" )
 
 exit 0
