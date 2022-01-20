@@ -1,9 +1,10 @@
 MOD + SHIFT + ENTER         | terminal (alacritty)
 MOD + R                     | dmenu
-MOD + A                     | app switcher (IP)
+MOD + SHIFT + M             | dmenu menu
+MOD + A                     | app switcher
 MOD + C                     | browser (chrome)
 MOD + CONTROL + C           | browser (surf)
-MOD + W                     | dmenu web prompt
+**MOD + W                     | dmenu web prompt**
 MOD + F                     | file manager (pcmanfm)
 MOD + SHIFT + F             | file manager (ranger)
 MOD + N                     | network manager
@@ -17,7 +18,7 @@ MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + S             | slock
 MOD + G                     | open gtop
-MOD + SHIFT + M             | adjust enabled monitors, and postion
+**MOD + SHIFT + M             | adjust enabled monitors, and postion**
 CONTROL + M                 | mute
 CONTROL + U                 | volume up 5%
 CONTROL + D                 | volume down 5%

@@ -2,7 +2,7 @@
 
 options="Laptop Only\nHDMI Only\nVGA Only\nType C Only\nHDMI and Laptop\nVGA and Laptop\nType C and Laptop\nManual Config"
 
-choice=$(echo -e "$options" | dmenu -i)
+choice=$(echo -e "$options" | dmenu -i -c -l 20)
 
 case "$choice" in
 		"Laptop Only") xrandr --output eDP-1 --auto --output HDMI-2 --off --output HDMI-1 --off --output DP-1i --off;;

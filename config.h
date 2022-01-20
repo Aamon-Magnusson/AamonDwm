@@ -72,10 +72,11 @@ static const Layout layouts[] = {
 #define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
 #define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
-#define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/options.sh"
-#define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
-#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/monitorDmenu.sh"
-#define APPSWITCH "/home/aamonm/Programming/AamonDwm/appSwitch.sh"
+#define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/dmenu-keybindings"
+//#define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
+//#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/monitorDmenu.sh"
+#define APPSWITCH "/home/aamonm/Programming/AamonDwm/dmenu-switch"
+#define DMENUMENU "/home/aamonm/Programming/AamonDwm/menu-dmenu"
 #define TOP "gtop"
 
 /* commands */
@@ -84,7 +85,7 @@ static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-i", "-c", 
 static const char *termcmd[]  			= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  		= 		{ BROWSER, NULL };
 static const char *surf[]				=		{ "tabbed", "surf", "-e", NULL};
-static const char *websitecmd[]  		= 		{ WEBDMENU, NULL };
+//static const char *websitecmd[]  		= 		{ WEBDMENU, NULL };
 static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 //static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
@@ -97,8 +98,9 @@ static const char *shutdown[]			=		{ TERMINAL, "-e", "sudo", "shutdown", "-h", "
 static const char *reboot[]				=		{ TERMINAL, "-e", "sudo", "reboot", NULL};
 static const char *slock[]				=		{ "slock", NULL};
 static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
-static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
+//static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
 static const char *appswitch[]			=		{ APPSWITCH, NULL};
+static const char *dmenumenu[]			=		{ DMENUMENU };
 
 /* multimedia commands */
 static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
@@ -119,7 +121,8 @@ static Key keys[] = {
 	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
 	{MODKEY|ShiftMask,				XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
-	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
+//	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
+	{MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/
@@ -165,7 +168,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_p,	   spawn,		   {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_r,	   spawn,		   {.v = reboot} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = slock} },
-	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
+//	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
 	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },
