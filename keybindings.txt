@@ -1,6 +1,6 @@
 MOD + SHIFT + ENTER         | terminal (alacritty)
 MOD + R                     | dmenu
-MOD + SHIFT + M             | dmenu menu
+MOD + U                     | dmenu menu
 MOD + A                     | app switcher
 MOD + C                     | browser (chrome)
 MOD + CONTROL + C           | browser (surf)

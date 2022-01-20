@@ -1,18 +1,56 @@
 #! /bin/bash
 
-options="Laptop Only\nHDMI Only\nVGA Only\nType C Only\nHDMI and Laptop\nVGA and Laptop\nType C and Laptop\nManual Config"
+_remove () {
+	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to remove" )
 
-choice=$(echo -e "$options" | dmenu -i -c -l 20)
+	xrandr --output $mon --off
+}
 
-case "$choice" in
-		"Laptop Only") xrandr --output eDP-1 --auto --output HDMI-2 --off --output HDMI-1 --off --output DP-1i --off;;
-		"HDMI Only") xrandr --output eDP-1 --off --output HDMI-2 --off --output HDMI-1 --auto --output DP-1 --off;;
-		"VGA Only") xrandr --output eDP-1 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --auto;;
-		"Type C Only") xrandr --output eDP-1 --off --output HDMI-2 --auto --output HDMI-1 --off --output DP-1 --off;;
-		"HDMI and Laptop") xrandr --output eDP-1 --auto --output HDMI-2 --off --output HDMI-1 --auto --output DP-1 --off && arandr &;;
-		"VGA and Laptop") xrandr --output eDP-1 --auto --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --auto && arandr &;;
-		"Type C and Laptop") xrandr --output eDP-1 --auto --output HDMI-2 --auto --output HDMI-1 --off --output DP-1 --off && arandr &;;
-		"Manual Config") arandr &;;
+_add () {
+	mon=$( echo -e "$connected_monitors" | dmenu -p "Select monitor to add" )
+
+	xrandr --output $mon --auto
+	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
+}
+
+_move () {
+	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to move" )
+	# remove chosen monitor from active_monitors
+
+	ref_options="${ACTIVE_MONITORS//$mon/}"
+
+	if [ ! $ref_options ]; then
+		echo "OK" | dmenu -p "That is the only monitor"
+		exit 0
+	fi
+
+	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" )
+
+	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" )
+
+	xrandr --output $mon --$spot $ref_mon
+}
+
+xrandr_output="$(xrandr)"
+all_monitors="$(printf "%s\\n" "${xrandr_output}"       | \
+    awk '/^VGA|^LVDS|^HDMI|^D|^eDP/ {print $1}' )"
+connected_monitors="$(printf "%s\\n" "${xrandr_output}" | \
+	awk '/ connected/  {print $1}' )"
+
+ACTIVE_MONITORS="$(printf "%s\\n" "${xrandr_output}"    | awk '/ connected [^(]/ {print $1}' )"
+#NUMBER_OF_CONNECTED_MONITORS="$(_number_of_monitors "${connected_monitors}")"
+#NUMBER_OF_ACTIVE_MONITORS="$(_number_of_monitors "${ACTIVE_MONITORS}")"
+#ROTATE_OPTS="normal\ninverted\nleft\nright"
+#OFFAUTO_OPTS="off\nauto"
+POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
+
+mode=$(echo -e "Remove\nAdd\nMove" | dmenu -p "What would you like to do?")
+
+echo $mode
+
+case "$mode" in
+	Remove) _remove ;;
+	Add) _add ;;
+	Move) _move ;;
 esac
 
-feh --bg-fill --randomize ~/Desktop/Backgrounds/* &

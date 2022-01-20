@@ -1,5 +1,11 @@
+#! /bin/bash
+
 options="Shutdown\nRestart\nSleep"
 
 choice=$(echo -e "$options" | dmenu -c -i -l 5)
 
-Case "$choice" in
+case "$choice" in
+	Shutdown) /home/aamonm/Programming/AamonDwm/shutdown-dmenu;;
+	Restart) /home/aamonm/Programming/AamonDwm/restart-dmenu;;
+	Sleep) slock;;
+esac
