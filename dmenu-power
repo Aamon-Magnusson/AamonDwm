@@ -1,0 +1,5 @@
+options="Shutdown\nRestart\nSleep"
+
+choice=$(echo -e "$options" | dmenu -c -i -l 5)
+
+Case "$choice" in
