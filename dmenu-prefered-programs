@@ -2,7 +2,7 @@
 
 programs="alacritty\ngoogle-chrome-stable\npcmanfm\nlibreoffice\nranger\ngtop\ndiscord"
 
-choice=$( echo -e "$programs" | dmenu -p "Prefered Programs" )
+choice=$( echo -e "$programs" | sort | dmenu -p "Prefered Programs" )
 
 if [ $choice == "ranger" ]; then
 	alacritty -e ranger
