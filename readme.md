@@ -9,15 +9,8 @@ Set up is pretty simple:
 ```
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
-sudo make istall
-sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
-chmod +x CopyFiles/sutostart.sh
-cp CopyFiles/autostart.sh ~/.dwm/
-cp CopyFiles/dunstrc ~/.config/dunst/
-# the following two lines must also be applied in an aplication like lxappearance
-cp CopyFiles/AamonGTK3 ~/.themes/ -r
-cp CopyFiles/AamonIcons ~/.icons/ -r
-cp CopyFiles/Backgrounds ~/Desktop/ -r
+./setup.sh
+#after that I would recommend going into lxappearence to apply the themeing
 ```
 
 For a basic display of the keybindings hit SUPER + O. (It'll show in dmenu)
