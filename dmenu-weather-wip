@@ -1,0 +1,19 @@
+#! /bin/bash
+
+places="CurrentLocation\nCalgary\nVancouver\nSundre\nRocanville\nQuebec\nWinnipeg"
+
+choice=$( echo -e $places | dmenu -i -p "Weather" )
+
+path="$HOME/.weather/$choice.weather"
+
+if [ ! $choice ]; then
+	exit 0
+fi
+
+if [[ $choice == "CurrentLocation" ]]; then
+	curl wttr.in > $path
+	alacritty -e less $path
+else
+	curl wttr.in/$choice > $path
+	alacritty -e less $path &
+fi
