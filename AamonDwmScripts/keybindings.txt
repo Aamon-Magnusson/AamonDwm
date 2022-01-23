@@ -1,5 +1,5 @@
 MOD + SHIFT + ENTER         | terminal (alacritty)
-MOD + R                     | dmenu
+MOD + R                     | dmenu_run
 MOD + X                     | dmenu menu
 MOD + A                     | app switcher
 MOD + C                     | browser (chrome)

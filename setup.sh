@@ -1,5 +1,10 @@
 #! /bin/bash
 
+if [ ! $(which dmenu) ];then
+	printf "dmenu is not installed, do that first"
+	exit 0
+fi
+
 working_dir=$( echo -e "/home/aamonm/Programming/AamonDwm" | dmenu -p "What is the current dir?" )
 
 sudo make -s install

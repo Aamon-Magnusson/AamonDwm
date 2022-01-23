@@ -1,4 +1,3 @@
 #! /bin/bash
 
-#cat /home/aamonm/Programming/AamonDwm/options.txt | dmenu -fn "monospace:size=12" -nb "#222222" -nf "#bbbbbb" -sb "#ff00ff" -sf "#000000" -l 50
-cat /usr/AamonDwmScripts/keybindings.txt | dmenu -l 50 -i -p "Keybindings:"
+cat /usr/AamonDwmScripts/keybindings.txt | dmenu -l 45 -i -p "Keybindings:"
