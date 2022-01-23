@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "alacritty",  NULL,       "Weather",       0,       1,           -1 },
 };
 
 /* layout(s) */
@@ -71,43 +72,37 @@ static const Layout layouts[] = {
 #define BROWSER "google-chrome-stable"
 #define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
-#define PRTSCRLOCATION "/home/aamonm/Pictures/Screenshots/%F-%T-$w-$h.png"
-#define OPTIONSLOCATION "/home/aamonm/Programming/AamonDwm/dmenu-keybindings"
-//#define WEBDMENU "/home/aamonm/Programming/AamonDwm/dmenu_websearch.txt"
-//#define DOCKSCRIPT "/home/aamonm/Programming/AamonDwm/monitorDmenu.sh"
-#define APPSWITCH "/home/aamonm/Programming/AamonDwm/dmenu-switch"
-#define DMENUMENU "/home/aamonm/Programming/AamonDwm/menu-dmenu"
-#define SHUTDOWN "/home/aamonm/Programming/AamonDwm/shutdown-dmenu"
-#define RESTART "/home/aamonm/Programming/AamonDwm/restart-dmenu"
+#define OPTIONSLOCATION "/usr/AamonDwmScripts/dmenu-keybindings"
+#define APPSWITCH "/usr/AamonDwmScripts/dmenu-switch"
+#define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
+#define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
+#define RESTART "/usr/AamonDwmScripts/restart-dmenu"
 #define TOP "gtop"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] 			= 		{ "dmenu_run", "-m", dmenumon, "-i", "-c", "-l", "25", "-p", "Run:", NULL };
-static const char *termcmd[]  			= 		{ TERMINAL, NULL };
-static const char *browsercmd[]  		= 		{ BROWSER, NULL };
-static const char *surf[]				=		{ "tabbed", "surf", "-e", NULL};
-//static const char *websitecmd[]  		= 		{ WEBDMENU, NULL };
+static const char *dmenucmd[] 				= 		{ "dmenu_run", "-m", dmenumon, "-i", "-c", "-l", "25", "-p", "Run:", NULL };
+static const char *termcmd[]  				= 		{ TERMINAL, NULL };
+static const char *browsercmd[]  			= 		{ BROWSER, NULL };
+static const char *surf[]					=		{ "tabbed", "surf", "-e", NULL};
 static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
-//static const char *printscreencmd[]  	= 		{ "scrot", PRTSCRLOCATION, "-s", "-f", "-i", NULL };
-static const char *printscreencmd[]  	= 		{ "flameshot", "gui", NULL };
-static const char *options[]			=		{ OPTIONSLOCATION, NULL};
-static const char *networkmanager[]		=		{ "nm-connection-editor", "&", NULL};
-static const char *networkmanagerdmenu[]=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
-static const char *bluetoothmanager[]	=		{ "blueman-manager", NULL};
-static const char *shutdown[]			=		{ SHUTDOWN, NULL};
-static const char *reboot[]				=		{ RESTART, NULL};
-static const char *slock[]				=		{ "slock", NULL};
-static const char *top[]				= 		{ TERMINAL, "-e", TOP, NULL };
-//static const char *dockscript[]			=		{ DOCKSCRIPT, NULL};
-static const char *appswitch[]			=		{ APPSWITCH, NULL};
-static const char *dmenumenu[]			=		{ DMENUMENU };
+static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
+static const char *options[]				=		{ OPTIONSLOCATION, NULL};
+static const char *networkmanager[]			=		{ "nm-connection-editor", "&", NULL};
+static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
+static const char *bluetoothmanager[]		=		{ "blueman-manager", NULL};
+static const char *shutdown[]				=		{ SHUTDOWN, NULL};
+static const char *reboot[]					=		{ RESTART, NULL};
+static const char *slock[]					=		{ "slock", NULL};
+static const char *top[]					= 		{ TERMINAL, "-e", TOP, NULL };
+static const char *appswitch[]				=		{ APPSWITCH, NULL};
+static const char *dmenumenu[]				=		{ DMENUMENU };
 
 /* multimedia commands */
-static const char *volup[]				=		{ "pamixer", "-i", "5", NULL};
-static const char *voldown[]			=		{ "pamixer", "-d", "5", NULL};
-static const char *mute[]				=		{ "pamixer", "-t", NULL};
+static const char *volup[]					=		{ "pamixer", "-i", "5", NULL};
+static const char *voldown[]				=		{ "pamixer", "-d", "5", NULL};
+static const char *mute[]					=		{ "pamixer", "-t", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -123,7 +118,6 @@ static Key keys[] = {
 	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
 	{MODKEY|ShiftMask,				XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
-//	{MODKEY,						XK_w,	   spawn, 		   {.v = websitecmd} },
 	{MODKEY,						XK_x,	   spawn,		   {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
@@ -170,7 +164,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_p,	   spawn,		   {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_r,	   spawn,		   {.v = reboot} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = slock} },
-//	{ MODKEY|ShiftMask,				XK_m,	   spawn,		   {.v = dockscript} },
 	/* Multimedia commands */
 	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
 	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },

@@ -1,9 +1,0 @@
-#! /bin/bash
-
-options="No\nYes"
-
-choice=$(echo -e $options | dmenu -c -l 2 -i -p "Do you want to shutdown?")
-
-if [ $choice == "Yes" ]; then
-	shutdown -h now
-fi

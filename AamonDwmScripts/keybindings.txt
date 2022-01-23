@@ -1,0 +1,37 @@
+MOD + SHIFT + ENTER         | terminal (alacritty)
+MOD + R                     | dmenu
+MOD + X                     | dmenu menu
+MOD + A                     | app switcher
+MOD + C                     | browser (chrome)
+MOD + F                     | file manager (pcmanfm)
+MOD + SHIFT + F             | file manager (ranger)
+MOD + N                     | network manager
+MOD + SHIFT + N             | network manager dmenu
+MOD + B                     | bluetooth manager
+PRTSCR                      | print screen (flameshot)
+MOD + SHIFT + C             | close window
+MOD + SHIFT + Q             | close dwm
+MOD + SHIFT + CONTROL + Q   | restart dwm
+MOD + SHIFT + P             | shutdown machine
+MOD + SHIFT + R             | reboot machine
+MOD + SHIFT + S             | slock
+MOD + G                     | open gtop
+CONTROL + M                 | mute
+CONTROL + U                 | volume up 5%
+CONTROL + D                 | volume down 5%
+MOD + SPACE                 | toggle floating for the current window
+MOD + ENTER                 | switch master window
+MOD + T                     | tiled view
+MOD + M                     | monocle (full screen) view
+MOD + Y                     | center view
+MOD + SHIFT + T             | toggle the bar
+MOD + I                     | increase number of masters
+MOD + D                     | decrease number of masters
+MOD + [1-9]                 | jump to Nth tag
+MOD + [LEFT or Right]       | move one tag in either direction
+MOD + 0                     | show all tags
+MOD + CONTROL + [1-9]       | add Nth tag to current view
+MOD + SHIFT + [0-9]         | put the current window to Nth tag
+MOD + [J or K]              | change focused window through the stack
+MOD + [H or L]              | expand window either left or right
+MOD + [{ or }]              | change focused monitor
