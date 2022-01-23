@@ -15,8 +15,6 @@ cd AamonDwm # or whatever you named the directory
 
 For a basic display of the keybindings hit SUPER + O. (It'll show in dmenu)
 
-When putting this config on to a system make sure to change the directories in the config.h defines. This is also a good time to change any programs that one would like to use.
-
 A list of patches remains inside the Patches folder.
 
 ## Dependencies

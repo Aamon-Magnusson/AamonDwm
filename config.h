@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "|M|",      centeredmaster },
-//	{ ">M>",      centeredfloatingmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -123,8 +123,10 @@ static Key keys[] = {
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },
 	/* Window and layout key bindings*/
 	{ MODKEY|ShiftMask,             XK_t,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_j,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_k,      focusstack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
