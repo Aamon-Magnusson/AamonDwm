@@ -29,7 +29,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 - pcmanfm 
 - ranger
 - xautolock
-- flameshot (or scrot)
+- flameshot 
 - discord
 - feh
 - picom
@@ -41,6 +41,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 - lxappearance
 - bluez-utils
 - wmctrl
+- clipmenu
 
 ### From AUR
 
