@@ -39,10 +39,8 @@ For the most part it is pretty easy to change the default programs, like the ter
 - xorg-xrandr
 - arandr
 - lxappearance
+- bluez-utils
 - wmctrl
-
-- nm-connection-editor
-- blueman
 
 ### From AUR
 
