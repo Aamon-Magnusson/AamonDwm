@@ -25,6 +25,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 ### From Pacman
 
 - alacritty
+- qutebrowser
 - pcmanfm 
 - ranger
 - xautolock
@@ -52,7 +53,7 @@ For the most part it is pretty easy to change the default programs, like the ter
 
 - dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
 - slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
-- slstatus (My [slstatus config] (https://github.com/Aamon-Magnusson/AamonSlstatus))
+- slstatus (My [slstatus config](https://github.com/Aamon-Magnusson/AamonSlstatus))
 
 ### Not yet implemented
 

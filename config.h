@@ -1,12 +1,3 @@
-//     ___                              
-//    / _ \
-//   / /_\ \ __ _ _ __ ___   ___  _ __  
-//   |  _  |/ _` | '_ ` _ \ / _ \| '_ \
-//   | | | | (_| | | | | | | (_) | | | |
-//   \_| |_/\__,_|_| |_| |_|\___/|_| |_|
-//
-//		GitHub: https://github.com/Aamon-Magnusson
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx		= 5;		/* gaps between windows */
@@ -74,6 +65,7 @@ static const Layout layouts[] = {
 #define TERMFILEMANAGER "ranger"
 #define OPTIONSLOCATION "/usr/AamonDwmScripts/dmenu-keybindings"
 #define APPSWITCH "/usr/AamonDwmScripts/dmenu-switch"
+#define DMENUBLUE "/usr/AamonDwmScripts/dmenu-bluetooth"
 #define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
 #define RESTART "/usr/AamonDwmScripts/restart-dmenu"
@@ -89,9 +81,8 @@ static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
 static const char *options[]				=		{ OPTIONSLOCATION, NULL};
-static const char *networkmanager[]			=		{ "nm-connection-editor", "&", NULL};
 static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
-static const char *bluetoothmanager[]		=		{ "blueman-manager", NULL};
+static const char *bluedmenu[]				=		{ DMENUBLUE, NULL};
 static const char *shutdown[]				=		{ SHUTDOWN, NULL};
 static const char *reboot[]					=		{ RESTART, NULL};
 static const char *slock[]					=		{ "slock", NULL};
@@ -115,9 +106,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = termfilemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },
 	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
-	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanager} },
-	{MODKEY|ShiftMask,				XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
-	{MODKEY,						XK_b,	   spawn, 		   {.v = bluetoothmanager} },
+	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
+	{MODKEY,						XK_b,	   spawn, 		   {.v = bluedmenu} },
 	{MODKEY,						XK_x,	   spawn,		   {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },

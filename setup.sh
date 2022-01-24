@@ -9,6 +9,8 @@ working_dir=$( echo -e "/home/aamonm/Programming/AamonDwm" | dmenu -p "What is t
 
 sudo make -s clean install
 
+echo "Compile complete"
+
 sudo cp $working_dir/CopyFiles/dwm.desktop /usr/share/xsessions/
 mkdir -p $HOME/.dwm
 cp $working_dir/CopyFiles/autostart.sh $HOME/.dwm/

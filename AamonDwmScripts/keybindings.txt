@@ -6,9 +6,8 @@ MOD + C                     | browser (chrome)
 MOD + CONTROL + C           | browser (qutebrowser)
 MOD + F                     | file manager (pcmanfm)
 MOD + SHIFT + F             | file manager (ranger)
-MOD + N                     | network manager
-MOD + SHIFT + N             | network manager dmenu
-MOD + B                     | bluetooth manager
+MOD + N                     | network manager dmenu
+MOD + B                     | bluetooth manager dmenu
 PRTSCR                      | print screen (flameshot)
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm
