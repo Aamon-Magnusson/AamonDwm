@@ -11,6 +11,20 @@ sudo make -s clean install
 
 echo "Compile complete"
 
+choise=$( echo -e "No\nYes" | dmenu -i -p "Would you like to install all repo dependacies? (Arch only)" )
+
+if [ $choise == "Yes" ];then
+	if [ $(which pacman) ]; then
+		sudo pacman -Suy
+		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot discord feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu
+	fi
+	if [ $(which yay) ];then
+		yay -Syu
+		yay -S google-chrome networkmanager-dmenu-git
+	fi
+	echo "Dependacies installed"
+fi
+
 sudo cp $working_dir/CopyFiles/dwm.desktop /usr/share/xsessions/
 mkdir -p $HOME/.dwm
 cp $working_dir/CopyFiles/autostart.sh $HOME/.dwm/
@@ -24,6 +38,14 @@ sudo cp $working_dir/AamonDwmScripts /usr/ -r
 mkdir -p $HOME/.weather
 
 echo "Install complete"
+
+if [ ! $(which slock) ]; then
+	echo "Remeber to install slock"
+fi
+
+if [ ! $(which slstatus) ]; then
+	echo "Remember to install slstatus"
+fi
 
 choices="Show me keybindings\nTake me to the menu\nQuit"
 
