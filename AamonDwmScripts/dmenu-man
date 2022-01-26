@@ -1,0 +1,5 @@
+#! /bin/bash
+
+man -k . | awk '{$3="-"; print $0}' | \
+dmenu -p "Search Man Pages" -i | \
+awk '{print $2, $1}' | tr -d '()' | xargs alacritty -e man

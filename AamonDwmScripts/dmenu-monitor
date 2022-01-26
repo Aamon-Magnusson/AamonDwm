@@ -13,9 +13,7 @@ _remove () {
 
 _add () {
 
-	monitors_to_add="${connected_monitors//$ACTIVE_MONITORS/}"
-
-	mon=$( echo -e "$monitors_to_add" | dmenu -p "Select monitor to add" )
+	mon=$( echo -e "$connected_monitors" | dmenu -p "Select monitor to add" )
 
 	if [ ! $mon ]; then
 		exit 0
