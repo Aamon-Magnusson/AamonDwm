@@ -26,10 +26,14 @@ if [ $choise == "Yes" ];then
 	if [ $(which pacman) ]; then
 		sudo pacman -Suy
 		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot discord feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu
+	else
+		echo -e "Pacman is not installed\n"
 	fi
 	if [ $(which yay) ];then
 		yay -Syu
 		yay -S google-chrome networkmanager-dmenu-git
+	else
+		echo -e "Yay is not installed\n"
 	fi
 	echo "###############################"
 	echo "#####Dependacies installed#####"

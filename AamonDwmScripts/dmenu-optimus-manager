@@ -1,0 +1,8 @@
+#! /bin/bash
+
+choises="hybrid\nintegrated\nhybrid"
+
+mode=$(echo -e $choises | dmenu -i -p "Selsect optimus mode")
+[[ "$mode" = "" ]] && exit 0
+
+alacritty -e optimus-manager --switch "$mode"
