@@ -1,5 +1,9 @@
 #! /bin/bash
 
+echo -e "\n#############################"
+echo "######Starting installer#####"
+echo -e "#############################\n"
+
 if [ ! $(which dmenu) ];then
 	printf "dmenu is not installed, do that first"
 	exit 0
@@ -9,11 +13,16 @@ working_dir=$( echo -e "/home/aamonm/Programming/AamonDwm" | dmenu -p "What is t
 
 sudo make -s clean install
 
-echo "Compile complete"
+echo "##########################"
+echo "#####Compile complete#####"
+echo -e "##########################\n"
 
 choise=$( echo -e "No\nYes" | dmenu -i -p "Would you like to install all repo dependacies? (Arch only)" )
 
 if [ $choise == "Yes" ];then
+	echo "#################################"
+	echo "#####Installing dependancies#####"
+	echo -e "#################################\n"
 	if [ $(which pacman) ]; then
 		sudo pacman -Suy
 		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot discord feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu
@@ -22,7 +31,9 @@ if [ $choise == "Yes" ];then
 		yay -Syu
 		yay -S google-chrome networkmanager-dmenu-git
 	fi
-	echo "Dependacies installed"
+	echo "###############################"
+	echo "#####Dependacies installed#####"
+	echo -e "###############################\n"
 fi
 
 sudo cp $working_dir/CopyFiles/dwm.desktop /usr/share/xsessions/
@@ -37,7 +48,9 @@ sudo rm -r /usr/AamonDwmScripts
 sudo cp $working_dir/AamonDwmScripts /usr/ -r
 mkdir -p $HOME/.weather
 
-echo "Install complete"
+echo "##########################"
+echo "#####Install complete#####"
+echo -e "##########################\n"
 
 if [ ! $(which slock) ]; then
 	echo "Remeber to install slock"
