@@ -13,7 +13,7 @@ mount(){
 	mountpoint="/run/media/$USER/$label"
 
 	if [[ ! -d "$mountpoint" ]]; then
-		mkdiryn=$(echo -e "No\nYes" | dmenu -i -p "$mountpoint does not exist. Create it?")
+		mkdiryn=$(echo -e "Yes\nNo" | dmenu -i -p "$mountpoint does not exist. Create it?")
 		[[ "$mkdiryn" = "Yes" ]] && sudo mkdir -p "$mountpoint"
 	fi
 

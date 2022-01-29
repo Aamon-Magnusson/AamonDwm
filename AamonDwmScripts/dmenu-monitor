@@ -80,7 +80,7 @@ ACTIVE_MONITORS="$(printf "%s\\n" "${xrandr_output}"    | awk '/ connected [^(]/
 #OFFAUTO_OPTS="off\nauto"
 POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
 
-mode=$(echo -e "Remove\nAdd\nMove" | dmenu -p "What would you like to do?")
+mode=$(echo -e "Remove\nAdd\nMove\nArandr" | dmenu -p "What would you like to do?")
 
 if [ ! $mode ]; then
 	exit 0
@@ -90,5 +90,6 @@ case "$mode" in
 	Remove) _remove ;;
 	Add) _add ;;
 	Move) _move ;;
+	Arandr) arandr & ;;
 esac
 
