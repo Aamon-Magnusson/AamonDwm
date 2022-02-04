@@ -17,11 +17,11 @@ echo "##########################"
 echo "#####Compile complete#####"
 echo -e "##########################\n"
 
-choise=$( echo -e "No\nYes" | dmenu -i -p "Would you like to install all repo dependacies? (Arch only)" )
+choise=$( echo -e "No\nYes" | dmenu -i -p "Would you like to install all repo dependencies? (Arch only)" )
 
 if [ $choise == "Yes" ];then
 	echo "#################################"
-	echo "#####Installing dependancies#####"
+	echo "#####Installing dependencies#####"
 	echo -e "#################################\n"
 	if [ $(which pacman) ]; then
 		sudo pacman -Suy
@@ -36,7 +36,7 @@ if [ $choise == "Yes" ];then
 		echo -e "Yay is not installed\n"
 	fi
 	echo "###############################"
-	echo "#####Dependacies installed#####"
+	echo "#####Dependencies installed#####"
 	echo -e "###############################\n"
 fi
 

@@ -1,6 +1,6 @@
 #! /bin/bash
 
-choises="hybrid\nintegrated\nhybrid"
+choises="hybrid\nintegrated\nnvidia"
 
 mode=$(echo -e $choises | dmenu -i -p "Selsect optimus mode")
 [[ "$mode" = "" ]] && exit 0

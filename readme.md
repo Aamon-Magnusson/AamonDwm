@@ -1,8 +1,14 @@
 # Aamon's DWM config
 
-I am currently just getting into the world of tiling window managers, so here we are, my dwm config!!!
+Here is my DWM config.
+
+![Screen shot of config](GeneralView.png)
+
+## Menu
 
 This config includes a dmenu based menu system, which holds several dmenu scripts. To use it hit SUPER + X.
+
+## Instalation
 
 Set up is pretty simple:
 
@@ -13,14 +19,13 @@ cd AamonDwm # or whatever you named the directory
 #after that I would recommend going into lxappearence to apply the themeing
 ```
 
-For a basic display of the keybindings hit SUPER + O. (It'll show in dmenu)
+For a basic display of the keybindings hit SUPER + O.
 
 A list of patches remains inside the Patches folder.
 
 ## Dependencies
 
 For the most part it is pretty easy to change the default programs, like the terminal, but here are the dependencies:
-
 
 ### From Pacman
 
@@ -53,6 +58,4 @@ For the most part it is pretty easy to change the default programs, like the ter
 - dmenu (My [Dmenu config](https://github.com/Aamon-Magnusson/AamonDmenu) can and should be used with this config)
 - slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
 - slstatus (My [slstatus config](https://github.com/Aamon-Magnusson/AamonSlstatus))
-
-### Not yet implemented
 
