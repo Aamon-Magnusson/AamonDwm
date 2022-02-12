@@ -15,7 +15,7 @@ Set up is pretty simple:
 ```
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
-./setup.sh
+./install.sh
 #after that I would recommend going into lxappearence to apply the themeing
 ```
 
@@ -59,3 +59,12 @@ For the most part it is pretty easy to change the default programs, like the ter
 - slock (My [slock config](https://github.com/Aamon-Magnusson/AamonSlock))
 - slstatus (My [slstatus config](https://github.com/Aamon-Magnusson/AamonSlstatus))
 
+## Removal
+
+If for any reason you would like to uninstall AamonDwm the following command can be ran:
+
+```
+./uninstall.sh
+```
+
+Selecting "Yes" will keep some files that are used in other WMs that I have configured. Selecting "Remove All" will remove them as well.
