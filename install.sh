@@ -10,6 +10,7 @@ if [ ! $(which dmenu) ];then
 fi
 
 working_dir=$( echo -e "/home/aamonm/Programming/AamonDwm" | dmenu -p "What is the current dir?" )
+[[ "$working_dir" = "" ]] && echo "Install failed" && exit 0
 
 sudo make -s clean install
 
