@@ -8,6 +8,7 @@ MOD + F                     | file manager (ranger)
 MOD + SHIFT + F             | file manager (pcmanfm)
 MOD + N                     | network manager dmenu
 MOD + B                     | bluetooth manager dmenu
+MOD + U                     | mount drives dmenu
 PRTSCR                      | print screen (flameshot)
 MOD + SHIFT + C             | close window
 MOD + SHIFT + Q             | close dwm

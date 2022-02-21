@@ -16,7 +16,6 @@ Set up is pretty simple:
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
 ./install.sh
-#after that I would recommend going into lxappearence to apply the themeing
 ```
 
 For a basic display of the keybindings hit SUPER + O.
@@ -30,12 +29,12 @@ For the most part it is pretty easy to change the default programs, like the ter
 ### From Pacman
 
 - alacritty
+- discord
 - qutebrowser
 - pcmanfm 
 - ranger
 - xautolock
 - flameshot 
-- discord
 - feh
 - picom
 - pamixer

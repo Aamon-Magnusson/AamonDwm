@@ -69,6 +69,7 @@ static const Layout layouts[] = {
 #define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
 #define RESTART "/usr/AamonDwmScripts/restart-dmenu"
+#define USB "/usr/AamonDwmScripts/dmenu-usb-drives"
 #define TOP "gtop"
 
 /* commands */
@@ -83,6 +84,7 @@ static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
 static const char *options[]				=		{ OPTIONSLOCATION, NULL};
 static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
 static const char *bluedmenu[]				=		{ DMENUBLUE, NULL};
+static const char *usbmount[]				=		{ USB, NULL};
 static const char *shutdown[]				=		{ SHUTDOWN, NULL};
 static const char *reboot[]					=		{ RESTART, NULL};
 static const char *slock[]					=		{ "slock", NULL};
@@ -108,6 +110,7 @@ static Key keys[] = {
 	{MODKEY,						XK_o,	   spawn, 		   {.v = options} },
 	{MODKEY,						XK_n,	   spawn, 		   {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   spawn, 		   {.v = bluedmenu} },
+	{MODKEY,						XK_u,	   spawn, 		   {.v = usbmount} },
 	{MODKEY,						XK_x,	   spawn,		   {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   spawn,		   {.v = appswitch} },
 	{MODKEY,						XK_g,	   spawn,		   {.v = top} },

@@ -26,13 +26,13 @@ if [ $choise == "Yes" ];then
 	echo -e "#################################\n"
 	if [ $(which pacman) ]; then
 		sudo pacman -Suy
-		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot discord feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu
+		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu discord 
 	else
 		echo -e "Pacman is not installed\n"
 	fi
 	if [ $(which yay) ];then
 		yay -Syu
-		yay -S google-chrome networkmanager-dmenu-git
+		yay -S google-chrome networkmanager-dmenu-git 
 	else
 		echo -e "Yay is not installed\n"
 	fi
@@ -48,6 +48,8 @@ mkdir -p $HOME/.config/dunst
 cp $working_dir/CopyFiles/dunstrc $HOME/.config/dunst/
 cp $working_dir/CopyFiles/AamonGTK3 $HOME/.themes/ -r
 cp $working_dir/CopyFiles/AamonIcons $HOME/.icons/ -r
+gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
+gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
 cp $working_dir/CopyFiles/Backgrounds $HOME/Desktop/ -r
 sudo rm -r /usr/AamonDwmScripts
 sudo cp $working_dir/AamonDwmScripts /usr/ -r
