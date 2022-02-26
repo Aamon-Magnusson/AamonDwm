@@ -27,8 +27,6 @@ cd AamonDwm # or whatever you named the directory
 ./install.sh
 ```
 
-***One thing that should be done before the install script is changing the username in slock's config.h file***
-
 For a basic display of the keybindings hit SUPER + O.
 
 A list of patches remains inside the Patches folder.
