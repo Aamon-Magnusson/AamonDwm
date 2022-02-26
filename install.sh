@@ -4,17 +4,33 @@ echo -e "\n#############################"
 echo "######Starting installer#####"
 echo -e "#############################\n"
 
-if [ ! $(which dmenu) ];then
-	printf "dmenu is not installed, do that first"
-	exit 0
-fi
-
-working_dir=$( echo -e "/home/aamonm/Programming/AamonDwm" | dmenu -p "What is the current dir?" )
-[[ "$working_dir" = "" ]] && echo "Install failed" && exit 0
+echo -e "\n#############################"
+echo -e "#Compiling Suckless programs#"
+echo -e "#############################\n"
 
 cd AamonDwm
 sudo make -s clean install
 cd ..
+
+echo -e "DWM Compiled\n"
+
+cd AamonDmenu
+sudo make -s clean install
+cd ..
+
+echo -e "DMENU Compiled\n"
+
+cd AamonSlstatus
+sudo make -s clean install
+cd ..
+
+echo -e "SLSTATUS Compiled\n"
+
+cd AamonSlock
+sudo make -s clean install
+cd ..
+
+echo -e "SLOCK Compiled\n"
 
 echo "##########################"
 echo "#####Compile complete#####"
@@ -43,31 +59,23 @@ if [ $choise == "Yes" ];then
 	echo -e "###############################\n"
 fi
 
-sudo cp $working_dir/CopyFiles/dwm.desktop /usr/share/xsessions/
+sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
 mkdir -p $HOME/.dwm
-cp $working_dir/CopyFiles/autostart.sh $HOME/.dwm/
+cp CopyFiles/autostart.sh $HOME/.dwm/
 mkdir -p $HOME/.config/dunst
-cp $working_dir/CopyFiles/dunstrc $HOME/.config/dunst/
-cp $working_dir/CopyFiles/AamonGTK3 $HOME/.themes/ -r
-cp $working_dir/CopyFiles/AamonIcons $HOME/.icons/ -r
+cp CopyFiles/dunstrc $HOME/.config/dunst/
+cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
+cp CopyFiles/AamonIcons $HOME/.icons/ -r
 gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
 gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
-cp $working_dir/CopyFiles/Backgrounds $HOME/Desktop/ -r
+cp CopyFiles/Backgrounds $HOME/Desktop/ -r
 sudo rm -r /usr/AamonDwmScripts
-sudo cp $working_dir/Scripts /usr/AamonDwmScripts -r
+sudo cp Scripts /usr/AamonDwmScripts -r
 mkdir -p $HOME/.weather
 
 echo "##########################"
 echo "#####Install complete#####"
 echo -e "##########################\n"
-
-if [ ! $(which slock) ]; then
-	echo "Remeber to install slock"
-fi
-
-if [ ! $(which slstatus) ]; then
-	echo "Remember to install slstatus"
-fi
 
 choices="Show me keybindings\nTake me to the menu\nQuit"
 
