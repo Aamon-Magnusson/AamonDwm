@@ -11,6 +11,8 @@ Included are other Suckless pieces of software:
 
 My config is meant to be simple and functional.
 
+If you would like exactyly what I use us my [Dot files](https://github.com/Aamon-Magnusson/Dotfiles)
+
 ## Menu
 
 This config includes a dmenu based menu system, which holds several dmenu scripts. To use it hit SUPER + X.
