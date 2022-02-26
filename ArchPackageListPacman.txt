@@ -1,0 +1,17 @@
+alacritty
+discord
+qutebrowser
+pcmanfm
+ranger
+xautolock
+flameshot
+feh
+picom
+pamixer
+dunst
+gtop
+xorg-xrandr
+arandr
+bluez-utils
+wmctrl
+clipmenu

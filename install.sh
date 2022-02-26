@@ -28,13 +28,13 @@ if [ $choise == "Yes" ];then
 	echo -e "#################################\n"
 	if [ $(which pacman) ]; then
 		sudo pacman -Suy
-		sudo pacman -S alacritty qutebrowser pcmanfm ranger xautolock flameshot feh picom pamixer dunst gtop xorg-xrandr arandr lxappearance bluez-utils wmctrl clipmenu discord 
+		sudo pacman -S --needed - < ArchPackageListPacman.txt
 	else
 		echo -e "Pacman is not installed\n"
 	fi
 	if [ $(which yay) ];then
-		yay -Syu
-		yay -S google-chrome networkmanager-dmenu-git 
+		yay -Sua
+		yay -S - < ArchPackageListYay.txt
 	else
 		echo -e "Yay is not installed\n"
 	fi
@@ -54,7 +54,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
 gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
 cp $working_dir/CopyFiles/Backgrounds $HOME/Desktop/ -r
 sudo rm -r /usr/AamonDwmScripts
-sudo cp $working_dir/AamonDwmScripts /usr/ -r
+sudo cp $working_dir/Scripts /usr/AamonDwmScripts -r
 mkdir -p $HOME/.weather
 
 echo "##########################"
