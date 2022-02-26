@@ -12,8 +12,10 @@ fi
 
 if [[ $choice == "CurrentLocation" ]]; then
 	curl wttr.in > $path
-	alacritty -t "Weather"  -e less $path & 
+	#alacritty -e less $path &
 else
 	curl wttr.in/$choice > $path
-	alacritty -t "Weather" -e less $path &
+	#alacritty -e less $path &
 fi
+
+echo $path | xargs alacritty -e man
