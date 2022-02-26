@@ -12,10 +12,8 @@ fi
 
 if [[ $choice == "CurrentLocation" ]]; then
 	curl wttr.in > $path
-	#alacritty -e less $path &
 else
 	curl wttr.in/$choice > $path
-	#alacritty -e less $path &
 fi
 
-echo $path | xargs alacritty -e man
+setsid -f alacritty -e less -Srf $path
