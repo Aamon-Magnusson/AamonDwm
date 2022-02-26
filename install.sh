@@ -27,7 +27,16 @@ cd ..
 echo -e "SLSTATUS Compiled\n"
 
 cd AamonSlock
-sudo make -s clean install
+
+name=$(echo -e "aamonm\nIf your group does not match your user exit" | dmenu -p "Enter your user/group name" -l 2 )
+if [ "$name" == "If your group does not match your user exit" ] || [ "$name" == "" ];then
+	echo "SLOCK skipped!!!"
+	echo -e "Slock should be manually installed\n"
+else
+	sed -i "s/aamonm/$name/g" config.h
+	sudo make -s clean install
+fi
+
 cd ..
 
 echo -e "SLOCK Compiled\n"
