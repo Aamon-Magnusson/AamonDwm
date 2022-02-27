@@ -55,5 +55,3 @@ They can also be installed automatically with the install script.
 
 - Make the setup work on Debian based distros
 - Have dynamic color theming for Suckless programs (header file)
-:q
-:q
