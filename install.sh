@@ -1,10 +1,10 @@
 #! /bin/bash
 
 echo -e "\n#############################"
-echo "######Starting installer#####"
+echo -e "######Starting installer#####"
 echo -e "#############################\n"
 
-echo -e "\n#############################"
+echo -e "#############################"
 echo -e "#Compiling Suckless programs#"
 echo -e "#############################\n"
 
@@ -20,24 +20,29 @@ cd ..
 
 echo -e "DMENU Compiled\n"
 
-cd AamonSlstatus
-sudo make -s clean install
-cd ..
-
-echo -e "SLSTATUS Compiled\n"
-
-cd AamonSlock
-
-name=$(echo -e "aamonm\nIf your group does not match your user exit" | dmenu -p "Enter your user/group name" -l 2 )
-if [ "$name" == "If your group does not match your user exit" ] || [ "$name" == "" ];then
-	echo "SLOCK skipped!!!"
-	echo -e "Slock should be manually installed\n"
-else
-	sed -i "s/aamonm/$name/g" config.h
+sls=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install slstatus?" -i )
+if [ "$sls" == "Yes" ];then
+	cd AamonSlstatus
 	sudo make -s clean install
+	cd ..
+
+	echo -e "SLSTATUS Compiled\n"
 fi
 
-cd ..
+slock=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install slock?" -i )
+if [ "$slock" == "Yes" ];then
+	cd AamonSlock
+	name=$(echo -e "aamonm\nIf your group does not match your user exit" | dmenu -p "Enter your user/group name" -l 2 )
+	if [ "$name" == "If your group does not match your user exit" ] || [ "$name" == "" ];then
+		echo "SLOCK skipped!!!"
+		echo -e "Slock should be manually installed\n"
+	else
+		sed -i "s/aamonm/$name/g" config.h
+		sudo make -s clean install
+	fi
+
+	cd ..
+fi
 
 echo -e "SLOCK Compiled\n"
 
@@ -67,6 +72,10 @@ if [ $choise == "Yes" ];then
 	echo "#####Dependencies installed#####"
 	echo -e "###############################\n"
 fi
+
+echo "##########################"
+echo "######Copying files#######"
+echo -e "##########################\n"
 
 sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
 mkdir -p $HOME/.dwm

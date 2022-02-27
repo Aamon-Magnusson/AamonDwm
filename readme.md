@@ -17,6 +17,8 @@ If you would like exactyly what I use us my [Dot files](https://github.com/Aamon
 
 This config includes a dmenu based menu system, which holds several dmenu scripts. To use it hit SUPER + X.
 
+![Screen shot of menu](dmenuMenu.png)
+
 The scripts included in the menu will be added to frequently.
 
 ## Instalation
@@ -31,7 +33,7 @@ cd AamonDwm # or whatever you named the directory
 
 For a basic display of the keybindings hit SUPER + O.
 
-A list of patches remains inside the Patches folder.
+A list of patches remains inside the Patches folder of each Suckless programs folder.
 
 ## Removal
 
@@ -53,4 +55,5 @@ They can also be installed automatically with the install script.
 
 - Make the setup work on Debian based distros
 - Have dynamic color theming for Suckless programs (header file)
-- Give options for which programs to install
+:q
+:q
