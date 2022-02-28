@@ -14,9 +14,22 @@ cd ..
 
 echo -e "DWM Compiled\n"
 
-cd AamonDmenu
-sudo make -s clean install
-cd ..
+if [ ! $(which dmenu) ];then
+	sudo rm AamonDmenu -r
+	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
+	cd AamonDmenu
+	sudo make -s clean install
+	cd ..
+else
+	menu=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install dmenu?" -i )
+	if [ $menu == "Yes" ];then
+		sudo rm AamonDmenu -r
+		git clone https://github.com/Aamon-Magnusson/AamonDmenu 
+		cd AamonDmenu
+		sudo make -s clean install
+		cd ..
+	fi
+fi
 
 echo -e "DMENU Compiled\n"
 
