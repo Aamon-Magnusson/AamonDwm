@@ -11,7 +11,7 @@ Included are other Suckless pieces of software:
 
 My config is meant to be simple and functional.
 
-If you would like exactyly what I use us my [Dot files](https://github.com/Aamon-Magnusson/Dotfiles)
+If you would like exactly what I use us my [Dot files](https://github.com/Aamon-Magnusson/Dotfiles)
 
 ## Menu
 
@@ -21,7 +21,7 @@ This config includes a dmenu based menu system, which holds several dmenu script
 
 The scripts included in the menu will be added to frequently.
 
-## Instalation
+## Installation
 
 Set up is pretty simple:
 
