@@ -8,11 +8,14 @@ echo -e "#############################"
 echo -e "#Compiling Suckless programs#"
 echo -e "#############################\n"
 
-cd AamonDwm
-sudo make -s clean install
-cd ..
+wm=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install DWM?" -i )
+if [ "$sls" == "Yes" ];then
+	cd AamonDwm
+	sudo make -s clean install
+	cd ..
 
-echo -e "DWM Compiled\n"
+	echo -e "DWM Compiled\n"
+fi
 
 if [ ! $(which dmenu) ];then
 	sudo rm AamonDmenu -r
@@ -28,10 +31,10 @@ else
 		cd AamonDmenu
 		sudo make -s clean install
 		cd ..
+
+		echo -e "DMENU Compiled\n"
 	fi
 fi
-
-echo -e "DMENU Compiled\n"
 
 sls=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install slstatus?" -i )
 if [ "$sls" == "Yes" ];then
@@ -55,15 +58,15 @@ if [ "$slock" == "Yes" ];then
 	fi
 
 	cd ..
-fi
 
-echo -e "SLOCK Compiled\n"
+	echo -e "SLOCK Compiled\n"
+fi
 
 echo "##########################"
 echo "#####Compile complete#####"
 echo -e "##########################\n"
 
-choise=$( echo -e "No\nYes" | dmenu -i -p "Would you like to install all repo dependencies? (Arch only)" )
+choise=$( echo -e "Yes\nNo" | dmenu -i -p "Would you like to install all repo dependencies? (Arch only)" )
 
 if [ $choise == "Yes" ];then
 	echo "#################################"
@@ -87,6 +90,25 @@ if [ $choise == "Yes" ];then
 fi
 
 echo "##########################"
+echo "#########Theming##########"
+echo -e "##########################\n"
+
+theme=$( echo -e "Yes\nNo" | dmenu -p "Would you like to change GTK theme?" -i )
+if [ $theme == "Yes" ];then
+	sudo rm ~/.themes/Dracula -r
+	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
+	cp CopyFiles/Dracula ~/.icons -r
+
+	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
+	cp CopyFiles/AamonIcons $HOME/.icons/ -r
+	#gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
+	#gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
+	echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3 or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
+	lxappearance &>/dev/null
+	#./test.sh 
+fi
+
+echo "##########################"
 echo "######Copying files#######"
 echo -e "##########################\n"
 
@@ -95,10 +117,6 @@ mkdir -p $HOME/.dwm
 cp CopyFiles/autostart.sh $HOME/.dwm/
 mkdir -p $HOME/.config/dunst
 cp CopyFiles/dunstrc $HOME/.config/dunst/
-cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
-cp CopyFiles/AamonIcons $HOME/.icons/ -r
-gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
-gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
 cp CopyFiles/Backgrounds $HOME/Desktop/ -r
 sudo rm -r /usr/AamonDwmScripts
 sudo cp Scripts /usr/AamonDwmScripts -r
