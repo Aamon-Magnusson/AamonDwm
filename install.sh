@@ -84,7 +84,7 @@ dependencies() {
 			echo -e "Yay is not installed\n"
 		fi
 		echo "###############################"
-		echo "#####Dependencies installed#####"
+		echo "#####Dependencies installed####"
 		echo -e "###############################\n"
 	fi
 }
@@ -139,21 +139,28 @@ helpMenu() {
 	echo -e "\t-h:\t Show this menu\n"
 }
 
-if [ $1 == "-c" ];then
-	fileCopy
-elif [ $1 == "-s" ];then
+if [ -z $1 ];then
 	suckless
-elif [ $1 == "-t" ];then
-	themes
-elif [ $1 == "-d" ];then
 	dependencies
-elif [ $1 == "-h" ];then
-	helpMenu
+	themes
+	fileCopy
 else
-	suckless
-	dependencies
-	themes
-	fileCopy
+	if [ $1 == "-c" ];then
+		fileCopy
+	elif [ $1 == "-s" ];then
+		suckless
+	elif [ $1 == "-t" ];then
+		themes
+	elif [ $1 == "-d" ];then
+		dependencies
+	elif [ $1 == "-h" ];then
+		helpMenu
+	else
+		suckless
+		dependencies
+		themes
+		fileCopy
+	fi
 fi
 
 echo "##########################"
