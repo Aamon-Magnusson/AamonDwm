@@ -47,15 +47,10 @@ fi
 
 slock=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install slock?" -i )
 if [ "$slock" == "Yes" ];then
+	sudo rm AamonSlock -r
+	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
-	name=$(echo -e "aamonm\nIf your group does not match your user exit" | dmenu -p "Enter your user/group name" -l 2 )
-	if [ "$name" == "If your group does not match your user exit" ] || [ "$name" == "" ];then
-		echo "SLOCK skipped!!!"
-		echo -e "Slock should be manually installed\n"
-	else
-		sed -i "s/aamonm/$name/g" config.h
-		sudo make -s clean install
-	fi
+	./install.sh
 
 	cd ..
 
