@@ -84,38 +84,40 @@ if [ $choise == "Yes" ];then
 	echo -e "###############################\n"
 fi
 
-echo "##########################"
-echo "#########Theming##########"
-echo -e "##########################\n"
-
 theme=$( echo -e "Yes\nNo" | dmenu -p "Would you like to change GTK theme?" -i )
 if [ $theme == "Yes" ];then
+	echo "##########################"
+	echo "#########Theming##########"
+	echo -e "##########################\n"
+
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
 	cp CopyFiles/Dracula ~/.icons -r
 
 	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
 	cp CopyFiles/AamonIcons $HOME/.icons/ -r
-	#gsettings set org.gnome.desktop.interface gtk-theme "AamonGTK3"
-	#gsettings set org.gnome.desktop.interface icon-theme "AamonIcons"
 	echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3 or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
 	lxappearance &>/dev/null
-	#./test.sh 
 fi
 
-echo "##########################"
-echo "######Copying files#######"
-echo -e "##########################\n"
+copy=$( echo -e "Yes\nNo" | dmenu -p "Would you like to copy all files?" -i )
+if [ $copy == "Yes" ];then
 
-sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
-mkdir -p $HOME/.dwm
-cp CopyFiles/autostart.sh $HOME/.dwm/
-mkdir -p $HOME/.config/dunst
-cp CopyFiles/dunstrc $HOME/.config/dunst/
-cp CopyFiles/Backgrounds $HOME/Desktop/ -r
-sudo rm -r /usr/AamonDwmScripts
-sudo cp Scripts /usr/AamonDwmScripts -r
-mkdir -p $HOME/.weather
+	echo "##########################"
+	echo "######Copying files#######"
+	echo -e "##########################\n"
+	
+	sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
+	mkdir -p $HOME/.dwm
+	cp CopyFiles/autostart.sh $HOME/.dwm/
+	mkdir -p $HOME/.config/dunst
+	cp CopyFiles/dunstrc $HOME/.config/dunst/
+	cp CopyFiles/Backgrounds $HOME/Desktop/ -r
+	sudo rm -r /usr/AamonDwmScripts
+	sudo cp Scripts /usr/AamonDwmScripts -r
+	mkdir -p $HOME/.weather
+
+fi
 
 echo "##########################"
 echo "#####Install complete#####"
