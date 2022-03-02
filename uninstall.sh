@@ -13,10 +13,6 @@ cd AamonSlstatus
 sudo make uninstall
 cd ..
 
-cd AamonSlock
-sudo make uninstall
-cd ..
-
 sudo rm /usr/share/xsessions/dwm.desktop
 sudo rm $HOME/.dwm -r
 sudo rm -r /usr/AamonDwmScripts
@@ -31,6 +27,10 @@ sudo rm $HOME/.weather -r
 
 cd AamonDmenu
 sudo make uninsall
+cd ..
+
+cd AamonSlock
+sudo make uninstall
 cd ..
 
 echo "All Dwm config files removed"
