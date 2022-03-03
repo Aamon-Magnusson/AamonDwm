@@ -25,10 +25,10 @@ The scripts included in the menu will be added to frequently.
 
 Set up is pretty simple:
 
-```
+```bash
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
-./install.sh
+./install.sh # run with the -cli option if you are running this from a tty
 ```
 
 For a basic display of the keybindings hit SUPER + O.
@@ -39,7 +39,7 @@ A list of patches remains inside the Patches folder of each Suckless programs fo
 
 If for any reason you would like to uninstall AamonDwm the following command can be ran:
 
-```
+```bash
 ./uninstall.sh
 ```
 

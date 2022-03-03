@@ -16,3 +16,4 @@ bluez-utils
 wmctrl
 clipmenu
 lxappearance
+ttf-joypixels
