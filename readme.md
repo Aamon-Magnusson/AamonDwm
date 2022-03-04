@@ -31,7 +31,7 @@ cd AamonDwm # or whatever you named the directory
 ./install.sh # run with the -cli option if you are running this from a tty
 ```
 
-on `install.sh` the `-h` can be used to show the options
+On `install.sh` the `-h` can be used to show the options
 
 For a basic display of the keybindings hit SUPER + O.
 

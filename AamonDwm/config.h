@@ -29,10 +29,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "alacritty",  NULL,       "Weather",       0,       1,           -1 },
 };
 
 /* layout(s) */
@@ -127,8 +124,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },		// This switches the current master
+	{ MODKEY,                       XK_Tab,    view,           {0} },		// This jumps to the last tag
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 //	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
@@ -157,8 +154,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	/* Quit and restart DWM*/
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },	// This quits DWM
+	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   quit,		   {1} },	// This restarts DWM
 	{ MODKEY|ShiftMask,				XK_p,	   spawn,		   {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_r,	   spawn,		   {.v = reboot} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = slock} },
