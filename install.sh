@@ -30,7 +30,7 @@ cli() {
 	sudo rm AamonSlock -r
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
-	./installTerm.sh
+	./instal.sh -cli
 	
 	cd ..
 	
@@ -222,22 +222,24 @@ if [ -z $1 ];then
 else
 	if [ $1 == "-c" ];then
 		fileCopy
+		endInstall
 	elif [ $1 == "-s" ];then
 		suckless
+		endInstall
 	elif [ $1 == "-t" ];then
 		themes
+		endInstall
 	elif [ $1 == "-d" ];then
 		dependencies
+		endInstall
 	elif [ $1 == "-h" ];then
 		helpMenu
+		endInstall
 	elif [ $1 == "-cli" ];then
 		cli
-	else
-		suckless
-		dependencies
-		themes
-		fileCopy
 		endInstall
+	else
+		helpMenu
 	fi
 fi
 

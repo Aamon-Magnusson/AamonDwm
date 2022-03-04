@@ -11,7 +11,7 @@ Included are other Suckless pieces of software:
 
 My config is meant to be simple and functional.
 
-If you would like exactly what I use us my [Dot files](https://github.com/Aamon-Magnusson/Dotfiles)
+If you would like exactly what I use here are my [Dot files](https://github.com/Aamon-Magnusson/Dotfiles)
 
 ## Menu
 
@@ -30,6 +30,8 @@ git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
 ./install.sh # run with the -cli option if you are running this from a tty
 ```
+
+on `install.sh` the `-h` can be used to show the options
 
 For a basic display of the keybindings hit SUPER + O.
 
