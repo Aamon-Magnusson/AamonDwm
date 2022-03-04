@@ -213,6 +213,21 @@ helpMenu() {
 	echo -e "\t-cli:\tTerminal only install\n"
 }
 
+endInstall() {
+	echo "##########################"
+	echo "#####Install complete#####"
+	echo -e "##########################\n"
+	
+	choices="Show me keybindings\nTake me to the menu\nQuit"
+	
+	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" )
+	
+	case $action in
+		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
+		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
+	esac
+}
+
 if [ -z $1 ];then
 	suckless
 	dependencies
@@ -243,17 +258,3 @@ else
 	fi
 fi
 
-endInstall() {
-	echo "##########################"
-	echo "#####Install complete#####"
-	echo -e "##########################\n"
-	
-	choices="Show me keybindings\nTake me to the menu\nQuit"
-	
-	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" )
-	
-	case $action in
-		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
-		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
-	esac
-}
