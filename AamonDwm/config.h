@@ -102,8 +102,8 @@ static Key keys[] = {
 	/* Program spawn key bindings*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_c,      spawn,          {.v = qutebrowser } },
-	{ MODKEY|ControlMask,			XK_c,	   spawn,		   {.v = browsercmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = browsercmd } },
+	{ MODKEY|ControlMask,			XK_c,	   spawn,		   {.v = qutebrowser } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = termfilemanagercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = guifilemanagercmd } },
 	{0, 							XK_Print,  spawn,		   {.v = printscreencmd } },

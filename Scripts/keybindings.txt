@@ -2,8 +2,8 @@ MOD + SHIFT + ENTER         | terminal (alacritty)
 MOD + R                     | dmenu_run
 MOD + X                     | dmenu menu
 MOD + A                     | app switcher
-MOD + C                     | browser (qutebrowser)
-MOD + CONTROL + C           | browser (chrome)
+MOD + C                     | browser (chrome)
+MOD + CONTROL + C           | browser (qutebrowser)
 MOD + F                     | file manager (ranger)
 MOD + SHIFT + F             | file manager (pcmanfm)
 MOD + N                     | network manager dmenu
