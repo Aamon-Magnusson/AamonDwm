@@ -9,7 +9,6 @@ dwmFun() {
 }
 	
 dmenuFun() {
-	sudo rm -r AamonDmenu
 	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
 	cd AamonDmenu
 	sudo make -s clean install
@@ -28,7 +27,6 @@ slsFun() {
 }
 	
 slockFun() {
-	sudo rm AamonSlock -r
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
 	if [ -z $1 ];then

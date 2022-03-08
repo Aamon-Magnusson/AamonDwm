@@ -31,11 +31,13 @@ cd AamonDwm # or whatever you named the directory
 ./install.sh # run with the -cli option if you are running this from a tty
 ```
 
-On `install.sh` the `-h` can be used to show the options
+On `install.sh` the `-h` can be used to show the options.
+To re-install any of the Suckless programs, especially Dmenu and Slock `./install.sh -s` should be used.
 
 For a basic display of the keybindings hit SUPER + O.
 
 A list of patches remains inside the Patches folder of each Suckless programs folder.
+(For (Dmenu)[https://github.com/Aamon-Magnusson/AamonDmenu] and (Slock)[https://github.com/Aamon-Magnusson/AamonSlock] it will only be seen in the respective repo)
 
 ## Removal
 
