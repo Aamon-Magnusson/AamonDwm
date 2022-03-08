@@ -37,7 +37,7 @@ To re-install any of the Suckless programs, especially Dmenu and Slock `./instal
 For a basic display of the keybindings hit SUPER + O.
 
 A list of patches remains inside the Patches folder of each Suckless programs folder.
-(For (Dmenu)[https://github.com/Aamon-Magnusson/AamonDmenu] and (Slock)[https://github.com/Aamon-Magnusson/AamonSlock] it will only be seen in the respective repo)
+(For [Dmenu](https://github.com/Aamon-Magnusson/AamonDmenu) and [Slock](https://github.com/Aamon-Magnusson/AamonSlock) it will only be seen in the respective repo)
 
 ## Removal
 
