@@ -216,7 +216,6 @@ else
 		endInstall
 	elif [ $1 == "-h" ];then
 		helpMenu
-		endInstall
 	elif [ $1 == "-cli" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
