@@ -18,10 +18,10 @@ if [ -z $1 ];then
 	
 	group=$(echo -e "aamonm\nwheel" | dmenu -p "Enter your group name:" -l 3 )
 elif [ $1 == "-cli" ];then
-	echo "Please enter your username:"
+	echo -e "\nPlease enter your username:"
 	read name
 	
-	echo "Please enter your group name:"
+	echo -e "\nPlease enter your group name:"
 	read group
 elif [ $1 == "-h" ];then
 	helpMenu
