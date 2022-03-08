@@ -14,6 +14,7 @@ dmenuFun() {
 	cd AamonDmenu
 	sudo make -s clean install
 	cd ..
+	sudo rm -r AamonDmenu
 
 	echo -e "DMENU Compiled\n"
 }
@@ -27,7 +28,6 @@ slsFun() {
 }
 	
 slockFun() {
-	echo $2
 	sudo rm AamonSlock -r
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
@@ -37,6 +37,7 @@ slockFun() {
 		./install.sh -cli
 	fi
 	cd ..
+	sudo rm AamonSlock -r
 
 	echo -e "SLOCK Compiled\n"
 }
