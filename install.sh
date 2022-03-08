@@ -31,18 +31,11 @@ slockFun() {
 	sudo rm AamonSlock -r
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
-	./install.sh
-	cd ..
-
-	echo -e "SLOCK Compiled\n"
-}
-
-slockFunCli() {
-	echo $2
-	sudo rm AamonSlock -r
-	git clone https://github.com/Aamon-Magnusson/AamonSlock
-	cd AamonSlock
-	./install.sh -cli
+	if [ -z $1 ];then
+		./install.sh
+	else
+		./install.sh -cli
+	fi
 	cd ..
 
 	echo -e "SLOCK Compiled\n"
@@ -228,7 +221,7 @@ else
 		dwmFun
 		dmenuFun
 		slsFun
-		slockFunCli 
+		slockFun -cli
 
 		echo "##########################"
 		echo "#####Compile complete#####"
