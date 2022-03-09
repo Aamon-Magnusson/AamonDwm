@@ -1,0 +1,8 @@
+#! /bin/bash
+
+time=$( echo -e "5 minutes\n10 minutes\n30 minutes\n60 minutes (1 hour)\n180 minutes (3 hours)" | dmenu -p "How long before the system should sleep automatically?" -i | awk '{print $1}' )
+[[ "$time" == "" ]] && exit 0
+
+killall xautolock
+
+xautolock -time $time -locker slock &
