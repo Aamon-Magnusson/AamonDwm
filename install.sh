@@ -1,6 +1,6 @@
 #! /bin/bash
 
-dwmFun() {	
+dwmFun () {	
 	cd AamonDwm
 	sudo make -s clean install
 	cd ..
@@ -8,7 +8,7 @@ dwmFun() {
 	echo -e "DWM Compiled\n"
 }
 	
-dmenuFun() {
+dmenuFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
 	cd AamonDmenu
 	sudo make -s clean install
@@ -18,7 +18,7 @@ dmenuFun() {
 	echo -e "DMENU Compiled\n"
 }
 	
-slsFun() {
+slsFun () {
 	cd AamonSlstatus
 	sudo make -s clean install
 	cd ..
@@ -26,7 +26,7 @@ slsFun() {
 	echo -e "SLSTATUS Compiled\n"
 }
 	
-slockFun() {
+slockFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
 	if [ -z $1 ];then
@@ -40,7 +40,7 @@ slockFun() {
 	echo -e "SLOCK Compiled\n"
 }
 
-dependencies() {
+dependencies () {
 	echo "#################################"
 	echo "#####Installing dependencies#####"
 	echo -e "#################################\n"
@@ -61,7 +61,7 @@ dependencies() {
 	echo -e "###############################\n"
 }
 
-themes() {
+themes () {
 	echo "##########################"
 	echo "#########Theming##########"
 	echo -e "##########################\n"
@@ -76,7 +76,7 @@ themes() {
 	lxappearance &>/dev/null
 }
 
-cliTheme() {
+cliTheme () {
 	echo "##########################"
 	echo "#########Theming##########"
 	echo -e "##########################\n"
@@ -90,7 +90,7 @@ cliTheme() {
 	echo -e "\nlxappearance should be used to set the GTK theme and icon set\nYou may either use AamonGTK3 or Dracula."
 }
 	
-fileCopy() {
+fileCopy () {
 	echo "##########################"
 	echo "######Copying files#######"
 	echo -e "##########################\n"
@@ -106,14 +106,14 @@ fileCopy() {
 	mkdir -p $HOME/.weather
 }
 
-dmenuPrompt() {
+dmenuPrompt () {
 	var=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install $1?" -i )
 	if [ $var == "Yes" ];then
 		$2 
 	fi
 }
 
-helpMenu() {
+helpMenu () {
 	echo "usage: ./install.sh [option]"
 	echo "options:"
 	echo -e "\tnone:\t Run all functions"
@@ -125,7 +125,7 @@ helpMenu() {
 	echo -e "\t-cli:\tTerminal only install"
 }
 
-endInstall() {
+endInstall () {
 	echo "##########################"
 	echo "#####Install complete#####"
 	echo -e "##########################\n"
@@ -227,7 +227,7 @@ else
 		echo -e "##########################\n"
 
 		dependencies
-		cliIheme
+		cliTheme
 		fileCopy
 
 		echo "##########################"
