@@ -2,9 +2,10 @@
 
 dwmFun () {	
 	cd AamonDwm
+	sed -i "s/pink.h/white.h/g" config.h
 	sudo make -s clean install
+	sed -i "s/white.h/pink.h/g" config.h
 	cd ..
-
 	echo -e "DWM Compiled\n"
 }
 	
@@ -14,7 +15,6 @@ dmenuFun () {
 	sudo make -s clean install
 	cd ..
 	sudo rm -r AamonDmenu
-
 	echo -e "DMENU Compiled\n"
 }
 	
@@ -22,7 +22,6 @@ slsFun () {
 	cd AamonSlstatus
 	sudo make -s clean install
 	cd ..
-
 	echo -e "SLSTATUS Compiled\n"
 }
 	
@@ -36,7 +35,6 @@ slockFun () {
 	fi
 	cd ..
 	sudo rm AamonSlock -r
-
 	echo -e "SLOCK Compiled\n"
 }
 
@@ -65,14 +63,12 @@ themes () {
 	echo "##########################"
 	echo "#########Theming##########"
 	echo -e "##########################\n"
-
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
 	cp CopyFiles/Dracula ~/.icons -r
-
 	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
 	cp CopyFiles/AamonIcons $HOME/.icons/ -r
-	echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3 or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
+	echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
 	lxappearance &>/dev/null
 }
 
@@ -80,21 +76,18 @@ cliTheme () {
 	echo "##########################"
 	echo "#########Theming##########"
 	echo -e "##########################\n"
-
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
 	cp CopyFiles/Dracula ~/.icons -r
-
 	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
 	cp CopyFiles/AamonIcons $HOME/.icons/ -r
-	echo -e "\nlxappearance should be used to set the GTK theme and icon set\nYou may either use AamonGTK3 or Dracula."
+	echo -e "\nlxappearance should be used to set the GTK theme and icon set\nYou may either use AamonGTK3/AamonIcons or Dracula."
 }
 	
 fileCopy () {
 	echo "##########################"
 	echo "######Copying files#######"
 	echo -e "##########################\n"
-	
 	sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
 	mkdir -p $HOME/.dwm
 	cp CopyFiles/autostart.sh $HOME/.dwm/
@@ -152,16 +145,13 @@ if [ -z $1 ];then
 	echo -e "#############################"
 	echo -e "#Compiling Suckless programs#"
 	echo -e "#############################\n"
-
 	dmenuPrompt "dwm" dwmFun
 	dmenuPrompt "dmenu" dmenuFun
 	dmenuPrompt "slstatus" slsFun
 	dmenuPrompt "slock" slockFun 
-
 	echo "##########################"
 	echo "#####Compile complete#####"
 	echo -e "##########################\n"
-
 	dmenuPrompt "all dependencies" dependencies
 	dmenuPrompt "gtk themes" themes
 	dmenuPrompt "all files" fileCopy
@@ -171,23 +161,19 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-
 		dmenuPrompt "all files" fileCopy
 		endInstall
 	elif [ $1 == "-s" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
-	
 		dmenuPrompt "dwm" dwmFun
 		dmenuPrompt "dmenu" dmenuFun
 		dmenuPrompt "slstatus" slsFun
 		dmenuPrompt "slock" slockFun 
-	
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
@@ -196,14 +182,12 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-
 		dmenuPrompt "gtk themes" themes
 		endInstall
 	elif [ $1 == "-d" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-
 		dmenuPrompt "all dependencies" dependencies
 		endInstall
 	elif [ $1 == "-h" ];then
@@ -212,24 +196,19 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
-
 		dwmFun
 		dmenuFun
 		slsFun
 		slockFun -cli
-
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
-
 		dependencies
 		cliTheme
 		fileCopy
-
 		echo "##########################"
 		echo "#####Install complete#####"
 		echo -e "##########################\n"

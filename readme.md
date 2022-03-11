@@ -58,4 +58,4 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
-- Have dynamic color theming for Suckless programs (header file)
+- Dynamic colors (Header files) (WIP)
