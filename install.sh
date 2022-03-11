@@ -1,10 +1,35 @@
 #! /bin/bash
 
 dwmFun () {	
+	if [ -z $1 ];then
+		color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -p "What color scheme would you like dwm to follow?" -i )
+		[[ "$color" == "" ]] && color="pink"
+	else
+		echo "1) pink"
+		echo "2) dracula"
+		echo "3) white"
+		echo "4) blue"
+		echo "From the colors above select the number you would like to use."
+		read index
+		case $index in
+			1)
+				color="pink" ;;
+			2)
+				color="dracula" ;;
+			3)
+				color="white" ;;
+			4)
+				color="blue" ;;
+			*)
+				color="pink" ;;
+		esac
+	fi
+	ex=".h"
+	header="$color$ex"
 	cd AamonDwm
-	sed -i "s/pink.h/white.h/g" config.h
+	sed -i "s/pink.h/$header/g" config.h
 	sudo make -s clean install
-	sed -i "s/white.h/pink.h/g" config.h
+	sed -i "s/$header/pink.h/g" config.h
 	cd ..
 	echo -e "DWM Compiled\n"
 }
@@ -68,22 +93,14 @@ themes () {
 	cp CopyFiles/Dracula ~/.icons -r
 	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
 	cp CopyFiles/AamonIcons $HOME/.icons/ -r
-	echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
-	lxappearance &>/dev/null
+	if [ -z $1 ];then
+		echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
+		lxappearance &>/dev/null
+	else
+		echo -e "\nlxappearance should be used to set the GTK theme and icon set\nYou may either use AamonGTK3/AamonIcons or Dracula."
+	fi
 }
 
-cliTheme () {
-	echo "##########################"
-	echo "#########Theming##########"
-	echo -e "##########################\n"
-	sudo rm ~/.themes/Dracula -r
-	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
-	cp CopyFiles/Dracula ~/.icons -r
-	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
-	cp CopyFiles/AamonIcons $HOME/.icons/ -r
-	echo -e "\nlxappearance should be used to set the GTK theme and icon set\nYou may either use AamonGTK3/AamonIcons or Dracula."
-}
-	
 fileCopy () {
 	echo "##########################"
 	echo "######Copying files#######"
@@ -199,7 +216,7 @@ else
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
-		dwmFun
+		dwmFun -cli
 		dmenuFun
 		slsFun
 		slockFun -cli
@@ -207,7 +224,7 @@ else
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
 		dependencies
-		cliTheme
+		theme -cli
 		fileCopy
 		echo "##########################"
 		echo "#####Install complete#####"
