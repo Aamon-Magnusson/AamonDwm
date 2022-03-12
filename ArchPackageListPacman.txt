@@ -7,7 +7,7 @@ xautolock
 flameshot
 feh
 picom
-pamixer
+pulsemixer
 dunst
 gtop
 xorg-xrandr

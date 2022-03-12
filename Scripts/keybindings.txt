@@ -17,9 +17,10 @@ MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + S             | slock
 MOD + G                     | open gtop
-CONTROL + M                 | mute
-CONTROL + U                 | volume up 5%
-CONTROL + D                 | volume down 5%
+MOD + CONTROL + M           | mute
+MOD + CONTROL + U           | volume up 5%
+MOD + CONTROL + D           | volume down 5%
+MOD + CONTROL + P           | open pulsemixer
 MOD + SPACE                 | toggle floating for the current window
 MOD + ENTER                 | switch master window
 MOD + T                     | tiled view

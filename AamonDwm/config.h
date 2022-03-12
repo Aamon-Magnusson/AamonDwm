@@ -85,9 +85,10 @@ static const char *appswitch[]				=		{ APPSWITCH, NULL};
 static const char *dmenumenu[]				=		{ DMENUMENU };
 
 /* multimedia commands */
-static const char *volup[]					=		{ "pamixer", "-i", "5", NULL};
-static const char *voldown[]				=		{ "pamixer", "-d", "5", NULL};
-static const char *mute[]					=		{ "pamixer", "-t", NULL};
+static const char *volup[]					=		{ "pulsemixer", "--change-volume", "+5", NULL};
+static const char *voldown[]				=		{ "pulsemixer", "--change-volume", "-5", NULL};
+static const char *mute[]					=		{ "pulsemixer", "--toggle-mute", NULL};
+static const char *pulse[]					=		{ TERMINAL, "-e", "pulsemixer" , NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -152,9 +153,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_r,	   spawn,		   {.v = reboot} },
 	{ MODKEY|ShiftMask,				XK_s,	   spawn,		   {.v = slock} },
 	/* Multimedia commands */
-	{ ControlMask,					XK_m,	   spawn,		   {.v = mute} },
-	{ ControlMask,					XK_u,	   spawn,		   {.v = volup} },
-	{ ControlMask,					XK_d,	   spawn,		   {.v = voldown} },
+	{ MODKEY|ControlMask,					XK_m,	   spawn,		   {.v = mute} },
+	{ MODKEY|ControlMask,					XK_u,	   spawn,		   {.v = volup} },
+	{ MODKEY|ControlMask,					XK_d,	   spawn,		   {.v = voldown} },
+	{ MODKEY|ControlMask,						XK_p,	   spawn,		   {.v = pulse} },
 };
 
 /* button definitions */

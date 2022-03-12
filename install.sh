@@ -37,7 +37,11 @@ dwmFun () {
 dmenuFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
 	cd AamonDmenu
-	sudo make -s clean install
+	if [ -z $1 ];then
+		./install.sh
+	else
+		./install.sh -cli
+	fi
 	cd ..
 	sudo rm -r AamonDmenu
 	echo -e "DMENU Compiled\n"
@@ -151,7 +155,7 @@ endInstall () {
 }
 
 if [ ! $(which dmenu) ];then
-	dmenuFun
+	dmenuFun -cli
 fi
 
 if [ -z $1 ];then
@@ -217,7 +221,7 @@ else
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
 		dwmFun -cli
-		dmenuFun
+		dmenuFun -cli
 		slsFun
 		slockFun -cli
 		echo "##########################"
