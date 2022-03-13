@@ -33,6 +33,15 @@ dwmFun () {
 	cd ..
 	echo -e "DWM Compiled\n"
 }
+
+stFun () {
+	git clone https://github.com/Aamon-Magnusson/AamonSt
+	cd AamonSt
+	sudo make -s install clean
+	cd ..
+	sudo rm -r AamonSt
+	echo -e "ST Compiled\n"
+}
 	
 dmenuFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
@@ -167,6 +176,7 @@ if [ -z $1 ];then
 	echo -e "#Compiling Suckless programs#"
 	echo -e "#############################\n"
 	dmenuPrompt "dwm" dwmFun
+	dmenuPrompt "st" stFun
 	dmenuPrompt "dmenu" dmenuFun
 	dmenuPrompt "slstatus" slsFun
 	dmenuPrompt "slock" slockFun 
@@ -192,6 +202,7 @@ else
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
 		dmenuPrompt "dwm" dwmFun
+		dmenuPrompt "st" stFun
 		dmenuPrompt "dmenu" dmenuFun
 		dmenuPrompt "slstatus" slsFun
 		dmenuPrompt "slock" slockFun 
@@ -221,6 +232,7 @@ else
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
 		dwmFun -cli
+		stFun
 		dmenuFun -cli
 		slsFun
 		slockFun -cli

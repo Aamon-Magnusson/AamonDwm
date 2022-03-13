@@ -58,4 +58,3 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
-- Dynamic colors (Header files) (WIP)
