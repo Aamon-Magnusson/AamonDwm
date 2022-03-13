@@ -56,7 +56,7 @@ static const Layout layouts[] = {
 #define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
 #define OPTIONSLOCATION "/usr/AamonDwmScripts/dmenu-keybindings"
-#define APPSWITCH "/usr/AamonDwmScripts/dmenu-switch"
+#define APPSWITCH "/usr/AamonDwmScripts/dmenu-app-switch"
 #define DMENUBLUE "/usr/AamonDwmScripts/dmenu-bluetooth"
 #define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
