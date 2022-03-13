@@ -28,7 +28,7 @@ dwmFun () {
 	header="$color$ex"
 	cd AamonDwm
 	sed -i "s/pink.h/$header/g" config.h
-	sudo make -s clean install
+	sudo make -s install clean 
 	sed -i "s/$header/pink.h/g" config.h
 	cd ..
 	echo -e "DWM Compiled\n"
@@ -58,7 +58,7 @@ dmenuFun () {
 	
 slsFun () {
 	cd AamonSlstatus
-	sudo make -s clean install
+	sudo make -s install clean 
 	cd ..
 	echo -e "SLSTATUS Compiled\n"
 }
