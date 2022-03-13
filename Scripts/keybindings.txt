@@ -1,10 +1,12 @@
 MOD + SHIFT + ENTER         | terminal (alacritty)
+MOD + CONTROL + ENTER       | terminal (st) (toggle scratchpad)
 MOD + R                     | dmenu_run
 MOD + X                     | dmenu menu
 MOD + A                     | app switcher
 MOD + C                     | browser (chrome)
 MOD + CONTROL + C           | browser (qutebrowser)
 MOD + F                     | file manager (ranger)
+MOD + CONTROL + F           | file manager (ranger) (toggle scratchpad)
 MOD + SHIFT + F             | file manager (pcmanfm)
 MOD + N                     | network manager dmenu
 MOD + B                     | bluetooth manager dmenu
@@ -16,11 +18,11 @@ MOD + SHIFT + CONTROL + Q   | restart dwm
 MOD + SHIFT + P             | shutdown machine
 MOD + SHIFT + R             | reboot machine
 MOD + SHIFT + S             | slock
-MOD + G                     | open gtop
+MOD + G                     | open gtop (toggle scratchpad)
 MOD + CONTROL + M           | mute
 MOD + CONTROL + U           | volume up 5%
 MOD + CONTROL + D           | volume down 5%
-MOD + CONTROL + P           | open pulsemixer
+MOD + CONTROL + P           | open pulsemixer (toggle scratchpad)
 MOD + SPACE                 | toggle floating for the current window
 MOD + ENTER                 | switch master window
 MOD + T                     | tiled view
