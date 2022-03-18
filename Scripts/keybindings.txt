@@ -1,5 +1,4 @@
 MOD + SHIFT + ENTER         | terminal (alacritty)
-MOD + CONTROL + ENTER       | terminal (st) (toggle scratchpad)
 MOD + R                     | dmenu_run
 MOD + X                     | dmenu menu
 MOD + A                     | app switcher
