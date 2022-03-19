@@ -1,8 +1,0 @@
-#! /bin/bash
-
-sink=$(pulsemixer --list-sink | awk -F: '{print $4}' | awk -F, '{print $1}')
-
-selSink=$(echo -e "$sink" | dmenu -p "Select a sink to use" -i)
-[[ "$selSink" == "" ]] && exit 0
-
-pulsemixer --toggle-mute -id 

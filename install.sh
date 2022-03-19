@@ -1,6 +1,6 @@
 #! /bin/bash
 
-dwmFun () {	
+selectColor () {
 	if [ -z $1 ];then
 		color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -p "What color scheme would you like dwm to follow?" -i )
 		[[ "$color" == "" ]] && color="pink"
@@ -24,8 +24,12 @@ dwmFun () {
 				color="pink" ;;
 		esac
 	fi
+	echo "$color"
+}
+
+dwmFun () {	
 	ex=".h"
-	header="$color$ex"
+	header="$colorScheme$ex"
 	cd AamonDwm
 	sed -i "s/pink.h/$header/g" config.h
 	sudo make -s install clean 
@@ -47,9 +51,9 @@ dmenuFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
 	cd AamonDmenu
 	if [ -z $1 ];then
-		./install.sh
+		./install.sh $colorScheme
 	else
-		./install.sh -cli
+		./install.sh $colorScheme -cli
 	fi
 	cd ..
 	sudo rm -r AamonDmenu
@@ -67,9 +71,9 @@ slockFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
 	if [ -z $1 ];then
-		./install.sh
+		./install.sh $colorScheme
 	else
-		./install.sh -cli
+		./install.sh $colorScheme -cli
 	fi
 	cd ..
 	sudo rm AamonSlock -r
@@ -121,12 +125,34 @@ fileCopy () {
 	sudo cp CopyFiles/dwm.desktop /usr/share/xsessions/
 	mkdir -p $HOME/.dwm
 	cp CopyFiles/autostart.sh $HOME/.dwm/
-	mkdir -p $HOME/.config/dunst
-	cp CopyFiles/dunstrc $HOME/.config/dunst/
 	cp CopyFiles/Backgrounds $HOME/Desktop/ -r
 	sudo rm -r /usr/AamonDwmScripts
 	sudo cp Scripts /usr/AamonDwmScripts -r
 	mkdir -p $HOME/.weather
+	cd CopyFiles
+	case $colorTheme in
+		"pink")
+			changeTo="ff00ff" ;;
+		"dracula")
+			changeTo="bd93f9" ;;
+		"white")
+			changeTo="ffffff" ;;
+		"blue")
+			changeTo="82eefd" ;;
+		*)
+			changeTo="ff00ff" ;;
+	esac
+	if [ "$colorTheme" == "dracula" ];then
+		sed -i "s/ff0000/ff5555/g" dunstrc
+	fi
+	sed -i "s/ff00ff/$changeTo/g" dunstrc
+	mkdir -p $HOME/.config/dunst
+	cp dunstrc $HOME/.config/dunst/
+	sed -i "s/$changeTo/ff00ff/g" dunstrc
+	if [ "$colorTheme" == "dracula" ];then
+		sed -i "s/ff5555/ff0000/g" dunstrc
+	fi
+	cd ..
 }
 
 dmenuPrompt () {
@@ -171,7 +197,7 @@ if [ -z $1 ];then
 	echo -e "\n#############################"
 	echo -e "######Starting installer#####"
 	echo -e "#############################\n"
-
+	colorScheme=$(selectColor)
 	echo -e "#############################"
 	echo -e "#Compiling Suckless programs#"
 	echo -e "#############################\n"
@@ -192,12 +218,14 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		colorScheme=$(selectColor)
 		dmenuPrompt "all files" fileCopy
 		endInstall
 	elif [ $1 == "-s" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		colorScheme=$(selectColor)
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
@@ -228,6 +256,7 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		colorScheme=$(selectColor -cli)
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
