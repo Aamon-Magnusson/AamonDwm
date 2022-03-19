@@ -148,6 +148,8 @@ fileCopy () {
 	sed -i "s/ff00ff/$changeTo/g" dunstrc
 	mkdir -p $HOME/.config/dunst
 	cp dunstrc $HOME/.config/dunst/
+	killall dunst
+	dunst &
 	sed -i "s/$changeTo/ff00ff/g" dunstrc
 	if [ "$colorTheme" == "dracula" ];then
 		sed -i "s/ff5555/ff0000/g" dunstrc

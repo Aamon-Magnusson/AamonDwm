@@ -9,6 +9,7 @@ _remove () {
 
 	xrandr --output $mon --off
 	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
+	notify-send "$mon removed"
 }
 
 _add () {
@@ -35,6 +36,7 @@ _add () {
 
 	xrandr --output $mon --auto --$spot $ref_mon
 	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
+	notify-send "$mon added $spot of $ref_mon"
 }
 
 _move () {
@@ -65,6 +67,7 @@ _move () {
 	fi
 
 	xrandr --output $mon --$spot $ref_mon
+	notify-send "$mon moved $spot of $ref_mon"
 }
 
 xrandr_output="$(xrandr)"

@@ -3,6 +3,7 @@
 mount(){
 	mountable=$(lsblk -lp | grep "part $" | grep -v "nvme" | awk '{print $1, "(" $4 ")"}')
 	[[ "$mountable" = "" ]] && exit 0
+	size=$(echo $mountable | awk '{print $2}')
 	chosen=$(echo "$mountable" | dmenu -i -p "Mount which drive?" | awk '{print $1}')
 	[[ "$chosen" = "" ]] && exit 0
 
@@ -18,15 +19,21 @@ mount(){
 	fi
 
 	alacritty -e sudo mount "$chosen" $mountpoint > /dev/null
+
+	notify-send "USB mounted to $mountpoint $size"
 }
 
 unmount(){
 	exclusionregex="\(/boot\|/home\|/\)$"
 	drives=$(lsblk -lp | grep "t /" | grep -v "$exclusionregex" | awk '{print $1, "(" $4 ")", "on", $7}')
 	[[ "$drives" = "" ]] && exit 0
+	mountpoint=$(echo $drives | awk '{print $4}')
+	size=$(echo $drives | awk '{print $2}')
 	chosen=$(echo "$drives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
 	[[ "$chosen" = "" ]] && exit 0
 	alacritty -e sudo umount $chosen
+
+	notify-send "USB unmounted from $mountpoint $size"
 }
 
 mode=$(echo -e "mount\nunmount" | dmenu -i -p "Select mode")
