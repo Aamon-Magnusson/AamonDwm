@@ -4,25 +4,6 @@ selectColor () {
 	if [ -z $1 ];then
 		color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -p "What color scheme would you like dwm to follow?" -i )
 		[[ "$color" == "" ]] && color="pink"
-	else
-		echo "1) pink"
-		echo "2) dracula"
-		echo "3) white"
-		echo "4) blue"
-		echo "From the colors above select the number you would like to use."
-		read index
-		case $index in
-			1)
-				color="pink" ;;
-			2)
-				color="dracula" ;;
-			3)
-				color="white" ;;
-			4)
-				color="blue" ;;
-			*)
-				color="pink" ;;
-		esac
 	fi
 	echo "$color"
 }
@@ -258,7 +239,25 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-		colorScheme=$(selectColor -cli)
+		echo "1) pink"
+		echo "2) dracula"
+		echo "3) white"
+		echo "4) blue"
+		echo "From the color schemes above select the number you would like to use."
+		read index
+		case $index in
+			1)
+				color="pink" ;;
+			2)
+				color="dracula" ;;
+			3)
+				color="white" ;;
+			4)
+				color="blue" ;;
+			*)
+				color="pink" ;;
+		esac
+		colorScheme=$color
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
@@ -271,7 +270,7 @@ else
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
 		dependencies
-		theme -cli
+		themes -cli
 		fileCopy
 		echo "##########################"
 		echo "#####Install complete#####"
