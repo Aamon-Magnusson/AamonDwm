@@ -111,7 +111,7 @@ fileCopy () {
 	sudo cp Scripts /usr/AamonDwmScripts -r
 	mkdir -p $HOME/.weather
 	cd CopyFiles
-	case $colorTheme in
+	case $colorScheme in
 		"pink")
 			changeTo="ff00ff" ;;
 		"dracula")
@@ -123,7 +123,7 @@ fileCopy () {
 		*)
 			changeTo="ff00ff" ;;
 	esac
-	if [ "$colorTheme" == "dracula" ];then
+	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff0000/ff5555/g" dunstrc
 	fi
 	sed -i "s/ff00ff/$changeTo/g" dunstrc
@@ -132,7 +132,7 @@ fileCopy () {
 	killall dunst
 	dunst &
 	sed -i "s/$changeTo/ff00ff/g" dunstrc
-	if [ "$colorTheme" == "dracula" ];then
+	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff5555/ff0000/g" dunstrc
 	fi
 	cd ..
