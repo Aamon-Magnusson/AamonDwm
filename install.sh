@@ -125,6 +125,7 @@ fileCopy () {
 	esac
 	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff0000/ff5555/g" dunstrc
+		sed -i "s/222222/282a36/g" dunstrc
 	fi
 	sed -i "s/ff00ff/$changeTo/g" dunstrc
 	mkdir -p $HOME/.config/dunst
@@ -134,13 +135,14 @@ fileCopy () {
 	sed -i "s/$changeTo/ff00ff/g" dunstrc
 	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff5555/ff0000/g" dunstrc
+		sed -i "s/282a36/222222/g" dunstrc
 	fi
 	cd ..
 }
 
 dmenuPrompt () {
 	var=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install $1?" -i )
-	if [ $var == "Yes" ];then
+	if [ "$var" == "Yes" ];then
 		$2 
 	fi
 }
@@ -185,10 +187,10 @@ if [ -z $1 ];then
 	echo -e "#Compiling Suckless programs#"
 	echo -e "#############################\n"
 	dmenuPrompt "dwm" dwmFun
-	dmenuPrompt "st" stFun
 	dmenuPrompt "dmenu" dmenuFun
-	dmenuPrompt "slstatus" slsFun
 	dmenuPrompt "slock" slockFun 
+	dmenuPrompt "slstatus" slsFun
+	dmenuPrompt "st" stFun
 	echo "##########################"
 	echo "#####Compile complete#####"
 	echo -e "##########################\n"
@@ -213,10 +215,10 @@ else
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
 		dmenuPrompt "dwm" dwmFun
-		dmenuPrompt "st" stFun
 		dmenuPrompt "dmenu" dmenuFun
-		dmenuPrompt "slstatus" slsFun
 		dmenuPrompt "slock" slockFun 
+		dmenuPrompt "slstatus" slsFun
+		dmenuPrompt "st" stFun
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
@@ -262,10 +264,10 @@ else
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
 		dwmFun -cli
-		stFun
 		dmenuFun -cli
-		slsFun
 		slockFun -cli
+		slsFun
+		stFun
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
