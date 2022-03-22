@@ -6,6 +6,7 @@ Included are other Suckless pieces of software:
 - Dmenu
 - Slstatus
 - Slock
+- St (Only for scratch pads)
 
 ![Screen shot of config](GeneralView.png)
 
@@ -19,7 +20,7 @@ This config includes a dmenu based menu system, which holds several dmenu script
 
 ![Screen shot of menu](dmenuMenu.png)
 
-The scripts included in the menu will be added to frequently.
+The scripts included in the menu will be added to frequently. (As I get ideas of what I would like to add)
 
 ## Installation
 
@@ -32,12 +33,12 @@ cd AamonDwm # or whatever you named the directory
 ```
 
 On `install.sh` the `-h` can be used to show the options.
-To re-install any of the Suckless programs, especially Dmenu and Slock `./install.sh -s` should be used.
+To re-install any of the Suckless programs, especially Dwm, Dmenu and Slock `./install.sh -s` should be used.
 
 For a basic display of the keybindings hit SUPER + O.
 
 A list of patches remains inside the Patches folder of each Suckless programs folder.
-(For [Dmenu](https://github.com/Aamon-Magnusson/AamonDmenu) and [Slock](https://github.com/Aamon-Magnusson/AamonSlock) it will only be seen in the respective repo)
+(For [Dmenu](https://github.com/Aamon-Magnusson/AamonDmenu), [Slock](https://github.com/Aamon-Magnusson/AamonSlock) and [St](https://github.com/Aamon-Magnusson/AamonSt) it will only be seen in the respective repo)
 
 ## Removal
 
