@@ -43,7 +43,7 @@ dmenuFun () {
 	
 slsFun () {
 	cd AamonSlstatus
-	sudo make -s install clean 
+	./install.sh
 	cd ..
 	echo -e "SLSTATUS Compiled\n"
 }
