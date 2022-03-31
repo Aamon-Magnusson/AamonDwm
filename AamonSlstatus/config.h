@@ -65,19 +65,19 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
 	/* function 		format				argument */
-//	{ run_command,		"VOLUME: %s",	"pamixer --get-volume-human" },
+//	{ run_command,		"VOLUME: %s",		"pamixer --get-volume-human" },
 //	{ separator,		"%s",				" | " },
 
 	{ battery_perc,		"BATTERY: %s%% ",	"BAT0" },
-	{ battery_state,	"(%s)",			"BAT0" },
+	{ battery_state,	"(%s)",				"BAT0" },
 	{ separator,		"%s",				" | " },
 
 	{ cpu_freq,			"CPU: %shz ",		NULL },
 	{ cpu_perc,			"(%s%)",			NULL },
-	{ temp,				" %s*C",				"/sys/class/thermal/thermal_zone0/temp" },
+	{ temp,				" %s*C",			"/sys/class/thermal/thermal_zone0/temp" },
 	{ separator,		"%s",				" | " },
 
-	{ ram_used,			"RAM: %s ",		NULL },
+	{ ram_used,			"RAM: %s ",			NULL },
 	{ ram_perc,			"(%s%)",			NULL },
 	{ separator,		"%s",				" | " },
 

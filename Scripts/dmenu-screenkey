@@ -1,0 +1,8 @@
+#! /bin/bash
+
+action=$( echo -e "Start\nKill" | dmenu -i -p "Select screenkey action:")
+
+case $action in
+	Start) screenkey -t 1 & ;;
+	Kill) killall screenkey ;;
+esac

@@ -8,12 +8,12 @@ selectColor () {
 	echo "$color"
 }
 
-dwmFun () {	
+dwmFun () {
 	ex=".h"
 	header="$colorScheme$ex"
 	cd AamonDwm
 	sed -i "s/pink.h/$header/g" config.h
-	sudo make -s install clean 
+	sudo make -s install clean
 	sed -i "s/$header/pink.h/g" config.h
 	cd ..
 	echo -e "DWM Compiled\n"
@@ -27,9 +27,9 @@ stFun () {
 	sudo rm -r AamonSt
 	echo -e "ST Compiled\n"
 }
-	
+
 dmenuFun () {
-	git clone https://github.com/Aamon-Magnusson/AamonDmenu 
+	git clone https://github.com/Aamon-Magnusson/AamonDmenu
 	cd AamonDmenu
 	if [ -z $1 ];then
 		./install.sh $colorScheme
@@ -40,14 +40,14 @@ dmenuFun () {
 	sudo rm -r AamonDmenu
 	echo -e "DMENU Compiled\n"
 }
-	
+
 slsFun () {
 	cd AamonSlstatus
 	./install.sh
 	cd ..
 	echo -e "SLSTATUS Compiled\n"
 }
-	
+
 slockFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
@@ -143,7 +143,7 @@ fileCopy () {
 dmenuPrompt () {
 	var=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install $1?" -i )
 	if [ "$var" == "Yes" ];then
-		$2 
+		$2
 	fi
 }
 
@@ -163,11 +163,11 @@ endInstall () {
 	echo "##########################"
 	echo "#####Install complete#####"
 	echo -e "##########################\n"
-	
+
 	choices="Show me keybindings\nTake me to the menu\nQuit"
-	
+
 	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" )
-	
+
 	case $action in
 		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
 		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
@@ -188,7 +188,7 @@ if [ -z $1 ];then
 	echo -e "#############################\n"
 	dmenuPrompt "dwm" dwmFun
 	dmenuPrompt "dmenu" dmenuFun
-	dmenuPrompt "slock" slockFun 
+	dmenuPrompt "slock" slockFun
 	dmenuPrompt "slstatus" slsFun
 	dmenuPrompt "st" stFun
 	echo "##########################"
@@ -216,7 +216,7 @@ else
 		echo -e "#############################\n"
 		dmenuPrompt "dwm" dwmFun
 		dmenuPrompt "dmenu" dmenuFun
-		dmenuPrompt "slock" slockFun 
+		dmenuPrompt "slock" slockFun
 		dmenuPrompt "slstatus" slsFun
 		dmenuPrompt "st" stFun
 		echo "##########################"

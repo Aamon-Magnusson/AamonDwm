@@ -18,3 +18,4 @@ clipmenu
 lxappearance
 ttf-joypixels
 pamixer
+screenkey
