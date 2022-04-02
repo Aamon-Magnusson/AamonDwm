@@ -1,5 +1,19 @@
 #! /bin/bash
 
+update () {
+	if [ -z $1 ];then
+		pull=$(echo -e "Yes\nNo" | dmenu -p "Would you like to update AamonDWM?" -i )
+	else
+		echo "Would you like to update AamonDWM? [Y/n]"
+		read pull
+	fi
+	[[ "$pull" == "" ]] && pull="No"
+	if [ "$pull" == "Yes" ] || [ "$pull" == "y" ] || [ "$pull" == "Y" ];then
+		git pull
+	fi
+	echo ""
+}
+
 selectColor () {
 	if [ -z $1 ];then
 		color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -p "What color scheme would you like dwm to follow?" -i )
@@ -182,6 +196,7 @@ if [ -z $1 ];then
 	echo -e "\n#############################"
 	echo -e "######Starting installer#####"
 	echo -e "#############################\n"
+	update
 	colorScheme=$(selectColor)
 	echo -e "#############################"
 	echo -e "#Compiling Suckless programs#"
@@ -203,6 +218,7 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		update
 		colorScheme=$(selectColor)
 		dmenuPrompt "all files" fileCopy
 		endInstall
@@ -210,6 +226,7 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		update
 		colorScheme=$(selectColor)
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
@@ -227,12 +244,14 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		update
 		dmenuPrompt "gtk themes" themes
 		endInstall
 	elif [ $1 == "-d" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		update
 		dmenuPrompt "all dependencies" dependencies
 		endInstall
 	elif [ $1 == "-h" ];then
@@ -241,6 +260,7 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
+		update -cli
 		echo "1) pink"
 		echo "2) dracula"
 		echo "3) white"
