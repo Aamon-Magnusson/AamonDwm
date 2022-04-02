@@ -53,9 +53,10 @@ Selecting "Yes" will keep some files that are used in other WMs that I have conf
 ## Dependencies
 
 The setup only currently works for Arch based distros.
-All dependencies can be seen within the PackageList files. 
+All dependencies can be seen within the PackageList files.
 They can also be installed automatically with the install script.
 
 ## TODO
 
 - Make the setup work on Debian based distros
+- Add keybindings for vanity gaps to dmenu
