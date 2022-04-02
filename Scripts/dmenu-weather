@@ -16,4 +16,4 @@ else
 	curl wttr.in/$choice > $path
 fi
 
-setsid -f alacritty -e less -Srf $path
+st -n weatherSt -g 144x40 -e less -Srf ~/.weather/CurrentLocation.weather

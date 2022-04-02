@@ -40,13 +40,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Signal",  NULL,       NULL,       1 << 8,       0,           -1 },
-//	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
-	{ NULL,		  "spfm",		NULL,		SPTAG(0),		1,			 -1 },
-	{ NULL,		  "sptop",		NULL,		SPTAG(1),		1,			 -1 },
-	{ NULL,		  "sppulse",	NULL,		SPTAG(2),		1,			 -1 },
+	/* class      	instance    title       tags mask     	isfloating   monitor */
+	{ "discord",	NULL,       NULL,       1 << 8,       	0,           -1 },
+	{ "Signal",		NULL,       NULL,       1 << 8,       	0,           -1 },
+	{ NULL,   		"weatherSt", NULL,      0,       		1,           -1 },
+//	{ NULL,		  	"spterm",	NULL,		SPTAG(0),		1,			 -1 },
+	{ NULL,		  	"spfm",		NULL,		SPTAG(0),		1,			 -1 },
+	{ NULL,		  	"sptop",	NULL,		SPTAG(1),		1,			 -1 },
+	{ NULL,		  	"sppulse",	NULL,		SPTAG(2),		1,			 -1 },
 };
 
 /* layout(s) */
