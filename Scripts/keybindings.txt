@@ -21,7 +21,7 @@ MOD + G                    	    | open gtop (toggle scratchpad)
 MOD + CONTROL + M          	    | mute
 MOD + CONTROL + U          	    | volume up 5%
 MOD + CONTROL + D          	    | volume down 5%
-MOD + CONTROL + P          	    | open pulsemixer (toggle scratchpad)
+MOD + P                  	    | open pulsemixer (toggle scratchpad)
 MOD + SPACE                	    | toggle floating for the current window
 MOD + ENTER                	    | switch master window
 MOD + T                    	    | tiled view
