@@ -3,8 +3,8 @@ static void defaultgaps(const Arg *arg);
 static void incrgaps(const Arg *arg);
 static void incrigaps(const Arg *arg);
 static void incrogaps(const Arg *arg);
-//static void incrohgaps(const Arg *arg);
-//static void incrovgaps(const Arg *arg);
+static void incrohgaps(const Arg *arg);
+static void incrovgaps(const Arg *arg);
 //static void incrihgaps(const Arg *arg);
 //static void incrivgaps(const Arg *arg);
 static void togglegaps(const Arg *arg);
@@ -95,28 +95,28 @@ incrogaps(const Arg *arg)
 	);
 }
 
-//void
-//incrohgaps(const Arg *arg)
-//{
-//	setgaps(
-//		selmon->gappoh + arg->i,
-//		selmon->gappov,
-//		selmon->gappih,
-//		selmon->gappiv
-//	);
-//}
-//
-//void
-//incrovgaps(const Arg *arg)
-//{
-//	setgaps(
-//		selmon->gappoh,
-//		selmon->gappov + arg->i,
-//		selmon->gappih,
-//		selmon->gappiv
-//	);
-//}
-//
+void
+incrohgaps(const Arg *arg)
+{
+	setgaps(
+		selmon->gappoh + arg->i,
+		selmon->gappov,
+		selmon->gappih,
+		selmon->gappiv
+	);
+}
+
+void
+incrovgaps(const Arg *arg)
+{
+	setgaps(
+		selmon->gappoh,
+		selmon->gappov + arg->i,
+		selmon->gappih,
+		selmon->gappiv
+	);
+}
+
 //void
 //incrihgaps(const Arg *arg)
 //{

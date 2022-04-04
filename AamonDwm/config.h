@@ -171,10 +171,10 @@ static Key keys[] = {
 //	{ MODKEY|Mod1Mask|ShiftMask,    XK_6,      			incrihgaps,     {.i = -1 } }, // horizontal
 //	{ MODKEY|Mod1Mask,              XK_7,      			incrivgaps,     {.i = +1 } },
 //	{ MODKEY|Mod1Mask|ShiftMask,    XK_7,      			incrivgaps,     {.i = -1 } },
-//	{ MODKEY|Mod1Mask,              XK_8,      			incrohgaps,     {.i = +1 } },
-//	{ MODKEY|Mod1Mask|ShiftMask,    XK_8,      			incrohgaps,     {.i = -1 } },
-//	{ MODKEY|Mod1Mask,              XK_9,      			incrovgaps,     {.i = +1 } },
-//	{ MODKEY|Mod1Mask|ShiftMask,    XK_9,      			incrovgaps,     {.i = -1 } },
+	{ MODKEY|Mod1Mask,              XK_h,      			incrohgaps,     {.i = +10 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_h,      			incrohgaps,     {.i = -10 } },
+	{ MODKEY|Mod1Mask,              XK_v,      			incrovgaps,     {.i = +10 } },
+	{ MODKEY|Mod1Mask|ShiftMask,    XK_v,      			incrovgaps,     {.i = -10 } },
 	{ MODKEY|Mod1Mask,              XK_0,      			togglegaps,     {0} },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      			defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    			view,           {0} },		// This jumps to the last tag
