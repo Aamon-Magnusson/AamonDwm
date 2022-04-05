@@ -16,4 +16,4 @@ else
 	curl wttr.in/$choice > $path
 fi
 
-st -n weatherSt -g 126x40 -e less -Srf ~/.weather/CurrentLocation.weather
+st -n weatherSt -g 126x40 -e less -Srf ~/.weather/$choice.weather
