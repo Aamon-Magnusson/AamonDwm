@@ -10,6 +10,8 @@ _remove () {
 	xrandr --output $mon --off
 	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
 	notify-send "$mon removed"
+
+	main
 }
 
 _add () {
@@ -37,6 +39,8 @@ _add () {
 	xrandr --output $mon --auto --$spot $ref_mon
 	feh --bg-fill --randomize ~/Desktop/Backgrounds/* &
 	notify-send "$mon added $spot of $ref_mon"
+
+	main
 }
 
 _move () {
@@ -68,31 +72,36 @@ _move () {
 
 	xrandr --output $mon --$spot $ref_mon
 	notify-send "$mon moved $spot of $ref_mon"
+
+	main
 }
 
-xrandr_output="$(xrandr)"
-all_monitors="$(printf "%s\\n" "${xrandr_output}"       | \
-    awk '/^VGA|^LVDS|^HDMI|^D|^eDP/ {print $1}' )"
-connected_monitors="$(printf "%s\\n" "${xrandr_output}" | \
-	awk '/ connected/  {print $1}' )"
+main () {
+	xrandr_output="$(xrandr)"
+	all_monitors="$(printf "%s\\n" "${xrandr_output}"       | \
+		awk '/^VGA|^LVDS|^HDMI|^D|^eDP/ {print $1}' )"
+	connected_monitors="$(printf "%s\\n" "${xrandr_output}" | \
+		awk '/ connected/  {print $1}' )"
 
-ACTIVE_MONITORS="$(printf "%s\\n" "${xrandr_output}"    | awk '/ connected [^(]/ {print $1}' )"
-#NUMBER_OF_CONNECTED_MONITORS="$(_number_of_monitors "${connected_monitors}")"
-#NUMBER_OF_ACTIVE_MONITORS="$(_number_of_monitors "${ACTIVE_MONITORS}")"
-#ROTATE_OPTS="normal\ninverted\nleft\nright"
-#OFFAUTO_OPTS="off\nauto"
-POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
+	ACTIVE_MONITORS="$(printf "%s\\n" "${xrandr_output}"    | awk '/ connected [^(]/ {print $1}' )"
+	#NUMBER_OF_CONNECTED_MONITORS="$(_number_of_monitors "${connected_monitors}")"
+	#NUMBER_OF_ACTIVE_MONITORS="$(_number_of_monitors "${ACTIVE_MONITORS}")"
+	#ROTATE_OPTS="normal\ninverted\nleft\nright"
+	#OFFAUTO_OPTS="off\nauto"
+	POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
 
-mode=$(echo -e "Remove\nAdd\nMove\nArandr" | dmenu -p "What would you like to do?")
+	mode=$(echo -e "Remove\nAdd\nMove\nArandr" | dmenu -p "What would you like to do?")
 
-if [ ! $mode ]; then
-	exit 0
-fi
+	if [ ! $mode ]; then
+		exit 0
+	fi
 
-case "$mode" in
-	Remove) _remove ;;
-	Add) _add ;;
-	Move) _move ;;
-	Arandr) arandr & ;;
-esac
+	case "$mode" in
+		Remove) _remove ;;
+		Add) _add ;;
+		Move) _move ;;
+		Arandr) arandr & ;;
+	esac
+}
 
+main
