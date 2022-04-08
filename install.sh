@@ -140,6 +140,7 @@ fileCopy () {
 	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff0000/ff5555/g" dunstrc
 		sed -i "s/222222/282a36/g" dunstrc
+		sed -i "s/bbbbbb/f8f8f2/g" dunstrc
 	fi
 	sed -i "s/ff00ff/$changeTo/g" dunstrc
 	mkdir -p $HOME/.config/dunst
@@ -150,6 +151,7 @@ fileCopy () {
 	if [ "$colorScheme" == "dracula" ];then
 		sed -i "s/ff5555/ff0000/g" dunstrc
 		sed -i "s/282a36/222222/g" dunstrc
+		sed -i "s/f8f8f2/bbbbbb/g" dunstrc
 	fi
 	cd ..
 }
