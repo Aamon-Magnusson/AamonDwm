@@ -1,0 +1,8 @@
+#! /bin/bash
+
+programs="discord\nsignal-desktop\nandroid-messages-desktop"
+
+app=$(echo -e $programs | dmenu -p "Select a messaging app" -i)
+[["$app" = ""]] && exit 0
+
+$app

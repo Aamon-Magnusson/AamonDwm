@@ -1,3 +1,4 @@
 google-chrome
 networkmanager-dmenu-git
 libxft-bgra
+android-messages-desktop-bin
