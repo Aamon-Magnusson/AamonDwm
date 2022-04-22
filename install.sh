@@ -123,6 +123,7 @@ fileCopy () {
 	cp CopyFiles/Backgrounds $HOME/Desktop/ -r
 	sudo rm -r /usr/AamonDwmScripts
 	sudo cp Scripts /usr/AamonDwmScripts -r
+	cp CopyFiles/networkmanager-dmenu $HOME/.config/ -r
 	mkdir -p $HOME/.weather
 	cd CopyFiles
 	case $colorScheme in
