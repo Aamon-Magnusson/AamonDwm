@@ -19,9 +19,7 @@ mount(){
 	fi
 
 	# alacritty -e sudo mount "$chosen" $mountpoint > /dev/null
-	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A mount "$chosen" $mountpoint > /dev/null
-
-	notify-send "USB mounted to $mountpoint $size"
+	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A mount "$chosen" $mountpoint > /dev/null && notify-send "USB mounted to $mountpoint $size"
 }
 
 unmount(){
@@ -33,9 +31,7 @@ unmount(){
 	chosen=$(echo "$drives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
 	[[ "$chosen" = "" ]] && exit 0
 	# alacritty -e sudo umount $chosen
-	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A umount $chosen
-
-	notify-send "USB unmounted from $mountpoint $size"
+	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A umount $chosen && notify-send "USB unmounted from $mountpoint $size"
 }
 
 mode=$(echo -e "mount\nunmount" | dmenu -i -p "Select mode")
