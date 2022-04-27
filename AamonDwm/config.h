@@ -102,11 +102,13 @@ static const Layout layouts[] = {
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
 #define RESTART "/usr/AamonDwmScripts/restart-dmenu"
 #define USB "/usr/AamonDwmScripts/dmenu-usb-drives"
+#define SUDO "/usr/AamonDwmScripts/run_root"
 //#define TOP "gtop"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] 				= 		{ "dmenu_run", "-m", dmenumon, "-i", "-l", "25", "-p", "Run:", NULL };
+static const char *rootdmenucmd[]			=		{ SUDO, NULL};
 static const char *termcmd[]  				= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  			= 		{ BROWSER, NULL };
 static const char *qutebrowser[]			=		{ "qutebrowser", NULL};
@@ -135,6 +137,7 @@ static Key keys[] = {
 	/* modifier                     key        			function        argument */
 	/* Program spawn key bindings*/
 	{ MODKEY,                       XK_r,      			spawn,          {.v = dmenucmd } },
+	{ MODKEY|ControlMask,			XK_r,				spawn,			{.v = rootdmenucmd} },
 	{ MODKEY|ShiftMask,             XK_Return, 			spawn,          {.v = termcmd } },
 //	{ MODKEY|ControlMask,			XK_Return, 			togglescratch,  {.ui = 0} },
 	{ MODKEY,                       XK_c,      			spawn,          {.v = browsercmd } },

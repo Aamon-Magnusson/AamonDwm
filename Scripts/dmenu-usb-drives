@@ -15,10 +15,11 @@ mount(){
 
 	if [[ ! -d "$mountpoint" ]]; then
 		mkdiryn=$(echo -e "Yes\nNo" | dmenu -i -p "$mountpoint does not exist. Create it?")
-		[[ "$mkdiryn" = "Yes" ]] && sudo mkdir -p "$mountpoint"
+		[[ "$mkdiryn" = "Yes" ]] && SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo mkdir -p "$mountpoint"
 	fi
 
-	alacritty -e sudo mount "$chosen" $mountpoint > /dev/null
+	# alacritty -e sudo mount "$chosen" $mountpoint > /dev/null
+	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A mount "$chosen" $mountpoint > /dev/null
 
 	notify-send "USB mounted to $mountpoint $size"
 }
@@ -31,7 +32,8 @@ unmount(){
 	size=$(echo $drives | awk '{print $2}')
 	chosen=$(echo "$drives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
 	[[ "$chosen" = "" ]] && exit 0
-	alacritty -e sudo umount $chosen
+	# alacritty -e sudo umount $chosen
+	SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A umount $chosen
 
 	notify-send "USB unmounted from $mountpoint $size"
 }

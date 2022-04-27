@@ -1,5 +1,6 @@
 MOD + SHIFT + ENTER             | terminal (alacritty)
 MOD + R                         | dmenu_run
+MOD + CONTROL + R               | dmenu_run (gives sudo prompt to run programs in root)
 MOD + X                         | dmenu menu
 MOD + A                         | app switcher
 MOD + C                         | browser (chrome)
