@@ -1,3 +1,0 @@
-#! /bin/bash
-
-SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu sudo -A $(dmenu_path | dmenu -p "Run:" -l 25 -i)

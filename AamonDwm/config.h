@@ -102,7 +102,7 @@ static const Layout layouts[] = {
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
 #define RESTART "/usr/AamonDwmScripts/restart-dmenu"
 #define USB "/usr/AamonDwmScripts/dmenu-usb-drives"
-#define SUDO "/usr/AamonDwmScripts/run_root"
+#define SUDO "/usr/AamonDwmScripts/dmenu-run-root"
 //#define TOP "gtop"
 
 /* commands */
