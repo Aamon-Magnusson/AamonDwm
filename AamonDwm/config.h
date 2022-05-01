@@ -22,14 +22,16 @@ typedef struct {
 } Sp;
 //const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x35", "-e", "ranger", NULL };
-const char *spcmd3[] = {"st", "-n", "sptop", "-g", "144x35", "-e", "gtop", NULL };
+const char *spcmd3[] = {"st", "-n", "spgtop", "-g", "144x35", "-e", "gtop", NULL };
 const char *spcmd4[] = {"st", "-n", "sppulse", "-g", "144x35", "-e", "pulsemixer", NULL };
+const char *spcmd5[] = {"st", "-n", "sphtop", "-g", "144x35", "-e", "htop", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 //	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"spgtop",    spcmd3},
-	{"sppulse",    spcmd4},
+	{"spgtop",    	spcmd3},
+	{"sppulse",    	spcmd4},
+	{"sphtop",    	spcmd5},
 };
 
 /* tagging */
@@ -47,8 +49,9 @@ static const Rule rules[] = {
 	{ NULL,   		"weatherSt", 	NULL,      	0,       		1,           -1 },
 //	{ NULL,		  	"spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  	"spfm",			NULL,		SPTAG(0),		1,			 -1 },
-	{ NULL,		  	"sptop",		NULL,		SPTAG(1),		1,			 -1 },
+	{ NULL,		  	"spgtop",		NULL,		SPTAG(1),		1,			 -1 },
 	{ NULL,		  	"sppulse",		NULL,		SPTAG(2),		1,			 -1 },
+	{ NULL,		  	"sphtop",		NULL,		SPTAG(3),		1,			 -1 },
 };
 
 /* layout(s) */
@@ -154,6 +157,7 @@ static Key keys[] = {
 	{MODKEY,						XK_a,	   			spawn,		    {.v = appswitch} },
 //	{MODKEY,						XK_g,	   			spawn,		    {.v = top} },
 	{MODKEY,						XK_g,	   			togglescratch,  {.ui = 1} },
+	{MODKEY|ControlMask,			XK_g,	   			togglescratch,  {.ui = 3} },
 	/* Window and layout key bindings*/
 	{ MODKEY|ShiftMask,             XK_t,      			togglebar,      {0} },
 	{ MODKEY,                       XK_j,      			focusstack,     {.i = +1 } },

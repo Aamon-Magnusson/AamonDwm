@@ -19,6 +19,7 @@ MOD + SHIFT + P                 | shutdown machine
 MOD + SHIFT + R                 | reboot machine
 MOD + SHIFT + S                 | slock
 MOD + G                         | open gtop (toggle scratchpad)
+MOD + CONTROL + G               | open htop (toggle scratchpad)
 MOD + CONTROL + M               | mute
 MOD + CONTROL + U               | volume up 5%
 MOD + CONTROL + D               | volume down 5%
