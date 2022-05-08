@@ -35,7 +35,7 @@ dwmFun () {
 stFun () {
 	git clone https://github.com/Aamon-Magnusson/AamonSt
 	cd AamonSt
-	sudo make -s install clean
+	./install.sh
 	cd ..
 	sudo rm -r AamonSt
 	echo -e "ST Compiled\n"
