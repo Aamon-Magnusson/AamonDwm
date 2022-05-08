@@ -11,7 +11,6 @@ update () {
 	if [ "$pull" == "Yes" ] || [ "$pull" == "y" ] || [ "$pull" == "Y" ];then
 		git pull
 	fi
-	echo ""
 }
 
 selectColor () {
