@@ -60,3 +60,5 @@ They can also be installed automatically with the install script.
 
 - Make the setup work on Debian based distros
 
+Test
+More stuff
