@@ -59,3 +59,6 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
+
+Here are some changes
+to mess with stuff
