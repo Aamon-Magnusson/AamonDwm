@@ -10,6 +10,7 @@ picom
 pulsemixer
 dunst
 gtop
+htop
 xorg-xrandr
 arandr
 bluez-utils

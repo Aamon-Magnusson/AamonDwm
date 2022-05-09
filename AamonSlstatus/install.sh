@@ -8,7 +8,7 @@ res=$(xrandr | grep "*" | awk '{print $1}' | awk -Fx '{print $2}')
 #echo -e $wired
 #echo -e $wireless
 
-if [ "$res" == "720" ] || [ "$res" == "768" ];then
+if [ $(expr $res) -lt 1000 ];then
 	mv config.h large.h
 	mv small.h config.h
 fi
@@ -23,7 +23,7 @@ sed -i "s/$wireless/wlp4s0/g" config.h
 sed -i "s/$wired/eno1/g" config.h
 sed -i "s/$bat/BAT0/g" config.h
 
-if [ "$res" == "720" ] || [ "$res" == "768" ];then
+if [ $(expr $res) -lt 1000 ];then
 	mv config.h small.h
 	mv large.h config.h
 fi
