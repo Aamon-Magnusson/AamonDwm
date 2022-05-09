@@ -121,12 +121,13 @@ fileCopy () {
 	cp CopyFiles/autostart.sh $HOME/.dwm/
 	cp CopyFiles/Backgrounds $HOME/Desktop/ -r
 	sudo rm -r /usr/AamonDwmScripts
-	if [ $(expr $res -tl 1000) ];then
-		sed -i "s|dmenu -l 45 -i -p \"Keybindings:\"|dmenu -l 20 -i -p \"Keybindings:\"|g" Scripts/dmenu-keybindings
+	res=$(xrandr | grep "*" | awk '{print $1}' | awk -Fx '{print $2}')
+	if [ $(expr $res) -lt 1000 ];then
+		sed -i "s|dmenu -l 45 -i -p \"Keybindings:\"|dmenu -l 30 -i -p \"Keybindings:\"|g" Scripts/dmenu-keybindings
 	fi
 	sudo cp Scripts /usr/AamonDwmScripts -r
-	if [ $(expr $res -tl 1000) ];then
-		sed -i "s|dmenu -l 20 -i -p \"Keybindings:\"|dmenu -l 45 -i -p \"Keybindings:\"|g" Scripts/dmenu-keybindings
+	if [ $(expr $res) -lt 1000 ];then
+		sed -i "s|dmenu -l 30 -i -p \"Keybindings:\"|dmenu -l 45 -i -p \"Keybindings:\"|g" Scripts/dmenu-keybindings
 	fi
 	cp CopyFiles/networkmanager-dmenu $HOME/.config/ -r
 	mkdir -p $HOME/.weather
