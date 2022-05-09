@@ -8,15 +8,14 @@ res=$(xrandr | grep "*" | awk '{print $1}' | awk -Fx '{print $2}')
 #echo -e $wired
 #echo -e $wireless
 
-sed -i "s/wlp4s0/$wireless/g" config.h
-sed -i "s/eno1/$wired/g" config.h
-sed -i "s/BAT0/$bat/g" config.h
-
-
 if [ "$res" == "720" ] || [ "$res" == "768" ];then
 	mv config.h large.h
 	mv small.h config.h
 fi
+
+sed -i "s/wlp4s0/$wireless/g" config.h
+sed -i "s/eno1/$wired/g" config.h
+sed -i "s/BAT0/$bat/g" config.h
 
 sudo make -s install clean
 
