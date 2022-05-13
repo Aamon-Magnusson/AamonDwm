@@ -95,7 +95,7 @@ static const Layout layouts[] = {
 
 /* Program name constants (For ease of access)*/
 #define TERMINAL "alacritty"
-#define BROWSER "google-chrome-stable"
+#define BROWSER "firefox"
 #define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
 #define OPTIONSLOCATION "/usr/AamonDwmScripts/dmenu-keybindings"
@@ -114,7 +114,7 @@ static const char *dmenucmd[] 				= 		{ "dmenu_run", "-m", dmenumon, "-i", "-l",
 static const char *rootdmenucmd[]			=		{ SUDO, NULL};
 static const char *termcmd[]  				= 		{ TERMINAL, NULL };
 static const char *browsercmd[]  			= 		{ BROWSER, NULL };
-static const char *qutebrowser[]			=		{ "qutebrowser", NULL};
+static const char *googleChrome[]			=		{ "google-chrome-stable", NULL};
 static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
@@ -144,7 +144,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, 			spawn,          {.v = termcmd } },
 //	{ MODKEY|ControlMask,			XK_Return, 			togglescratch,  {.ui = 0} },
 	{ MODKEY,                       XK_c,      			spawn,          {.v = browsercmd } },
-	{ MODKEY|ControlMask,			XK_c,	   			spawn,		    {.v = qutebrowser } },
+	{ MODKEY|ControlMask,			XK_c,	   			spawn,		    {.v = googleChrome } },
 	{ MODKEY,                       XK_f,      			spawn,          {.v = termfilemanagercmd } },
 	{ MODKEY|ShiftMask,             XK_f,      			spawn,          {.v = guifilemanagercmd } },
 	{ MODKEY|ControlMask,			XK_f,	   			togglescratch,  {.ui = 0} },

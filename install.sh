@@ -56,7 +56,11 @@ dmenuFun () {
 
 slsFun () {
 	cd AamonSlstatus
-	./install.sh
+	if [ -z $1 ];then
+		./install.sh
+	else
+		./install.sh -cli
+	fi
 	cd ..
 	echo -e "SLSTATUS Compiled\n"
 }

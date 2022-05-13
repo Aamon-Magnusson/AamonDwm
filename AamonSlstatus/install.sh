@@ -18,8 +18,10 @@ sed -i "s/eno1/$wired/g" config.h
 sed -i "s/BAT0/$bat/g" config.h
 
 sudo make -s install clean
-killall slstatus
-slstatus &
+if [ -z $1 ];then
+	killall slstatus
+	slstatus &
+fi
 
 sed -i "s/$wireless/wlp4s0/g" config.h
 sed -i "s/$wired/eno1/g" config.h

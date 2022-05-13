@@ -21,3 +21,4 @@ ttf-joypixels
 pamixer
 screenkey
 signal-desktop
+firefox
