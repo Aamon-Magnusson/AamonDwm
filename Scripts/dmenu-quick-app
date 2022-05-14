@@ -1,6 +1,6 @@
 #! /bin/bash
 
-programs="alacritty\ngoogle-chrome-stable\npcmanfm\nlibreoffice\nranger\ngtop\ndiscord\nteams\nlxappearance\nqutebrowser"
+programs="alacritty\ngoogle-chrome-stable\npcmanfm\nlibreoffice\nranger\ngtop\ndiscord\nlxappearance\nfirefox"
 
 choice=$( echo -e "$programs" | sort | dmenu -p "Prefered Programs" )
 
