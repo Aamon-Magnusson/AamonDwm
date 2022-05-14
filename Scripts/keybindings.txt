@@ -3,8 +3,8 @@ MOD + R                         | dmenu_run
 MOD + CONTROL + R               | dmenu_run (gives sudo prompt to run programs in root)
 MOD + X                         | dmenu menu
 MOD + A                         | app switcher
-MOD + C                         | browser (chrome)
-MOD + CONTROL + C               | browser (qutebrowser)
+MOD + C                         | browser (firefox)
+MOD + CONTROL + C               | browser (chrome)
 MOD + F                         | file manager (ranger)
 MOD + CONTROL + F               | file manager (ranger) (toggle scratchpad)
 MOD + SHIFT + F                 | file manager (pcmanfm)

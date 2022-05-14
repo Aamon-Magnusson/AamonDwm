@@ -1,6 +1,5 @@
 alacritty
 discord
-qutebrowser
 pcmanfm
 ranger
 xautolock
