@@ -20,6 +20,7 @@ MOD + SHIFT + R                 | reboot machine
 MOD + SHIFT + S                 | slock
 MOD + G                         | open gtop (toggle scratchpad)
 MOD + CONTROL + G               | open htop (toggle scratchpad)
+MOD + CONTROL + D               | open todo list
 MOD + CONTROL + M               | mute
 MOD + CONTROL + U               | volume up 5%
 MOD + CONTROL + D               | volume down 5%
@@ -43,8 +44,8 @@ MOD + [J or K]                  | change focused window through the stack
 MOD + SHIFT + [J or K]          | rotate stack
 MOD + [H or L]                  | expand window either left or right
 MOD + [{ or }]                  | change focused monitor
-MOD + ALT + [U or I or I]       | increase either all, inner, or outer gaps
-MOD + SHIFT + ALT [U or I or I] | decrease either all, inner, or outer gaps
+MOD + ALT + [U or I or O]       | increase either all, inner, or outer gaps
+MOD + SHIFT + ALT [U or I or O] | decrease either all, inner, or outer gaps
 MOD + ALT + 0                   | toggle gaps
 MOD + SHIFT + ALT + 0           | revert to default gaps
 MOD + ALT + [H or V]            | increase horizontal or vertical outer gaps
