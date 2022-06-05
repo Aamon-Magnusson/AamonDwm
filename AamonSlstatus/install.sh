@@ -5,12 +5,13 @@ wireless=$(ip a | grep "BROADCAST" | awk -F: '{print $2}' | grep 'wl' | awk 'NR=
 bat=$(ls /sys/class/power_supply | grep "BAT*" )
 res=$(xrandr | grep "*" | awk '{print $1}' | awk -Fx '{print $2}')
 
-#echo -e $wired
-#echo -e $wireless
-
 if [ $(expr $res) -lt 1000 ];then
 	mv config.h large.h
 	mv small.h config.h
+fi
+
+if [ lsblk | grep "/home" ];then
+	sed -i 's|"/"|"/home"|g' config.h
 fi
 
 sed -i "s/wlp4s0/$wireless/g" config.h
@@ -26,6 +27,10 @@ fi
 sed -i "s/$wireless/wlp4s0/g" config.h
 sed -i "s/$wired/eno1/g" config.h
 sed -i "s/$bat/BAT0/g" config.h
+
+if [ lsblk | grep "/home" ];then
+	sed -i 's|"/home"|"/"|g' config.h
+fi
 
 if [ $(expr $res) -lt 1000 ];then
 	mv config.h small.h

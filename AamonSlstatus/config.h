@@ -36,8 +36,8 @@ static const char unknown_str[] = "";
  * keymap              layout (variant) of current     NULL
  *                     keymap
  * load_avg            load average                    NULL
- * netspeed_rx         receive network speed           interface name (wlan0)
- * netspeed_tx         transfer network speed          interface name (wlan0)
+ * netspeed_rx         receive network speed           interface name (wlp4s0)
+ * netspeed_tx         transfer network speed          interface name (wlp4s0)
  * num_files           number of files in a directory  path
  *                                                     (/home/foo/Inbox/cur)
  * ram_free            free memory in GB               NULL
@@ -60,8 +60,8 @@ static const char unknown_str[] = "";
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
  *                                                     NULL on OpenBSD
- * wifi_perc           WiFi signal in percent          interface name (wlan0)
- * wifi_essid          WiFi ESSID                      interface name (wlan0)
+ * wifi_perc           WiFi signal in percent          interface name (wlp4s0)
+ * wifi_essid          WiFi ESSID                      interface name (wlp4s0)
  */
 static const struct arg args[] = {
 	/* function 		format				argument */
@@ -88,7 +88,7 @@ static const struct arg args[] = {
 	{ wifi_essid,		"WIFI: %s ",		"wlp4s0" },
 	{ wifi_perc,		"(%s%)",			"wlp4s0" },
 	{ separator,		"%s",				" | " },
-	
+
 	{ uptime,			"UPTIME: %s",		NULL },
 	{ separator,		"%s",				" | " },
 
