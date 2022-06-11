@@ -10,7 +10,7 @@ if [ $(expr $res) -lt 1000 ];then
 	mv small.h config.h
 fi
 
-if [ lsblk | grep "/home" ];then
+if [[ $(lsblk | grep "/home") ]];then
 	sed -i 's|"/"|"/home"|g' config.h
 fi
 
@@ -28,7 +28,7 @@ sed -i "s/$wireless/wlp4s0/g" config.h
 sed -i "s/$wired/eno1/g" config.h
 sed -i "s/$bat/BAT0/g" config.h
 
-if [ lsblk | grep "/home" ];then
+if [[$( lsblk | grep "/home" )]];then
 	sed -i 's|"/home"|"/"|g' config.h
 fi
 

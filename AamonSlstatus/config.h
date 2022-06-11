@@ -81,8 +81,8 @@ static const struct arg args[] = {
 	{ ram_perc,			"(%s%)",			NULL },
 	{ separator,		"%s",				" | " },
 
-	{ disk_used,		"DISK: %s ",		"/" },
-	{ disk_total,		"of %s",			"/" },
+	{ disk_used,		"DISK: %s ",		"/home" },
+	{ disk_total,		"of %s",			"/home" },
 	{ separator,		"%s",				" | " },
 
 	{ wifi_essid,		"WIFI: %s ",		"wlp4s0" },
