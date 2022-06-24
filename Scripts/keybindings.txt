@@ -35,6 +35,7 @@ Layouts:
     MOD + T                         | tiled view
     MOD + M                         | monocle (full screen) view
     MOD + Y                         | center view
+	MOD + [, OR .]                  | cycle layouts
 
 Window controls:
     MOD + SHIFT + C                 | close window

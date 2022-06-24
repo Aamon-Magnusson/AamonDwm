@@ -67,20 +67,20 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[T]",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
-	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
-	{ "H[]",      deck },
-	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
 	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
-	{ ":::",      gaplessgrid },
-//	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[\\]",     dwindle },
+	{ "TTT",      bstack },
+	{ "H[]",      deck },
+	{ "[@]",      spiral },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	/* Not using past here */
+	// { "---",      horizgrid },
+	// { ">M>",      centeredfloatingmaster },
+	// { "HHH",      grid },
+	// { "===",      bstackhoriz },
+	// { ":::",      gaplessgrid },
 	{ NULL,       NULL },
 };
 
@@ -167,8 +167,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      			focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      			incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      			incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_bracketleft,      			setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_bracketright,      			setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_bracketleft,    	setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_bracketright,  	setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, 			zoom,           {0} },		// This switches the current master
 	{ MODKEY|Mod1Mask,              XK_u,      			incrgaps,       {.i = +10 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,      			incrgaps,       {.i = -10 } },
@@ -190,17 +190,19 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_c,      			killclient,     {0} },
 	{ MODKEY,                       XK_t,      			setlayout,      {.v = &layouts[0]} },
 //	{ MODKEY,                       XK_f,      			setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      			setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_y,      			setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_m,      			setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_y,      			setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,						XK_comma,			cyclelayout,	{.i = +1 } },
+	{ MODKEY,						XK_period,			cyclelayout,	{.i = -1 } },
 //	{ MODKEY,                       XK_u,      			setlayout,      {.v = &layouts[4]} },
 //	{ MODKEY,                       XK_space,  			setlayout,      {0} },
 	{ MODKEY,             			XK_space,  			togglefloating, {0} },
 	{ MODKEY,                       XK_0,      			view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      			tag,            {.ui = ~0 } },
-	{ MODKEY,             			XK_Left,				focusmon,       {.i = -1 } },
-	{ MODKEY,             			XK_Right,				focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask, 			XK_Left,				tagmon,        	{.i = -1 } },
-	{ MODKEY, 						XK_Right,				tagmon,        	{.i = +1 } },
+	{ MODKEY,             			XK_Left,			focusmon,       {.i = -1 } },
+	{ MODKEY,             			XK_Right,			focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask, 			XK_Left,			tagmon,        	{.i = -1 } },
+	{ MODKEY, 						XK_Right,			tagmon,        	{.i = +1 } },
 	{ MODKEY,                       XK_l,   			viewnext,       {0} },
 	{ MODKEY,                       XK_h,   			viewprev,       {0} },
 	{ MODKEY|ShiftMask,             XK_l,   			tagtonext,      {0} },
