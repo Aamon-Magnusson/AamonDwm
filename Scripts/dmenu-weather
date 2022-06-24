@@ -16,4 +16,6 @@ else
 	curl wttr.in/$choice > $path
 fi
 
-st -n weatherSt -g 126x40 -e less -Srf ~/.weather/$choice.weather
+xdotool key Super_L+m
+st -e less -Srf ~/.weather/$choice.weather
+xdotool key Super_L+t

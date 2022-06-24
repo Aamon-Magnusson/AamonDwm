@@ -1,3 +1,9 @@
 #! /bin/bash
 
-cat /usr/AamonDwmScripts/keybindings.txt | dmenu -l 45 -i -p "Keybindings:"
+if [ -z "$1" ]; then
+	xdotool key Super_L+m
+	st -e less /usr/AamonDwmScripts/keybindings.txt
+	xdotool key Super_L+t
+else
+	cat /usr/AamonDwmScripts/keybindings.txt | dmenu -l 45 -i -p "Keybindings:"
+fi

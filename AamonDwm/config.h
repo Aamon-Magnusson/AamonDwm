@@ -48,7 +48,6 @@ static const Rule rules[] = {
 	{ "discord",	NULL,       	NULL,       1 << 8,       	0,           -1 },
 	{ "Signal",		NULL,       	NULL,       1 << 8,       	0,           -1 },
 	{ "android-messages-desktop", 	NULL, NULL, 1 << 8, 		0,			 -1 },
-	{ NULL,   		"weatherSt", 	NULL,      	0,       		1,           -1 },
 //	{ NULL,		  	"spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  	"spfm",			NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  	"spgtop",		NULL,		SPTAG(1),		1,			 -1 },
@@ -121,7 +120,7 @@ static const char *googleChrome[]			=		{ "google-chrome-stable", NULL};
 static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
-static const char *options[]				=		{ OPTIONSLOCATION, NULL};
+static const char *options[]				=		{ OPTIONSLOCATION, "-thing", NULL};
 static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
 static const char *bluedmenu[]				=		{ DMENUBLUE, NULL};
 static const char *usbmount[]				=		{ USB, NULL};
@@ -152,7 +151,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      			spawn,          {.v = guifilemanagercmd } },
 	{ MODKEY|ControlMask,			XK_f,	   			togglescratch,  {.ui = 0} },
 	{0, 							XK_Print,  			spawn,		    {.v = printscreencmd } },
-	{MODKEY,						XK_o,	   			spawn, 		    {.v = options} },
+	{MODKEY|ShiftMask,				XK_slash,	   		spawn, 		    {.v = options} },
 	{MODKEY,						XK_n,	   			spawn, 		    {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   			spawn, 		    {.v = bluedmenu} },
 	{MODKEY,						XK_u,	   			spawn, 		    {.v = usbmount} },
@@ -166,12 +165,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      			togglebar,      {0} },
 	{ MODKEY,                       XK_j,      			focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      			focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_j,      			rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      			rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_i,      			incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      			incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      			setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      			setmfact,       {.f = +0.05} },
+	{ MODKEY,                       XK_bracketleft,      			setmfact,       {.f = -0.05} },
+	{ MODKEY,                       XK_bracketright,      			setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, 			zoom,           {0} },		// This switches the current master
 	{ MODKEY|Mod1Mask,              XK_u,      			incrgaps,       {.i = +10 } },
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,      			incrgaps,       {.i = -10 } },
@@ -200,14 +197,14 @@ static Key keys[] = {
 	{ MODKEY,             			XK_space,  			togglefloating, {0} },
 	{ MODKEY,                       XK_0,      			view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      			tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_bracketleft, 	focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_bracketright,	focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_bracketleft, 	tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_bracketright,	tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_Right,  			viewnext,       {0} },
-	{ MODKEY,                       XK_Left,   			viewprev,       {0} },
-	{ MODKEY|ShiftMask,             XK_Right,  			tagtonext,      {0} },
-	{ MODKEY|ShiftMask,             XK_Left,   			tagtoprev,      {0} },
+	{ MODKEY,             			XK_Left,				focusmon,       {.i = -1 } },
+	{ MODKEY,             			XK_Right,				focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask, 			XK_Left,				tagmon,        	{.i = -1 } },
+	{ MODKEY, 						XK_Right,				tagmon,        	{.i = +1 } },
+	{ MODKEY,                       XK_l,   			viewnext,       {0} },
+	{ MODKEY,                       XK_h,   			viewprev,       {0} },
+	{ MODKEY|ShiftMask,             XK_l,   			tagtonext,      {0} },
+	{ MODKEY|ShiftMask,             XK_h,   			tagtoprev,      {0} },
 	TAGKEYS(                        XK_1,      			                0)
 	TAGKEYS(                        XK_2,      			                1)
 	TAGKEYS(                        XK_3,      			                2)
