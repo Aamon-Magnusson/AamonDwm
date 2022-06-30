@@ -21,3 +21,4 @@ pamixer
 screenkey
 signal-desktop
 firefox
+qalculate-gtk
