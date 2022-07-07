@@ -106,8 +106,8 @@ themes () {
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
 	cp CopyFiles/Dracula ~/.icons -r
-	cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
-	cp CopyFiles/AamonIcons $HOME/.icons/ -r
+	# cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
+	# cp CopyFiles/AamonIcons $HOME/.icons/ -r
 	if [ -z $1 ];then
 		echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
 		lxappearance &>/dev/null

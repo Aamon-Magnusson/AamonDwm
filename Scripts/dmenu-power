@@ -1,6 +1,6 @@
 #! /bin/bash
 
-options="Shutdown\nRestart\nSleep"
+options="Shutdown\nRestart\nSleep\nLogout"
 
 choice=$(echo -e "$options" | dmenu -c -i -l 5)
 
@@ -8,4 +8,5 @@ case "$choice" in
 	Shutdown) /usr/AamonDwmScripts/shutdown-dmenu;;
 	Restart) /usr/AamonDwmScripts/restart-dmenu;;
 	Sleep) slock;;
+	Logout) /usr/AamonDwmScripts/logout-dmenu;;
 esac

@@ -1,0 +1,9 @@
+#! /bin/bash
+
+options="No\nYes"
+
+choice=$(echo -e "$options" | dmenu -c -i -l 5 -p "Would you like to logout of DWM?")
+
+if [ "$choice" = "Yes" ];then
+	killall dwm
+fi

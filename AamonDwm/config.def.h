@@ -67,7 +67,6 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[T]",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "|M|",      centeredmaster },
 	{ "###",      nrowgrid },
@@ -75,12 +74,13 @@ static const Layout layouts[] = {
 	{ "TTT",      bstack },
 	{ "H[]",      deck },
 	{ "[@]",      spiral },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 	/* Not using past here */
-	{ "---",      horizgrid },
-	{ ">M>",      centeredfloatingmaster },
-	{ "HHH",      grid },
-	{ "===",      bstackhoriz },
-	{ ":::",      gaplessgrid },
+	// { "---",      horizgrid },
+	// { ">M>",      centeredfloatingmaster },
+	// { "HHH",      grid },
+	// { "===",      bstackhoriz },
+	// { ":::",      gaplessgrid },
 	{ NULL,       NULL },
 };
 
@@ -106,6 +106,7 @@ static const Layout layouts[] = {
 #define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
 #define SHUTDOWN "/usr/AamonDwmScripts/shutdown-dmenu"
 #define RESTART "/usr/AamonDwmScripts/restart-dmenu"
+#define LOGOUT "/usr/AamonDwmScripts/logout-dmenu"
 #define USB "/usr/AamonDwmScripts/dmenu-usb-drives"
 #define SUDO "/usr/AamonDwmScripts/dmenu-run-root"
 //#define TOP "gtop"
@@ -124,6 +125,7 @@ static const char *options[]				=		{ OPTIONSLOCATION, "-thing", NULL};
 static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
 static const char *bluedmenu[]				=		{ DMENUBLUE, NULL};
 static const char *usbmount[]				=		{ USB, NULL};
+static const char *logout[]					=		{ LOGOUT, NULL };
 static const char *shutdown[]				=		{ SHUTDOWN, NULL};
 static const char *reboot[]					=		{ RESTART, NULL};
 static const char *slock[]					=		{ "slock", NULL};
@@ -190,10 +192,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_c,      			killclient,     {0} },
 	{ MODKEY,                       XK_t,      			setlayout,      {.v = &layouts[0]} },
 //	{ MODKEY,                       XK_f,      			setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      			setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_y,      			setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,						XK_comma,			cyclelayout,	{.i = -1 } },
-	{ MODKEY,						XK_period,			cyclelayout,	{.i = +1 } },
+	{ MODKEY,                       XK_m,      			setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_y,      			setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,						XK_comma,			cyclelayout,	{.i = +1 } },
+	{ MODKEY,						XK_period,			cyclelayout,	{.i = -1 } },
 //	{ MODKEY,                       XK_u,      			setlayout,      {.v = &layouts[4]} },
 //	{ MODKEY,                       XK_space,  			setlayout,      {0} },
 	{ MODKEY,             			XK_space,  			togglefloating, {0} },
@@ -217,7 +219,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,      			                7)
 	TAGKEYS(                        XK_9,      			                8)
 	/* Quit and restart DWM*/
-	{ MODKEY|ShiftMask,             XK_q,      			quit,           {0} },	// This quits DWM
+	{ MODKEY|ShiftMask,             XK_q,      			spawn,			{.v = logout} },	// This quits DWM
 	{ MODKEY|ControlMask|ShiftMask,	XK_q,	   			quit,		    {1} },	// This restarts DWM
 	{ MODKEY|ShiftMask,				XK_p,	   			spawn,		    {.v = shutdown} },
 	{ MODKEY|ShiftMask,				XK_r,	   			spawn,		    {.v = reboot} },

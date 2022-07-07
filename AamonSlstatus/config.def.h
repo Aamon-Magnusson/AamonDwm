@@ -4,7 +4,7 @@
 const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
-static const char unknown_str[] = "n/a";
+static const char unknown_str[] = "";
 
 /* maximum output string length */
 #define MAXLEN 2048
@@ -36,8 +36,8 @@ static const char unknown_str[] = "n/a";
  * keymap              layout (variant) of current     NULL
  *                     keymap
  * load_avg            load average                    NULL
- * netspeed_rx         receive network speed           interface name (wlan0)
- * netspeed_tx         transfer network speed          interface name (wlan0)
+ * netspeed_rx         receive network speed           interface name (wlp4s0)
+ * netspeed_tx         transfer network speed          interface name (wlp4s0)
  * num_files           number of files in a directory  path
  *                                                     (/home/foo/Inbox/cur)
  * ram_free            free memory in GB               NULL
@@ -60,10 +60,43 @@ static const char unknown_str[] = "n/a";
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
  *                                                     NULL on OpenBSD
- * wifi_perc           WiFi signal in percent          interface name (wlan0)
- * wifi_essid          WiFi ESSID                      interface name (wlan0)
+ * wifi_perc           WiFi signal in percent          interface name (wlp4s0)
+ * wifi_essid          WiFi ESSID                      interface name (wlp4s0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ datetime, "%s",           "%F %T" },
+	/* function 		format				argument */
+//	{ run_command,		"VOLUME: %s",		"pamixer --get-volume-human" },
+//	{ separator,		"%s",				" | " },
+
+	{ battery_perc,		"BATTERY: %s%% ",	"BAT0" },
+	{ battery_state,	"(%s)",				"BAT0" },
+	{ separator,		"%s",				" | " },
+
+	{ cpu_freq,			"CPU: %shz ",		NULL },
+	{ cpu_perc,			"(%s%)",			NULL },
+	{ temp,				" %s*C",			"/sys/class/thermal/thermal_zone0/temp" },
+	{ separator,		"%s",				" | " },
+
+	{ ram_used,			"RAM: %s ",			NULL },
+	{ ram_perc,			"(%s%)",			NULL },
+	{ separator,		"%s",				" | " },
+
+	{ disk_used,		"DISK: %s ",		"/home" },
+	{ disk_total,		"of %s",			"/home" },
+	{ separator,		"%s",				" | " },
+
+	{ wifi_essid,		"WIFI: %s ",		"wlp4s0" },
+	{ wifi_perc,		"(%s%)",			"wlp4s0" },
+	{ separator,		"%s",				" | " },
+
+	{ uptime,			"UPTIME: %s",		NULL },
+	{ separator,		"%s",				" | " },
+
+	{ username,			"%s@",				NULL },
+	{ ipv4,				"%s",				"wlp4s0" },
+	{ ipv4,				"%s",				"eno1" },
+	{ hostname,			"/%s",				NULL },
+	{ separator,		"%s",				" | " },
+
+	{ datetime,			"%s",				"%a %b %d %T" },
 };
