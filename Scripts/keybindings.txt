@@ -1,7 +1,6 @@
 Lauch programs:
     MOD + SHIFT + ENTER             | terminal (alacritty)
     MOD + C                         | browser (firefox)
-    MOD + CONTROL + C               | browser (chrome)
     MOD + F                         | file manager (ranger)
     MOD + CONTROL + F               | file manager (ranger) (toggle scratchpad)
     MOD + SHIFT + F                 | file manager (pcmanfm)

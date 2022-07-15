@@ -25,9 +25,14 @@ dwmFun () {
 	ex=".h"
 	header="$colorScheme$ex"
 	cd AamonDwm
-	sed -i "s/pink.h/$header/g" config.h
+	cd colors
+	currentColor=$(awk 'NR==1{print $2}' current.h)
+	mv current.h $currentColor.h
+	mv $header current.h
+	cd ..
+	# sed -i "s/pink.h/$header/g" config.h
 	sudo make -s install clean
-	sed -i "s/$header/pink.h/g" config.h
+	# sed -i "s/$header/pink.h/g" config.h
 	cd ..
 	echo -e "DWM Compiled\n"
 }

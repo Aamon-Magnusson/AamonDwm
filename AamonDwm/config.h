@@ -14,7 +14,7 @@ static const char *fonts[]          = {
 };
 
 /* color */
-#include "pink.h"
+#include "colors/current.h"
 
 typedef struct {
 	const char *name;
@@ -202,7 +202,7 @@ static Key keys[] = {
 	{ MODKEY,             			XK_Left,			focusmon,       {.i = -1 } },
 	{ MODKEY,             			XK_Right,			focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask, 			XK_Left,			tagmon,        	{.i = -1 } },
-	{ MODKEY, 						XK_Right,			tagmon,        	{.i = +1 } },
+	{ MODKEY|ShiftMask,				XK_Right,			tagmon,        	{.i = +1 } },
 	{ MODKEY,                       XK_l,   			viewnext,       {0} },
 	{ MODKEY,                       XK_h,   			viewprev,       {0} },
 	{ MODKEY|ShiftMask,             XK_l,   			tagtonext,      {0} },
