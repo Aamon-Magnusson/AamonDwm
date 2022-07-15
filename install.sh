@@ -30,9 +30,7 @@ dwmFun () {
 	mv current.h $currentColor.h
 	mv $header current.h
 	cd ..
-	# sed -i "s/pink.h/$header/g" config.h
 	sudo make -s install clean
-	# sed -i "s/$header/pink.h/g" config.h
 	cd ..
 	echo -e "DWM Compiled\n"
 }
