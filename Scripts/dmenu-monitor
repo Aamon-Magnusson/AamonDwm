@@ -1,7 +1,7 @@
 #! /bin/bash
 
 _remove () {
-	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to remove" )
+	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to remove" -i )
 
 	if [ ! $mon ]; then
 		exit 0
@@ -16,7 +16,7 @@ _remove () {
 
 _add () {
 
-	mon=$( echo -e "$connected_monitors" | dmenu -p "Select monitor to add" )
+	mon=$( echo -e "$connected_monitors" | dmenu -p "Select monitor to add" -i )
 
 	if [ ! $mon ]; then
 		exit 0
@@ -24,13 +24,13 @@ _add () {
 
 	ref_options="${ACTIVE_MONITORS//$mon/}"
 
-	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" )
+	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" -i )
 
 	if [ ! $ref_mon ]; then
 		exit 0
 	fi
 
-	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" )
+	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" -i )
 
 	if [ ! $spot ]; then
 		exit 0
@@ -44,7 +44,7 @@ _add () {
 }
 
 _move () {
-	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to move" )
+	mon=$( echo -e "$ACTIVE_MONITORS" | dmenu -p "Select monitor to move" -i )
 	# remove chosen monitor from active_monitors
 
 	if [ ! $mon ]; then
@@ -58,13 +58,13 @@ _move () {
 		exit 0
 	fi
 
-	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" )
+	ref_mon=$( echo -e "$ref_options" | dmenu -p "What monitor will it be beside?" -i )
 
 	if [ ! $ref_mon ]; then
 		exit 0
 	fi
 
-	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" )
+	spot=$( echo -e "$POSITION_OPTS" | dmenu -p "Where would you like $mon in ref. to $ref_mon?" -i )
 
 	if [ ! $spot ]; then
 		exit 0
@@ -90,7 +90,7 @@ main () {
 	#OFFAUTO_OPTS="off\nauto"
 	POSITION_OPTS="above\nbelow\nsame-as\nleft-of\nright-of"
 
-	mode=$(echo -e "Remove\nAdd\nMove\nArandr" | dmenu -p "What would you like to do?")
+	mode=$(echo -e "Remove\nAdd\nMove\nArandr" | dmenu -p "What would you like to do?" -i)
 
 	if [ ! $mode ]; then
 		exit 0

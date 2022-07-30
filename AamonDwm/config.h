@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{ "discord",	NULL,       	NULL,       1 << 8,       	0,           -1 },
 	{ "Signal",		NULL,       	NULL,       1 << 8,       	0,           -1 },
 	{ "android-messages-desktop", 	NULL, NULL, 1 << 8, 		0,			 -1 },
+	{ "Qalculate-gtk", NULL, 		NULL, 		0, 			1,			 -1 },
 //	{ NULL,		  	"spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  	"spfm",			NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  	"spgtop",		NULL,		SPTAG(1),		1,			 -1 },
@@ -101,6 +102,7 @@ static const Layout layouts[] = {
 #define FILEMANAGER "pcmanfm"
 #define TERMFILEMANAGER "ranger"
 #define OPTIONSLOCATION "/usr/AamonDwmScripts/dmenu-keybindings"
+#define KEYBOARD "/usr/AamonDwmScripts/currentKeyboard.pdf"
 #define APPSWITCH "/usr/AamonDwmScripts/dmenu-app-switch"
 #define DMENUBLUE "/usr/AamonDwmScripts/dmenu-bluetooth"
 #define DMENUMENU "/usr/AamonDwmScripts/menu-dmenu"
@@ -121,6 +123,7 @@ static const char *guifilemanagercmd[]  	= 		{ FILEMANAGER, NULL };
 static const char *termfilemanagercmd[]  	= 		{ TERMINAL, "-e", TERMFILEMANAGER, NULL };
 static const char *printscreencmd[]  		= 		{ "flameshot", "gui", NULL };
 static const char *options[]				=		{ OPTIONSLOCATION, "-thing", NULL};
+static const char *keyboard[]				=		{ "zathura", KEYBOARD, NULL};
 static const char *networkmanagerdmenu[]	=		{ "networkmanager_dmenu", "-l", "25", "-i", "-c", NULL};
 static const char *bluedmenu[]				=		{ DMENUBLUE, NULL};
 static const char *usbmount[]				=		{ USB, NULL};
@@ -136,7 +139,7 @@ static const char *dmenumenu[]				=		{ DMENUMENU };
 static const char *volup[]					=		{ "pulsemixer", "--change-volume", "+5", NULL};
 static const char *voldown[]				=		{ "pulsemixer", "--change-volume", "-5", NULL};
 static const char *mute[]					=		{ "pulsemixer", "--toggle-mute", NULL};
-//static const char *pulse[]					=		{ TERMINAL, "-e", "pulsemixer" , NULL};
+//static const char *pulse[]				=		{ TERMINAL, "-e", "pulsemixer" , NULL};
 
 
 static Key keys[] = {
@@ -151,6 +154,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      			spawn,          {.v = guifilemanagercmd } },
 	{ MODKEY|ControlMask,			XK_f,	   			togglescratch,  {.ui = 0} },
 	{0, 							XK_Print,  			spawn,		    {.v = printscreencmd } },
+	{MODKEY|ControlMask,			XK_k,				spawn,			{.v = keyboard}},
 	{MODKEY|ShiftMask,				XK_slash,	   		spawn, 		    {.v = options} },
 	{MODKEY,						XK_n,	   			spawn, 		    {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   			spawn, 		    {.v = bluedmenu} },

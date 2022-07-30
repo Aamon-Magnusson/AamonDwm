@@ -65,3 +65,4 @@ Gaps:
 
 Help:
     MOD + SHIFT + ?                 | show this help
+	MOD + CONTROL + K               | show current moonlander layout

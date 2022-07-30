@@ -80,7 +80,7 @@ audio() { \
 	}
 
 askrecording() { \
-	choice=$(printf "screencast\\nvideo\\nvideo selected\\naudio\\nwebcam\\nwebcam (hi-def)" | dmenu -i -p "Select recording style:")
+	choice=$(printf "screencast\\nvideo\\nvideo selected\\naudio\\nwebcam\\nwebcam (hi-def)\\nview webcam" | dmenu -i -p "Select recording style:")
 	case "$choice" in
 		screencast) screencast;;
 		audio) audio;;
@@ -88,6 +88,7 @@ askrecording() { \
 		*selected) videoselected;;
 		webcam) webcam;;
 		"webcam (hi-def)") webcamhidef;;
+		"view webcam") mpv av://v4l2:/dev/video0 --profile=low-latency --untimed;;
 	esac
 	}
 

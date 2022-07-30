@@ -194,7 +194,7 @@ endInstall () {
 	echo "#####Install complete#####"
 	echo -e "##########################\n"
 	choices="Show me keybindings\nTake me to the menu\nQuit"
-	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" )
+	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" -i )
 	case $action in
 		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
 		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
