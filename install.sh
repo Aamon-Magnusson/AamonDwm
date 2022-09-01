@@ -178,6 +178,7 @@ helpMenu () {
 	echo -e "\t-d:\t Run dependencies function"
 	echo -e "\t-h:\t Show this menu\n"
 	echo -e "\t-cli:\tTerminal only install"
+	echo -e "\t\tThis setting also runs all commands without asking in between"
 }
 
 endInstall () {
@@ -268,12 +269,12 @@ else
 		colorScheme=$(selectColor)
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
+		echo -e "#############################\n"
 		dwmFun
 		dmenuFun
 		slockFun
 		slsFun
 		stFun
-		echo -e "#############################\n"
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"

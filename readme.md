@@ -29,7 +29,7 @@ Set up is pretty simple:
 ```bash
 git clone https://github.com/Aamon-Magnusson/AamonDwm.git
 cd AamonDwm # or whatever you named the directory
-./install.sh # run with the -cli option if you are running this from a tty
+./install.sh # run with the -cli option if you wish to install everything
 ```
 
 On `install.sh` the `-h` can be used to show the options.
@@ -59,3 +59,4 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
+- Make theme changing script seperate from install
