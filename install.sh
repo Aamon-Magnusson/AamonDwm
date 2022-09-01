@@ -1,12 +1,7 @@
 #! /bin/bash
 
 update () {
-	if [ -z $1 ];then
-		pull=$(echo -e "Yes\nNo" | dmenu -p "Would you like to update AamonDWM?" -i )
-	else
-		echo "Would you like to update AamonDWM? [Y/n]"
-		read pull
-	fi
+	pull=$(echo -e "Yes\nNo" | fzf --height=10 --border=rounded --prompt=">" --header="Would you like to update AamonDWM?" --header-first --reverse )
 	[[ "$pull" == "" ]] && pull="No"
 	if [ "$pull" == "Yes" ] || [ "$pull" == "y" ] || [ "$pull" == "Y" ];then
 		git pull
@@ -14,10 +9,8 @@ update () {
 }
 
 selectColor () {
-	if [ -z $1 ];then
-		color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -p "What color scheme would you like dwm to follow?" -i )
-		[[ "$color" == "" ]] && color="pink"
-	fi
+	color=$(echo -e "pink\ndracula\nwhite\nblue" | fzf --height=10 --border=rounded --prompt=">" --header="What color scheme would you like dwm to follow?" --header-first --reverse )
+	[[ "$color" == "" ]] && color="pink"
 	echo "$color"
 }
 
@@ -109,8 +102,6 @@ themes () {
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
 	cp CopyFiles/Dracula ~/.icons -r
-	# cp CopyFiles/AamonGTK3 $HOME/.themes/ -r
-	# cp CopyFiles/AamonIcons $HOME/.icons/ -r
 	if [ -z $1 ];then
 		echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
 		lxappearance &>/dev/null
@@ -170,8 +161,8 @@ fileCopy () {
 	cd ..
 }
 
-dmenuPrompt () {
-	var=$( echo -e "Yes\nNo" | dmenu -p "Would you like to install $1?" -i )
+fzfPrompt () {
+	var=$( echo -e "Yes\nNo" | fzf --height=10 --border=rounded --prompt=">" --header="Would you like to install $1?" --header-first --reverse )
 	if [ "$var" == "Yes" ];then
 		$2
 	fi
@@ -194,7 +185,7 @@ endInstall () {
 	echo "#####Install complete#####"
 	echo -e "##########################\n"
 	choices="Show me keybindings\nTake me to the menu\nQuit"
-	action=$( echo -e $choices | dmenu -p "Welcome to AamonDwm" -i )
+	action=$( echo -e $choices | fzf --height=10 --border=rounded --prompt=">" --header="Welcome to AamonDWM" --header-first --reverse )
 	case $action in
 		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
 		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
@@ -214,17 +205,17 @@ if [ -z $1 ];then
 	echo -e "#############################"
 	echo -e "#Compiling Suckless programs#"
 	echo -e "#############################\n"
-	dmenuPrompt "dwm" dwmFun
-	dmenuPrompt "dmenu" dmenuFun
-	dmenuPrompt "slock" slockFun
-	dmenuPrompt "slstatus" slsFun
-	dmenuPrompt "st" stFun
+	fzfPrompt "dwm" dwmFun
+	fzfPrompt "dmenu" dmenuFun
+	fzfPrompt "slock" slockFun
+	fzfPrompt "slstatus" slsFun
+	fzfPrompt "st" stFun
 	echo "##########################"
 	echo "#####Compile complete#####"
 	echo -e "##########################\n"
-	dmenuPrompt "all dependencies" dependencies
-	dmenuPrompt "gtk themes" themes
-	dmenuPrompt "all files" fileCopy
+	fzfPrompt "all dependencies" dependencies
+	fzfPrompt "gtk themes" themes
+	fzfPrompt "all files" fileCopy
 	endInstall
 else
 	if [ $1 == "-c" ];then
@@ -233,7 +224,7 @@ else
 		echo -e "#############################\n"
 		update
 		colorScheme=$(selectColor)
-		dmenuPrompt "all files" fileCopy
+		fzfPrompt "all files" fileCopy
 		endInstall
 	elif [ $1 == "-s" ];then
 		echo -e "\n#############################"
@@ -244,11 +235,11 @@ else
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
 		echo -e "#############################\n"
-		dmenuPrompt "dwm" dwmFun
-		dmenuPrompt "dmenu" dmenuFun
-		dmenuPrompt "slock" slockFun
-		dmenuPrompt "slstatus" slsFun
-		dmenuPrompt "st" stFun
+		fzfPrompt "dwm" dwmFun
+		fzfPrompt "dmenu" dmenuFun
+		fzfPrompt "slock" slockFun
+		fzfPrompt "slstatus" slsFun
+		fzfPrompt "st" stFun
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
@@ -258,14 +249,14 @@ else
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
 		update
-		dmenuPrompt "gtk themes" themes
+		fzfPrompt "gtk themes" themes
 		endInstall
 	elif [ $1 == "-d" ];then
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
 		update
-		dmenuPrompt "all dependencies" dependencies
+		fzfPrompt "all dependencies" dependencies
 		endInstall
 	elif [ $1 == "-h" ];then
 		helpMenu
@@ -273,43 +264,23 @@ else
 		echo -e "\n#############################"
 		echo -e "######Starting installer#####"
 		echo -e "#############################\n"
-		update -cli
-		echo "1) pink"
-		echo "2) dracula"
-		echo "3) white"
-		echo "4) blue"
-		echo "From the color schemes above select the number you would like to use."
-		read index
-		case $index in
-			1)
-				color="pink" ;;
-			2)
-				color="dracula" ;;
-			3)
-				color="white" ;;
-			4)
-				color="blue" ;;
-			*)
-				color="pink" ;;
-		esac
-		colorScheme=$color
+		update
+		colorScheme=$(selectColor)
 		echo -e "#############################"
 		echo -e "#Compiling Suckless programs#"
-		echo -e "#############################\n"
-		dwmFun -cli
-		dmenuFun -cli
-		slockFun -cli
+		dwmFun
+		dmenuFun
+		slockFun
 		slsFun
 		stFun
+		echo -e "#############################\n"
 		echo "##########################"
 		echo "#####Compile complete#####"
 		echo -e "##########################\n"
 		dependencies
+		fileCopy -cli
 		themes -cli
-		fileCopy
-		echo "##########################"
-		echo "#####Install complete#####"
-		echo -e "##########################\n"
+		endInstall
 	else
 		helpMenu
 	fi
