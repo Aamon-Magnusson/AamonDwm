@@ -1,15 +1,24 @@
 #! /bin/bash
 
+fzfCommand="fzf --height=10 --border=rounded --prompt='>' --header-first --reverse"
+
 update () {
-	pull=$(echo -e "Yes\nNo" | fzf --height=10 --border=rounded --prompt=">" --header="Would you like to update AamonDWM?" --header-first --reverse )
+	pull=$(echo -e "Yes\nNo" | $fzfCommand --header="Would you like to update AamonDWM?" )
 	[[ "$pull" == "" ]] && pull="No"
 	if [ "$pull" == "Yes" ] || [ "$pull" == "y" ] || [ "$pull" == "Y" ];then
 		git pull
+		cd AamonDmenu
+		git pull
+		cd ../AamonSlock
+		git pull
+		cd ../AamonSt
+		git pull
+		cd ..
 	fi
 }
 
 selectColor () {
-	color=$(echo -e "pink\ndracula\nwhite\nblue" | fzf --height=10 --border=rounded --prompt=">" --header="What color scheme would you like dwm to follow?" --header-first --reverse )
+	color=$(echo -e "pink\ndracula\nwhite\nblue" | $fzfCommand --header="What color scheme would you like dwm to follow?" )
 	[[ "$color" == "" ]] && color="pink"
 	echo "$color"
 }
@@ -29,16 +38,16 @@ dwmFun () {
 }
 
 stFun () {
-	git clone https://github.com/Aamon-Magnusson/AamonSt
+	# git clone https://github.com/Aamon-Magnusson/AamonSt
 	cd AamonSt
 	./install.sh
 	cd ..
-	sudo rm -r AamonSt
+	# sudo rm -r AamonSt
 	echo -e "ST Compiled\n"
 }
 
 dmenuFun () {
-	git clone https://github.com/Aamon-Magnusson/AamonDmenu
+	# git clone https://github.com/Aamon-Magnusson/AamonDmenu
 	cd AamonDmenu
 	if [ -z $1 ];then
 		./install.sh $colorScheme
@@ -46,12 +55,12 @@ dmenuFun () {
 		./install.sh $colorScheme -cli
 	fi
 	cd ..
-	sudo rm -r AamonDmenu
+	# sudo rm -r AamonDmenu
 	echo -e "DMENU Compiled\n"
 }
 
 slsFun () {
-	cd AamonSlstatus
+	# cd AamonSlstatus
 	if [ -z $1 ];then
 		./install.sh
 	else
@@ -62,7 +71,7 @@ slsFun () {
 }
 
 slockFun () {
-	git clone https://github.com/Aamon-Magnusson/AamonSlock
+	# git clone https://github.com/Aamon-Magnusson/AamonSlock
 	cd AamonSlock
 	if [ -z $1 ];then
 		./install.sh $colorScheme
@@ -70,7 +79,7 @@ slockFun () {
 		./install.sh $colorScheme -cli
 	fi
 	cd ..
-	sudo rm AamonSlock -r
+	# sudo rm AamonSlock -r
 	echo -e "SLOCK Compiled\n"
 }
 
@@ -162,7 +171,7 @@ fileCopy () {
 }
 
 fzfPrompt () {
-	var=$( echo -e "Yes\nNo" | fzf --height=10 --border=rounded --prompt=">" --header="Would you like to install $1?" --header-first --reverse )
+	var=$( echo -e "Yes\nNo" | $fzfCommand --header="Would you like to install $1?" )
 	if [ "$var" == "Yes" ];then
 		$2
 	fi
@@ -186,15 +195,33 @@ endInstall () {
 	echo "#####Install complete#####"
 	echo -e "##########################\n"
 	choices="Show me keybindings\nTake me to the menu\nQuit"
-	action=$( echo -e $choices | fzf --height=10 --border=rounded --prompt=">" --header="Welcome to AamonDWM" --header-first --reverse )
+	action=$( echo -e $choices | $fzfCommand --header="Welcome to AamonDWM" )
 	case $action in
 		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
 		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
 	esac
 }
 
+# ensure dependencies are satisfied
+if [ !  $(which fzf) ];then
+	sudo pacman -S fzf
+fi
 if [ ! $(which dmenu) ];then
 	dmenuFun -cli
+fi
+
+# run first time install
+if [ ! -d "$HOME/.AamonDwm" ];then
+	echo -e "############################"
+	echo -e "#Running first time install#"
+	echo -e "############################\n"
+	git clone https://github.com/Aamon-Magnusson/AamonDwm.git $HOME/.AamonDwm
+	cd $HOME/.AamonDwm
+	git clone https://github.com/Aamon-Magnusson/AamonDmenu.git
+	git clone https://github.com/Aamon-Magnusson/AamonSlock.git
+	git clone https://github.com/Aamon-Magnusson/AamonSt.git
+else
+	cd $HOME/.AamonDwm
 fi
 
 if [ -z $1 ];then
