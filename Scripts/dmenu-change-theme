@@ -1,0 +1,75 @@
+#! /bin/bash
+
+selectColor () {
+	color=$(echo -e "pink\ndracula\nwhite\nblue" | dmenu -l 5 -i -p "What color scheme would you like AamonDwm to follow?" )
+	[[ "$color" == "" ]] && color="pink"
+	echo "$color"
+}
+
+dwmFun () {
+	ex=".h"
+	header="$colorScheme$ex"
+	cd AamonDwm
+	cd colors
+	currentColor=$(awk 'NR==1{print $2}' current.h)
+	mv current.h $currentColor.h
+	mv $header current.h
+	cd ..
+	sudo make -s install clean
+	cd ..
+	echo -e "DWM Compiled\n"
+}
+
+dmenuFun () {
+	# git clone https://github.com/Aamon-Magnusson/AamonDmenu
+	cd AamonDmenu
+	if [ -z $1 ];then
+		./install.sh $colorScheme
+	else
+		./install.sh $colorScheme -cli
+	fi
+	cd ..
+	# sudo rm -r AamonDmenu
+	echo -e "DMENU Compiled\n"
+}
+
+slockFun () {
+	cd AamonSlock
+	name=$(echo -e "aamonm" | dmenu -l 5 -p "Enter your username:" )
+	group=$(echo -e "aamonm\nwheel" | dmenu -l 5 -p "Enter your groupname:" )
+
+	ex=".h"
+	header="$colorScheme$ex"
+
+	if [ "$name" == "" ] || [ "$group" == "" ];then
+		echo "Fail"
+	else
+		sed -i "s/username/$name/g" config.h
+		sed -i "s/groupname/$group/g" config.h
+
+		cd colors
+		currentColor=$(awk 'NR==1{print $2}' current.h)
+		mv current.h $currentColor.h
+		mv $header current.h
+		cd ..
+
+		sudo make -s install clean
+		sed -i "0,/$name/s//username/" config.h
+		sed -i "s/$group/groupname/g" config.h
+	fi
+	cd ..
+	echo -e "SLOCK Compiled"
+}
+
+cd $HOME/.AamonDwm
+
+colorScheme=$(selectColor)
+
+dwmFun
+dmenuFun
+slockFun
+
+restart=$(echo -e "Yes\nNo" | dmenu -l 2 -i -p "Would you like to restart DWM?")
+if [ "$restart" == "Yes" ]; then
+	xdotool key super+ctrl+shift+q
+fi

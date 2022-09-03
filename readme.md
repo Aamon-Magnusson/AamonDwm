@@ -35,6 +35,9 @@ cd AamonDwm # or whatever you named the directory
 On `install.sh` the `-h` can be used to show the options.
 To re-install any of the Suckless programs, especially Dwm, Dmenu and Slock `./install.sh -s` should be used.
 
+The repo will install itself and the other Suckless dependencies into the `$HOME/.AamonDwm` directory.
+If anything does not work with the installation just ensure that both copies are running on the same version, by running `git pull`.
+
 For a basic display of the keybindings hit SUPER + ? (SUPER + Shift + /).
 
 A list of patches remains inside the Patches folder of each Suckless programs folder.
@@ -59,4 +62,4 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
-- Make theme changing script seperate from install
+- Make theme changing script separate from install
