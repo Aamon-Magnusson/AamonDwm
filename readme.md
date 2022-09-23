@@ -62,4 +62,5 @@ They can also be installed automatically with the install script.
 ## TODO
 
 - Make the setup work on Debian based distros
+	- The changes that need to be made can be found [here](./todo-ubuntu-dwm.md)
 - Make theme changing script separate from install
