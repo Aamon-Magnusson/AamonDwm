@@ -1,6 +1,7 @@
 #! /bin/bash
 
-fzfCommand="fzf --height=10 --border=rounded --prompt='>' --header-first --reverse"
+fzfCommand="fzf --height=10 --border=rounded --prompt=> --header-first --reverse"
+currentpwd="$(pwd)"
 
 update () {
 	pull=$(echo -e "Yes\nNo" | $fzfCommand --header="Would you like to update AamonDWM?" )
@@ -14,6 +15,9 @@ update () {
 		cd ../AamonSt
 		git pull
 		cd ..
+		cd "$currentpwd"
+		git pull
+		cd -
 	fi
 }
 
@@ -60,7 +64,7 @@ dmenuFun () {
 }
 
 slsFun () {
-	# cd AamonSlstatus
+	cd AamonSlstatus
 	if [ -z $1 ];then
 		./install.sh
 	else
@@ -110,7 +114,8 @@ themes () {
 	echo -e "##########################\n"
 	sudo rm ~/.themes/Dracula -r
 	git clone https://github.com/dracula/gtk.git ~/.themes/Dracula
-	cp CopyFiles/Dracula ~/.icons -r
+	mkdir -p ~/.icons
+	cp CopyFiles/Dracula ~/.icons/Dracula -r
 	if [ -z $1 ];then
 		echo -e "\nlxappearance has been opened to change the GTK theme and icon set.\nYou may either use AamonGTK3/AamonIcons or Dracula.\nOnce you are finished setting the theme press close, and the install script will continue.\n"
 		lxappearance &>/dev/null
@@ -200,14 +205,12 @@ endInstall () {
 		"Show me keybindings") /usr/AamonDwmScripts/dmenu-keybindings & ;;
 		"Take me to the menu") /usr/AamonDwmScripts/menu-dmenu & ;;
 	esac
+	exit 0
 }
 
 # ensure dependencies are satisfied
 if [ !  $(which fzf) ];then
 	sudo pacman -S fzf
-fi
-if [ ! $(which dmenu) ];then
-	dmenuFun -cli
 fi
 
 # run first time install
