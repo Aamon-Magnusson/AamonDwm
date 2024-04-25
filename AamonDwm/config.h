@@ -20,6 +20,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
+
 //const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x35", "-e", "ranger", NULL };
 const char *spcmd3[] = {"st", "-n", "spgtop", "-g", "144x35", "-e", "gtop", NULL };
@@ -146,18 +147,21 @@ static Key keys[] = {
 	/* modifier                     key        			function        argument */
 	/* Program spawn key bindings*/
 	{ MODKEY,                       XK_r,      			spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       NULL,      			spawn,          {.v = dmenucmd } },
 	{ MODKEY|ControlMask,			XK_r,				spawn,			{.v = rootdmenucmd} },
 	{ MODKEY|ShiftMask,             XK_Return, 			spawn,          {.v = termcmd } },
-//	{ MODKEY|ControlMask,			XK_Return, 			togglescratch,  {.ui = 0} },
+	//	{ MODKEY|ControlMask,			XK_Return, 			togglescratch,  {.ui = 0} },
 	{ MODKEY,                       XK_c,      			spawn,          {.v = browsercmd } },
-	{ MODKEY,                       XK_f,      			spawn,          {.v = termfilemanagercmd } },
-	{ MODKEY|ShiftMask,             XK_f,      			spawn,          {.v = guifilemanagercmd } },
-	{ MODKEY|ControlMask,			XK_f,	   			togglescratch,  {.ui = 0} },
+//	TODO Make windows like
+	//{ MODKEY,                       XK_f,      			spawn,          {.v = termfilemanagercmd } },
+	{ MODKEY,             			XK_e,      			spawn,          {.v = guifilemanagercmd } },
+	// { MODKEY|ControlMask,			XK_f,	   			togglescratch,  {.ui = 0} },
 	{0, 							XK_Print,  			spawn,		    {.v = printscreencmd } },
 	{MODKEY|ControlMask,			XK_k,				spawn,			{.v = keyboard}},
 	{MODKEY|ShiftMask,				XK_slash,	   		spawn, 		    {.v = options} },
 	{MODKEY,						XK_n,	   			spawn, 		    {.v = networkmanagerdmenu} },
 	{MODKEY,						XK_b,	   			spawn, 		    {.v = bluedmenu} },
+	// TODO make windows like
 	{MODKEY,						XK_u,	   			spawn, 		    {.v = usbmount} },
 	{MODKEY,						XK_x,	   			spawn,		    {.v = dmenumenu} },
 	{MODKEY,						XK_a,	   			spawn,		    {.v = appswitch} },
@@ -192,6 +196,7 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,      			defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    			view,           {0} },		// This jumps to the last tag
 	{ MODKEY|ShiftMask,             XK_c,      			killclient,     {0} },
+	{ Mod1Mask,             		XK_F4,      			killclient,     {0} },
 	{ MODKEY,                       XK_t,      			setlayout,      {.v = &layouts[0]} },
 //	{ MODKEY,                       XK_f,      			setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      			setlayout,      {.v = &layouts[1]} },
@@ -227,6 +232,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_r,	   			spawn,		    {.v = reboot} },
 	{ MODKEY|ShiftMask,				XK_s,	   			spawn,		    {.v = slock} },
 	/* Multimedia commands */
+	/*TODO Change to normal keybinds*/
 	{ MODKEY|ControlMask,			XK_m,	   			spawn,		    {.v = mute} },
 	{ MODKEY|ControlMask,			XK_u,	   			spawn,		    {.v = volup} },
 	{ MODKEY|ControlMask,			XK_d,	   			spawn,		    {.v = voldown} },
