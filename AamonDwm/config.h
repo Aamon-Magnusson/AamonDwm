@@ -1,3 +1,5 @@
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -213,7 +215,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 			XK_Left,			tagmon,        	{.i = -1 } },
 	{ MODKEY|ShiftMask,				XK_Right,			tagmon,        	{.i = +1 } },
 	{ MODKEY,                       XK_l,   			viewnext,       {0} },
+	{ MODKEY|ControlMask,           XK_Right,   			viewnext,       {0} },
 	{ MODKEY,                       XK_h,   			viewprev,       {0} },
+	{ MODKEY|ControlMask,           XK_Left,   			viewprev,       {0} },
 	{ MODKEY|ShiftMask,             XK_l,   			tagtonext,      {0} },
 	{ MODKEY|ShiftMask,             XK_h,   			tagtoprev,      {0} },
 	TAGKEYS(                        XK_1,      			                0)
@@ -236,6 +240,9 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,			XK_m,	   			spawn,		    {.v = mute} },
 	{ MODKEY|ControlMask,			XK_u,	   			spawn,		    {.v = volup} },
 	{ MODKEY|ControlMask,			XK_d,	   			spawn,		    {.v = voldown} },
+	{ 0,							XF86XK_AudioMute,	   			spawn,		    {.v = mute} },
+	{ 0,							XF86XK_AudioRaiseVolume,	   			spawn,		    {.v = volup} },
+	{ 0,							XF86XK_AudioLowerVolume,	   			spawn,		    {.v = voldown} },
 //	{ MODKEY|ControlMask,			XK_p,	   			spawn,		    {.v = pulse} },
 	{ MODKEY,						XK_p,	   			togglescratch,  {.ui = 2} },
 };
