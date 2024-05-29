@@ -149,7 +149,7 @@ static Key keys[] = {
 	/* modifier                     key        			function        argument */
 	/* Program spawn key bindings*/
 	{ MODKEY,                       XK_r,      			spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       NULL,      			spawn,          {.v = dmenucmd } },
+	// { MODKEY,                       NULL,      			spawn,          {.v = dmenucmd } },
 	{ MODKEY|ControlMask,			XK_r,				spawn,			{.v = rootdmenucmd} },
 	{ MODKEY|ShiftMask,             XK_Return, 			spawn,          {.v = termcmd } },
 	//	{ MODKEY|ControlMask,			XK_Return, 			togglescratch,  {.ui = 0} },
